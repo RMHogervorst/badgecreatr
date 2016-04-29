@@ -6,7 +6,8 @@
 #' @export
 #'
 #' @examples
-travisbadge <- function(){
+travisbadge <- function(checkbadge=TRUE){
+    if(checkbadge == TRUE){
     if(file.exists(".travis.yml")) {
         branch <- attr(git2r::branches(flags = "local"), "names")
         link <- git2r::remote_url(git2r::repository())
@@ -17,7 +18,8 @@ travisbadge <- function(){
         badge <-paste0("[![Build Status](https://travis-ci.org/",ghaccount,
                "/",ghrepo, ".svg?branch=",branch,")](https://travis-ci.org/",ghaccount,"/",ghrepo,")")
         badge
-        }
+    }
+    }
 }
 
 # add project status

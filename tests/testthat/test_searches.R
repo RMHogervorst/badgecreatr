@@ -1,4 +1,4 @@
-context("general function of searches")
+context("general function of projectstatusbadge")
 # tests: 
 # status<- "kip" should give error
 # Error: status needs to be one of concept, wip, suspended, abandoned, active, inactive, unsupported
@@ -25,4 +25,13 @@ test_that("all status options work"{
     expect_output(projectstatusbadge("active"),regexp = "Project Status: Active")
     expect_output(projectstatusbadge("inactive"),regexp = "Project Status: Inactive")
     expect_output(projectstatusbadge("unsupported"),regexp = "Project Status: Unsupported")
+})
+context("general function of travisbadge")
+test_that("travisbadge function creates output",{
+    expect_output(travisbadge(), regexp = "\\[\\!\\[Build" )
+    expect_output(travisbadge(TRUE), regexp = "\\[\\!\\[Build" )
+    
+})
+test_that("travisbadge function does nothing when FALSE"{
+    expect_silent(travisbadge(FALSE))
 })
