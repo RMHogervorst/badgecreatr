@@ -1,13 +1,13 @@
 
 # 
 #' Travisbadge creates travis badge.
-#'
+#' 
+#' @param createbadge a TRUE or FALSE for checking. 
 #' @return link to travis image
 #' @export
 #'
-#' @examples
-travisbadge <- function(checkbadge=TRUE){
-    if(checkbadge == TRUE){
+travisbadge <- function(createbadge=TRUE){
+    if(createbadge == TRUE){
     if(file.exists(".travis.yml")) {
         branch <- attr(git2r::branches(flags = "local"), "names")
         link <- git2r::remote_url(git2r::repository())
@@ -22,14 +22,14 @@ travisbadge <- function(checkbadge=TRUE){
     }
 }
 
-# add project status
+# 
 # 
 
-#' Title
+#' Add project status badge
 #'
-#' @param status 
+#' @param status one of concept, wip, suspended, abandoned, active, inactive or unsupported
 #'
-#' @return
+#' @return text to put into rmd
 #' @export
 #'
 #' @examples projectstatusbadge("unsupported")

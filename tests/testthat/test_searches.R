@@ -17,7 +17,7 @@ test_that("internetconnection works",{
     expect_equal(readLines("http://www.repostatus.org/#wip")[1], "<!doctype html>" )
 })
 
-test_that("all status options work"{
+test_that("all status options work",{
     expect_output(projectstatusbadge("concept"),regexp = "\\[Project Status: Concept")
     expect_output(projectstatusbadge("wip"),regexp = "Project Status: WIP")
     expect_output(projectstatusbadge("suspended"),regexp = "Project Status: Suspended")
@@ -27,11 +27,11 @@ test_that("all status options work"{
     expect_output(projectstatusbadge("unsupported"),regexp = "Project Status: Unsupported")
 })
 context("general function of travisbadge")
+
 test_that("travisbadge function creates output",{
-    expect_output(travisbadge(), regexp = "\\[\\!\\[Build" )
+    expect_output(travisbadge(), regexp = "Build" )
     expect_output(travisbadge(TRUE), regexp = "\\[\\!\\[Build" )
-    
 })
-test_that("travisbadge function does nothing when FALSE"{
+test_that("travisbadge function does nothing when FALSE",{
     expect_silent(travisbadge(FALSE))
 })
