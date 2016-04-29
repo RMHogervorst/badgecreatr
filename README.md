@@ -8,8 +8,8 @@ This package was inspired by the [badgerbadger](https://github.com/badges/badger
 
 I would like to include the following badges /shields standard:
 
--   repo status <http://www.repostatus.org/>
--   travis shield
+-   \[x\] repo status <http://www.repostatus.org/>
+-   \[x\] travis shield
 -   code coverage
 -   licence
 

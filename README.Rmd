@@ -24,8 +24,8 @@ It would be nice to have a simple function that adds these things to a readme.rm
 
 I would like to include the following badges /shields standard:
 
-- repo status <http://www.repostatus.org/>
-- travis shield
+- [x] repo status <http://www.repostatus.org/>
+- [x] travis shield
 - code coverage
 - licence 
 
