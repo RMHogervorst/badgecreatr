@@ -1,25 +1,25 @@
-## package checks
-
-
-description <- readLines("DESCRIPTION")
-
-
-list <- list.files(,pattern = "\\.*")
-
-# Finding readme.
-readme <- readLines("README.Rmd")
-
-
-grep("travis-ci.org", readme)
-
-# find if there are already badges.
-#
-if(file.exists(".travis.yml")){
-    travis <- readLines(".travis.yml")
-}else {travis <- "no file"}
-grep("codecov()", travis)
-
-
+# ## package checks
+# 
+# 
+# description <- readLines("DESCRIPTION")
+# 
+# 
+# list <- list.files(,pattern = "\\.*")
+# 
+# # Finding readme.
+# readme <- readLines("README.Rmd")
+# 
+# 
+# grep("travis-ci.org", readme)
+# 
+# # find if there are already badges.
+# #
+# if(file.exists(".travis.yml")){
+#     travis <- readLines(".travis.yml")
+# }else {travis <- "no file"}
+# grep("codecov()", travis)
+# 
+# 
 #remote <-git2r::remote_url(git2r::repository())
 #ghaccount <- "RMHogervorst"
 #ghrepo <- "badgecreatr"
