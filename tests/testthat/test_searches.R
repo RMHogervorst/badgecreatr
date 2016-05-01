@@ -27,7 +27,7 @@ test_that("all status options work",{
     expect_match(projectstatusbadge("unsupported"),regexp = "Project Status: Unsupported")
 })
 context("general function of travisbadge")
-
+ 
 test_that("travisbadge function creates output",{
     expect_match(travisbadge(), regexp = "Build" )
     expect_match(travisbadge(TRUE), regexp = "\\[\\!\\[Build" )
