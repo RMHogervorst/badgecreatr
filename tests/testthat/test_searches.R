@@ -18,8 +18,8 @@ test_that("internetconnection works",{
 })
 
 test_that("all status options work",{
-    expect_output(projectstatusbadge("concept"),regexp = "\\[Project Status: Concept")
-    expect_output(projectstatusbadge("wip"),regexp = "Project Status: WIP")
+    expect_match(projectstatusbadge("concept"),regexp = "\\[Project Status: Concept")
+    expect_match(projectstatusbadge("wip"),regexp = "Project Status: WIP")
     expect_output(projectstatusbadge("suspended"),regexp = "Project Status: Suspended")
     expect_output(projectstatusbadge("abandoned"),regexp = "Project Status: Abandoned")
     expect_output(projectstatusbadge("active"),regexp = "Project Status: Active")
@@ -29,9 +29,11 @@ test_that("all status options work",{
 context("general function of travisbadge")
 
 test_that("travisbadge function creates output",{
-    expect_output(travisbadge(), regexp = "Build" )
-    expect_output(travisbadge(TRUE), regexp = "\\[\\!\\[Build" )
+    expect_match(travisbadge(), regexp = "Build" )
+    expect_match(travisbadge(TRUE), regexp = "\\[\\!\\[Build" )
 })
+# testthat runs in a seperate folder and does not find a travisfile there. 
+# and so it doesn't run the test. and has no output.
 test_that("travisbadge function does nothing when FALSE",{
     expect_silent(travisbadge(FALSE))
 })
