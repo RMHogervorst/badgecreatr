@@ -20,11 +20,11 @@ test_that("internetconnection works",{
 test_that("all status options work",{
     expect_match(projectstatusbadge("concept"),regexp = "\\[Project Status: Concept")
     expect_match(projectstatusbadge("wip"),regexp = "Project Status: WIP")
-    expect_output(projectstatusbadge("suspended"),regexp = "Project Status: Suspended")
-    expect_output(projectstatusbadge("abandoned"),regexp = "Project Status: Abandoned")
-    expect_output(projectstatusbadge("active"),regexp = "Project Status: Active")
-    expect_output(projectstatusbadge("inactive"),regexp = "Project Status: Inactive")
-    expect_output(projectstatusbadge("unsupported"),regexp = "Project Status: Unsupported")
+    expect_match(projectstatusbadge("suspended"),regexp = "Project Status: Suspended")
+    expect_match(projectstatusbadge("abandoned"),regexp = "Project Status: Abandoned")
+    expect_match(projectstatusbadge("active"),regexp = "Project Status: Active")
+    expect_match(projectstatusbadge("inactive"),regexp = "Project Status: Inactive")
+    expect_match(projectstatusbadge("unsupported"),regexp = "Project Status: Unsupported")
 })
 context("general function of travisbadge")
 
