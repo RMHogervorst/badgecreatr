@@ -35,5 +35,5 @@
 #     re <- "github.com/(.*?)/(.*)\\.git"
 # } else if (grepl("^git", x)) 
 
-     
+# check for .travis.yml in here.     
 

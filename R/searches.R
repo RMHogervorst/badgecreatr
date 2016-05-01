@@ -8,7 +8,7 @@
 #'
 travisbadge <- function(createbadge=TRUE){
     if(createbadge == TRUE){
-    if(file.exists(".travis.yml")) {
+    
         branch <- attr(git2r::branches(flags = "local"), "names")
         link <- git2r::remote_url(git2r::repository())
         credz <- gsub(".git", "", gsub("https://github.com/", "", link))
@@ -18,7 +18,7 @@ travisbadge <- function(createbadge=TRUE){
         badge <-paste0("[![Build Status](https://travis-ci.org/",ghaccount,
                "/",ghrepo, ".svg?branch=",branch,")](https://travis-ci.org/",ghaccount,"/",ghrepo,")")
         badge
-    }
+    
     }
 }
 
@@ -50,3 +50,14 @@ projectstatusbadge <- function(status){
 # if you have connected the repo to github. 
 # 
 # check using git2r. 
+
+
+#' CodeCoverage ' ' Adds a code cov badge
+#
+#
+#zit dit erin: after_success: - bash <(curl -s https://codecov.io/bash)
+#
+#dan shield toevoegen
+#
+#[![codecov](https://img.shields.io/codecov/c/github/codecov/example-r.svg)](https://codecov.io/github/codecov/example-r)
+#[![codecov](https://codecov.io/gh/RMHogervorst/badgecreatr/branch/master/graph/badge.svg)](https://codecov.io/gh/RMHogervorst/badgecreatr)

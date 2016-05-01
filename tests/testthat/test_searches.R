@@ -32,8 +32,7 @@ test_that("travisbadge function creates output",{
     expect_match(travisbadge(), regexp = "Build" )
     expect_match(travisbadge(TRUE), regexp = "\\[\\!\\[Build" )
 })
-# testthat runs in a seperate folder and does not find a travisfile there. 
-# and so it doesn't run the test. and has no output.
+
 test_that("travisbadge function does nothing when FALSE",{
     expect_silent(travisbadge(FALSE))
 })
