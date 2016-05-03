@@ -1,4 +1,4 @@
-# ## package checks
+## package checks
 # 
 # 
 # description <- readLines("DESCRIPTION")
@@ -41,12 +41,20 @@
 
 ### put badges in readme function
 #should probably check for badge before placing one
-badgeplacer <- function(){
-    readme <- readLines("README.Rmd")
+#' Place badges inside readme file
+#' 
+#' This is the main function to add badges to your readme.
+#'
+#' @return readme file with added badges
+#' @export
+#'
+badgeplacer <- function(location = "."){
+    readme <- readLines(file.path(location,"README.Rmd" ))
     # find yaml top content
     if(length(grep("---", readme))<2){stop("no top yaml at readme.Rmd")}
     bottomyaml <- grep("---", readme)[2]
-    readme <- append(readme, projectstatusbadge("active"), bottomyaml)
+    readme <- append(readme, c(projectstatusbadge("active"),travisbadge()), bottomyaml)
     writeLines(readme, con = "README.Rmd")
 }
+
 
