@@ -15,4 +15,7 @@ link to travis image
 \description{
 Travisbadge creates travis badge.
 }
+\examples{
+travisbadge(createbadge=TRUE)
+}
 

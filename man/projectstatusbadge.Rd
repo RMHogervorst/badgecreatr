@@ -16,6 +16,7 @@ text to put into rmd
 Add project status badge
 }
 \examples{
+ 
 projectstatusbadge("unsupported")
 }
 
