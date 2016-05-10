@@ -1,7 +1,6 @@
 ## package checks
 # 
 # 
-# description <- readLines("DESCRIPTION")
 # 
 # 
 # list <- list.files(,pattern = "\\.*")
@@ -48,13 +47,24 @@
 #' @return readme file with added badges
 #' @export
 #'
-badgeplacer <- function(location = "."){
+badgeplacer <- function(location = ".", status = "active", travis = TRUE, 
+                        codecov = FALSE, licence = "search", 
+                        githubaccount = "search", githubrepo = "search", 
+                        branch = "master"){
+    account <- githubcredentials(account = githubaccount,repo = githubrepo,
+                                 branch = branch)
     readme <- readLines(file.path(location,"README.Rmd" ))
     # find yaml top content
     if(length(grep("---", readme))<2){stop("no top yaml at readme.Rmd")}
     bottomyaml <- grep("---", readme)[2]
-    readme <- append(readme, c(projectstatusbadge("active"),travisbadge()), bottomyaml)
+    readme <- append(readme, c(projectstatusbadge(status),
+                               travisbadge(createbadge = travis, 
+                                           ghaccount = account$ghaccount,
+                                           ghrepo = account$ghrepo,
+                                        branch = account$branch)), 
+                     bottomyaml)
     writeLines(readme, con = "README.Rmd")
+    message("badges placed at top of readme.rmd document")
 }
 
 

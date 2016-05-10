@@ -50,3 +50,22 @@ test_that("travisbadge function creates output",{
 test_that("travisbadge function does nothing when FALSE",{
     expect_silent(travisbadge(FALSE))
 })
+
+# a githubcredentials tester
+# 
+# licencebadge 
+# licence = "search"  should find the description file
+# a message should be thrown when not MIT, GPL-2 GPL-3
+# creates a badge any time. 
+# 
+# licbadgebuilder
+# https://img.shields.io/badge/licence-GPL--3-red.svg
+# licbadgebuilder("GPL-3) 
+#"[![Licence](https://img.shields.io/badge/licence-GPL--3-red.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)"
+# should return the four different badges.  
+# 
+# licencepaste
+# should return valid markdown for image and link. 
+# licencepaste("https://img.shields.io/badge/licence-GPL--3-red.svg",
+#"https://www.gnu.org/licenses/gpl-3.0.en.html")
+# 
