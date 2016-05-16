@@ -21,6 +21,9 @@ knitr::opts_chunk$set(
 # introduction
 This package was inspired by the [badgerbadger](https://github.com/badges/badgerbadgerbadger) package that checks for badges of travis, code coverage open issues, dependencies and licenses.
 It would be nice to have a simple function that adds these things to a readme.rmd file in R.
+It will save you typing and searching for the exact markdown on the websites 
+of travis, codecov, repostatus.org etc.
+
 
 This package does now place the folowing badges /shields:
 
@@ -49,6 +52,17 @@ content of `?badgeplacer`:
 `badgeplacer(location = ".", status = "active", travis = TRUE,
   codecov = FALSE, licence = "search", githubaccount = "search",
   githubrepo = "search", branch = "master")`
+
+The options are (bold is default):
+  
+- location	: folder where readme.rmd resides
+- status	: one of: "concept", "wip", "suspended", "abandoned", *"active"*, "inactive", or "unsupported"
+- travis	: logical *true* or false do you want to add this badge?
+- codecov	: logical true or *false* do you want to add this badge?
+- licence	: *"search"*, "gpl-2" , "MIT", etc
+- githubaccount : your githubname or *"search"* for it 
+- githubrepo	: your githubrepositoryname , or *"search"* for it
+- branch	: *master*, develop, etc.
 
 
 # contact
