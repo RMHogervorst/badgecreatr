@@ -44,6 +44,15 @@
 #' 
 #' This is the main function to add badges to your readme.
 #'
+#' @param location folder where readme.rmd resides
+#' @param status one of: "concept", "wip", "suspended", "abandoned", "active", "inactive",  or "unsupported"
+#' @param travis logical true or false
+#' @param codecov logical true or false
+#' @param licence "search", "gpl-2" , "MIT", etc
+#' @param githubaccount your githubname
+#' @param githubrepo your githubrepositoryname
+#' @param branch master, develop, etc.
+#'
 #' @return readme file with added badges
 #' @export
 #'
@@ -51,19 +60,27 @@ badgeplacer <- function(location = ".", status = "active", travis = TRUE,
                         codecov = FALSE, licence = "search", 
                         githubaccount = "search", githubrepo = "search", 
                         branch = "master"){
+    badgesinreadme <-findbadges(location)
+    if(sum(sapply(badgesinreadme, length))==0){message("no badges found in readme.")}
     account <- githubcredentials(account = githubaccount,repo = githubrepo,
                                  branch = branch)
     readme <- readLines(file.path(location,"README.Rmd" ))
     # find yaml top content
     if(length(grep("---", readme))<2){stop("no top yaml at readme.Rmd")}
     bottomyaml <- grep("---", readme)[2]
-    readme <- append(readme, c(projectstatusbadge(status),
-                               travisbadge(createbadge = travis, 
-                                           ghaccount = account$ghaccount,
-                                           ghrepo = account$ghrepo,
-                                        branch = account$branch)), 
-                     bottomyaml)
-    writeLines(readme, con = "README.Rmd")
+    # action based on badgesinreadme
+    #if(length(sapply(badgesinreadme, length))==0){
+        readme <- append(readme, c(projectstatusbadge(status),
+                                   travisbadge(createbadge = travis, 
+                                               ghaccount = account$ghaccount,
+                                               ghrepo = account$ghrepo,
+                                               branch = account$branch),
+                                   licencebadge(licence)), 
+                         bottomyaml)
+        
+    #}else   ### HIER VERDER MET PER 
+        
+    writeLines(readme, con = file.path(location,"README.Rmd" ))
     message("badges placed at top of readme.rmd document")
 }
 

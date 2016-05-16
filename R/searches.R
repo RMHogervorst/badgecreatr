@@ -2,14 +2,18 @@
 # 
 #' Travisbadge creates travis badge.
 #' 
+#' @param ghaccount githubaccountname
+#' @param ghrepo githubrepositoryname
+#' @param branch master, develop etc
 #' @param createbadge a TRUE or FALSE for checking. 
+#'
 #' @return link to travis image
 #' @examples 
-#' travisbadge(createbadge=TRUE)
+#' travisbadge(createbadge = TRUE, ghaccount = "johntest", ghrepo = "badgecreatr", branch = "master")
 #' @export
 travisbadge <- function(createbadge=TRUE, ghaccount, ghrepo, branch){
     if(createbadge == TRUE){
-        if(hasArg(ghaccount) & hasArg(ghrepo)){
+        if(methods::hasArg(ghaccount) & methods::hasArg(ghrepo)){
             badge <-paste0("[![Build Status](https://travis-ci.org/",ghaccount,
                            "/",ghrepo, ".svg?branch=",branch,")](https://travis-ci.org/",ghaccount,"/",ghrepo,")")
             badge
@@ -61,6 +65,16 @@ projectstatusbadge <- function(status){
 #[![codecov](https://img.shields.io/codecov/c/github/codecov/example-r.svg)](https://codecov.io/github/codecov/example-r)
 #[![codecov](https://codecov.io/gh/RMHogervorst/badgecreatr/branch/master/graph/badge.svg)](https://codecov.io/gh/RMHogervorst/badgecreatr)
 
+#' Give or search for github name and repo.
+#'
+#' @param account accountname or search for
+#' @param repo repositoryname or search for
+#' @param branch master, develop etc.
+#'
+#' @return markdown text to be placed in readme
+#' @export
+#'
+#' 
 githubcredentials <- function(account = "search", repo = "search", branch = "master"){
     if(account == "search"){
         if(repo != "search"){stop("provide accountname and reponame please")}
@@ -91,7 +105,7 @@ githubcredentials <- function(account = "search", repo = "search", branch = "mas
 #' If it does not match, a general badge will be created with the name of the
 #' licence in grey.
 #'
-#' @param licence 
+#' @param licence f.i. GPL-3, MIT, etc or search
 #'
 #' @return markdown
 #' @export
@@ -130,13 +144,13 @@ licencebadge <- function(licence = "search"){
 #' @export
 licbadgebuilder <- function(licencetype){
     switch (licencetype,
-            GPL-2 = {licencepaste("https://img.shields.io/badge/licence-GPL--2-red.svg",
+            "GPL-2" = {licencepaste("https://img.shields.io/badge/licence-GPL--2-red.svg",
                                   "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html")},
-            GPL-3 = {licencepaste("https://img.shields.io/badge/licence-GPL--3-red.svg",
+            "GPL-3" = {licencepaste("https://img.shields.io/badge/licence-GPL--3-red.svg",
                                  "https://www.gnu.org/licenses/gpl-3.0.en.html")},
-            MIT = {licencepaste("https://img.shields.io/github/license/mashape/apistatus.svg",
+            "MIT" = {licencepaste("https://img.shields.io/github/license/mashape/apistatus.svg",
                                 "http://choosealicense.com/licenses/mit/")},
-            CC0 = {licencepaste("https://img.shields.io/badge/licence-CC0-brightgreen.svg",
+            "CC0" = {licencepaste("https://img.shields.io/badge/licence-CC0-brightgreen.svg",
                                 "http://choosealicense.com/licenses/cc0-1.0/")}
     )
 }
@@ -150,8 +164,8 @@ licbadgebuilder <- function(licencetype){
 #' 
 #' for internal use. used within licencebuilder
 #'
-#' @param imagelink 
-#' @param referlink 
+#' @param imagelink link to image file
+#' @param referlink link to where to send to on click
 #'
 #' @return markdown
 licencepaste<- function(imagelink, referlink){
@@ -159,3 +173,31 @@ licencepaste<- function(imagelink, referlink){
 }
 # tests
 
+
+#' What badges are already found in the Readme document
+#'
+#' @param location where should we search for readme.rmd?
+#'
+#' @return list of locations inside of readme
+#' @export
+#'
+#' 
+findbadges <- function(location = "."){
+    readme <- readLines(file.path(location,"README.Rmd"))
+    buildbadge <- grep("\\[\\!\\[Build Status\\]", readme)
+    projectstatbadge <- grep("\\[\\!\\[Project Status:", readme)
+    cranbadge <- grep("\\[\\!\\[CRAN_Status_Badge", readme)
+    coverage <- grep("\\[\\!\\[Coverage Status\\]", readme)
+    list <- list( "buildbadge" = buildbadge,
+          "projectstatus" = projectstatbadge,
+          "cran"= cranbadge,
+          "codecoverage" = coverage)
+    list
+}
+# tests
+# location = "."
+# examples:
+# "[![Build Status](https://travis-ci.org/RMHogervorst/badgecreatr.svg?branch=master)](https://travis-ci.org/RMHogervorst/badgecreatr)
+# [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/roxygen2)](http://cran.r-project.org/package=roxygen2)
+# [![Coverage Status](https://img.shields.io/codecov/c/github/klutometis/roxygen/master.svg)](https://codecov.io/github/klutometis/roxygen?branch=master)
+#findbadges()

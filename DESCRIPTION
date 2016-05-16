@@ -1,7 +1,7 @@
 Package: badgecreatr
-Title: Create badges for travis, projectstatus codecov and more
-Version: 0.0.0.9000
-Authors@R: "Roel M. Hogervorst <hogervorst.rm@gmail.com> [cre, aut]"
+Title: Create Badges for Travis, Projectstatus Codecov and more
+Version: 0.0.1
+Authors@R: person("Roel M.", "Hogervorst", email ="hogervorst.rm@gmail.com", role = c("cre", "aut"))
 Description: Tired of copy and pasting almost the same badges to
     every new project on github? This package will search and create badges
     in your readme.rmd file.
@@ -10,8 +10,9 @@ Depends:
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Bugreports: https://github.com/RMHogervorst/packagename/issues"
+BugReports: https://github.com/RMHogervorst/badgecreatr/issues
 Suggests:
     testthat
 RoxygenNote: 5.0.1
-Imports: git2r
+Imports: git2r,
+    methods

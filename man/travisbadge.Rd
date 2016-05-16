@@ -4,10 +4,16 @@
 \alias{travisbadge}
 \title{Travisbadge creates travis badge.}
 \usage{
-travisbadge(createbadge = TRUE)
+travisbadge(createbadge = TRUE, ghaccount, ghrepo, branch)
 }
 \arguments{
 \item{createbadge}{a TRUE or FALSE for checking.}
+
+\item{ghaccount}{githubaccountname}
+
+\item{ghrepo}{githubrepositoryname}
+
+\item{branch}{master, develop etc}
 }
 \value{
 link to travis image
@@ -16,6 +22,6 @@ link to travis image
 Travisbadge creates travis badge.
 }
 \examples{
-travisbadge(createbadge=TRUE)
+travisbadge(createbadge = TRUE, ghaccount = "johntest", ghrepo = "badgecreatr", branch = "master")
 }
 
