@@ -2,7 +2,7 @@ Package: badgecreatr
 Title: Create Badges for Travis, Projectstatus Codecov and more
 Version: 0.0.1
 Authors@R: person("Roel M.", "Hogervorst", email ="hogervorst.rm@gmail.com", role = c("cre", "aut"))
-Description: Tired of copy and pasting almost the same badges to
+Description: Tired of copy and pasting almost identical markdown for badges in
     every new project on github? This package will search and create badges
     in your readme.rmd file.
 Depends:
