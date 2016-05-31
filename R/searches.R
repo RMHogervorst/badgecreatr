@@ -144,13 +144,13 @@ licencebadge <- function(licence = "search"){
 #' @export
 licbadgebuilder <- function(licencetype){
     switch (licencetype,
-            "GPL-2" = {licencepaste("https://img.shields.io/badge/licence-GPL--2-red.svg",
+            "GPL-2" = {licencepaste("https://img.shields.io/badge/licence-GPL--2-blue.svg",
                                   "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html")},
-            "GPL-3" = {licencepaste("https://img.shields.io/badge/licence-GPL--3-red.svg",
+            "GPL-3" = {licencepaste("https://img.shields.io/badge/licence-GPL--3-blue.svg",
                                  "https://www.gnu.org/licenses/gpl-3.0.en.html")},
             "MIT" = {licencepaste("https://img.shields.io/github/license/mashape/apistatus.svg",
                                 "http://choosealicense.com/licenses/mit/")},
-            "CC0" = {licencepaste("https://img.shields.io/badge/licence-CC0-brightgreen.svg",
+            "CC0" = {licencepaste("https://img.shields.io/badge/licence-CC0-blue.svg",
                                 "http://choosealicense.com/licenses/cc0-1.0/")}
     )
 }
