@@ -207,12 +207,12 @@ findbadges <- function(location = "."){
 #' creates last-change badge
 #' 
 #' Will add current day to the repo. 
-last_change_badge <- function(location = ".", date = Sys.Date()){
-    gsub("-", "--", Sys.Date())
-    paste0("`r ", "gsub(",
-           "\"-\""),
-           "\\"--\\", Sys.Date())", "`")
-}
+# last_change_badge <- function(location = ".", date = Sys.Date()){
+#     gsub("-", "--", Sys.Date())
+#     paste0("`r ", "gsub(",
+#            "\"-\""),
+#            "\\"--\\", Sys.Date())", "`")
+# }
 
 #################### parts
 licencepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-", 
