@@ -166,10 +166,11 @@ licbadgebuilder <- function(licencetype){
 #'
 #' @param imagelink link to image file
 #' @param referlink link to where to send to on click
+#' @param name what to call the button
 #'
 #' @return markdown
-licencepaste<- function(imagelink, referlink){
-    paste0("[![Licence]","(",imagelink, ")]","(",referlink,")")
+licencepaste<- function(imagelink, referlink, name= "Licence"){
+    paste0("[![", name,"]","(",imagelink, ")]","(",referlink,")")
 }
 # tests
 
@@ -201,3 +202,37 @@ findbadges <- function(location = "."){
 # [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/roxygen2)](http://cran.r-project.org/package=roxygen2)
 # [![Coverage Status](https://img.shields.io/codecov/c/github/klutometis/roxygen/master.svg)](https://codecov.io/github/klutometis/roxygen?branch=master)
 #findbadges()
+#
+
+#' creates last-change badge
+#' 
+#' Will add current day to the repo. 
+last_change_badge <- function(location = ".", date = Sys.Date()){
+    gsub("-", "--", Sys.Date())
+    paste0("`r ", "gsub(",
+           "\"-\""),
+           "\\"--\\", Sys.Date())", "`")
+}
+
+#################### parts
+licencepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-", 
+                                paste0("`r ", "gsub(\"-\", \"--\", Sys.Date())", "`"), 
+                                "-yellowgreen.svg"), 
+             referlink = "/commits/master", 
+             name = "Last-changedate")
+# [![Date]("https://img.shields.io/badge/last%20change-
+# gsub("-", "--", Sys.Date())
+# -yellowgreen.svg")](https://github.com/
+# githubname
+# /
+# githubrepo
+# /
+# /commits/master)
+# #################
+# When it prints to knitr the quotes are not working, this is what I want:
+# [![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub("-", "--", Sys.Date())`-yellowgreen.svg)](/commits/master)"
+# 
+# goal:
+#[![Date]("https://img.shields.io/badge/last%20change-2016--05--31-yellowgreen.svg")](https://github.com/RMHogervorst/badgecreatr/commits/master)
+# paste needs to end in paste of command
+# 
