@@ -4,12 +4,14 @@
 \alias{licencepaste}
 \title{return markdown with image and link.}
 \usage{
-licencepaste(imagelink, referlink)
+licencepaste(imagelink, referlink, name = "Licence")
 }
 \arguments{
 \item{imagelink}{link to image file}
 
 \item{referlink}{link to where to send to on click}
+
+\item{name}{what to call the button}
 }
 \value{
 markdown

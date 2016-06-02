@@ -214,12 +214,12 @@ findbadges <- function(location = "."){
 #            "\\"--\\", Sys.Date())", "`")
 # }
 
-#################### parts
-licencepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-", 
-                                paste0("`r ", "gsub(\"-\", \"--\", Sys.Date())", "`"), 
-                                "-yellowgreen.svg"), 
-             referlink = "/commits/master", 
-             name = "Last-changedate")
+# #################### parts
+# licencepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-", 
+#                                 paste0("`r ", "gsub(\"-\", \"--\", Sys.Date())", "`"), 
+#                                 "-yellowgreen.svg"), 
+#              referlink = "/commits/master", 
+#              name = "Last-changedate")
 # [![Date]("https://img.shields.io/badge/last%20change-
 # gsub("-", "--", Sys.Date())
 # -yellowgreen.svg")](https://github.com/
