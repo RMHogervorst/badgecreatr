@@ -62,8 +62,8 @@ badgeplacer <- function(location = ".", status = "active", travis = TRUE,
                         branch = "master"){
     badgesinreadme <-findbadges(location)
     if(sum(sapply(badgesinreadme, length))==0){message("no badges found in readme.")}
-    account <- githubcredentials(account = githubaccount,repo = githubrepo,
-                                 branch = branch)
+    #account <- githubcredentials(account = githubaccount,repo = githubrepo,
+                               #  branch = branch)
     readme <- readLines(file.path(location,"README.Rmd" ))
     # find yaml top content
     if(length(grep("---", readme))<2){stop("no top yaml at readme.Rmd")}
@@ -71,11 +71,13 @@ badgeplacer <- function(location = ".", status = "active", travis = TRUE,
     # action based on badgesinreadme
     #if(length(sapply(badgesinreadme, length))==0){
         readme <- append(readme, c(projectstatusbadge(status),
-                                   travisbadge(createbadge = travis, 
-                                               ghaccount = account$ghaccount,
-                                               ghrepo = account$ghrepo,
-                                               branch = account$branch),
-                                   licencebadge(licence)), 
+                                   #travisbadge(createbadge = travis, 
+                                              # ghaccount = account$ghaccount,
+                                              # ghrepo = account$ghrepo,
+                                              # branch = account$branch),
+                                   licencebadge(licence),
+                                   last_change_badge()
+                                   ), 
                          bottomyaml)
         
     #}else   ### HIER VERDER MET PER 
