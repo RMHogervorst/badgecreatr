@@ -56,14 +56,31 @@ projectstatusbadge <- function(status){
 
 
 #' CodeCoverage ' ' Adds a code cov badge
+#' 
+#' adds codecov badge
+#'
+#' @param ghaccount your github account f.i. "rmhogervorst"
+#' @param ghrepo the name of the repo f.i. "badgecreatr"
+#' @param branch the branch, defaults to master
+codecovbadge <- function(ghaccount, ghrepo, branch="master" ){
+    referlink <- paste0("https://codecov.io/gh/", ghaccount, "/", ghrepo)
+    imagelink <- paste0(referlink, 
+                        "/branch/", branch, 
+                        "/graph/badge.svg" )
+    codecovbadge <-licencepaste(imagelink,referlink, name =  "codecov")
+    codecovbadge
+}
+
+# test:
+# ghaccount <- "RMHogervorst"
+# ghrepo <- "badgecreatr"
+# branch <- "master"
+# codecovbadge(ghaccount, ghrepo, branch)
+
+
 #
-#
-#zit dit erin: after_success: - bash <(curl -s https://codecov.io/bash)
-#
-#dan shield toevoegen
-#
-#[![codecov](https://img.shields.io/codecov/c/github/codecov/example-r.svg)](https://codecov.io/github/codecov/example-r)
-#[![codecov](https://codecov.io/gh/RMHogervorst/badgecreatr/branch/master/graph/badge.svg)](https://codecov.io/gh/RMHogervorst/badgecreatr)
+
+
 
 #' Give or search for github name and repo.
 #'
@@ -202,6 +219,9 @@ findbadges <- function(location = "."){
 # [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/roxygen2)](http://cran.r-project.org/package=roxygen2)
 # [![Coverage Status](https://img.shields.io/codecov/c/github/klutometis/roxygen/master.svg)](https://codecov.io/github/klutometis/roxygen?branch=master)
 #findbadges()
+# # zit dit erin: after_success: - bash <(curl -s https://codecov.io/bash)
+# https://codecov.io/github/rmhogervorst/badgecreatr
+#dan shield toevoegen
 #
 
 #' creates last-change badge
@@ -234,3 +254,4 @@ last_change_badge <- function(location = "."){
 #[![Date]("https://img.shields.io/badge/last%20change-2016--05--31-yellowgreen.svg")](https://github.com/RMHogervorst/badgecreatr/commits/master)
 # paste needs to end in paste of command
 # 
+

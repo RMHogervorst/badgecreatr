@@ -26,3 +26,8 @@ test_that("badgeplacer places valid badges", {
     file.copy(from = "tests/testfiles/correct/templocation/README.Rmd", 
               to =  "tests/testfiles/correct/README.Rmd")
 })
+
+test_that("placement of badge does not lead to losing of information in readme",{
+    skip(" untill tests work correclty")
+    
+})

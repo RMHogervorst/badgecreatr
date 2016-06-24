@@ -69,3 +69,15 @@ test_that("travisbadge function does nothing when FALSE",{
 # licencepaste("https://img.shields.io/badge/licence-GPL--3-red.svg",
 #"https://www.gnu.org/licenses/gpl-3.0.en.html")
 # 
+
+# ghaccount <- "RMHogervorst"
+# ghrepo <- "badgecreatr"
+# branch <- "master"
+# codecovbadge(ghaccount, ghrepo, branch)
+test_that("codecov function creates a badge", {
+    ghrepo <- "badgecreatr"
+    branch <- "master"
+    expect_equal( codecovbadge(ghaccount, ghrepo, branch), 
+                  "[![codecov](https://codecov.io/gh/RMHogervorst/badgecreatr/branch/master/graph/badge.svg)](https://codecov.io/gh/RMHogervorst/badgecreatr)")
+   
+})
