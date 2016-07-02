@@ -60,23 +60,29 @@ badgeplacer <- function(location = ".", status = "active", travis = TRUE,
                         codecov = FALSE, licence = "search", 
                         githubaccount = "search", githubrepo = "search", 
                         branch = "master"){
-    badgesinreadme <-findbadges(location)
-    if(sum(sapply(badgesinreadme, length))==0){message("no badges found in readme.")}
+    badge_result <-findbadges(location)
+    if(sum(sapply(badge_result, length))==0){message("no badges found in readme.")}
     #account <- githubcredentials(account = githubaccount,repo = githubrepo,
                                #  branch = branch)
     readme <- readLines(file.path(location,"README.Rmd" ))
     # find yaml top content
     if(length(grep("---", readme))<2){stop("no top yaml at readme.Rmd")}
     bottomyaml <- grep("---", readme)[2]
-    # action based on badgesinreadme
-    #if(length(sapply(badgesinreadme, length))==0){
+    # action based on bagdge_result
+    #if(length(sapply(bagdge_result, length))==0){
         readme <- append(readme, c(projectstatusbadge(status),
                                    #travisbadge(createbadge = travis, 
                                               # ghaccount = account$ghaccount,
                                               # ghrepo = account$ghrepo,
                                               # branch = account$branch),
-                                   licencebadge(licence),
-                                   last_change_badge()
+                                   licbadgebuilder(badge_result$licence),
+                                   last_change_badge(),
+                                   travisbadge(createbadge = TRUE, 
+                                               ghaccount = githubaccount, 
+                                               ghrepo = githubrepo ,
+                                               branch = branch),
+                                   cranbadge(badge_result$packagename)
+                                   
                                    ), 
                          bottomyaml)
         

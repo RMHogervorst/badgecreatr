@@ -14,10 +14,17 @@ findbadges <- function(location = "."){
     projectstatbadge <- grep("\\[\\!\\[Project Status:", readme)
     cranbadge <- grep("\\[\\!\\[CRAN_Status_Badge", readme)
     coverage <- grep("\\[\\!\\[Coverage Status\\]", readme)
-    list <- list( "buildbadge" = buildbadge,
+    description <- readLines("DESCRIPTION")
+    licenceinformation <-grep("License:", description, value = TRUE)
+    licencetype <- gsub("+ file LICENSE", "", gsub("License: ", "", licenceinformation)) 
+    packagename <- grep("Package:", description, value = TRUE)
+    packagename <- gsub(" ", "",   gsub("Package:", "", packagename))
+        list <- list( "travisbadge" = buildbadge,
           "projectstatus" = projectstatbadge,
           "cran"= cranbadge,
-          "codecoverage" = coverage)
+          "codecoverage" = coverage,
+          "licence" = licencetype,
+          "packagename" = packagename)
     list
 }
 # tests

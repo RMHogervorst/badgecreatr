@@ -111,3 +111,26 @@ licbadgebuilder <- function(licencetype){
 # licbadgebuilder("GPL-3) 
 #"[![Licence](https://img.shields.io/badge/licence-GPL--3-red.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)"
 
+
+# ------------------------------------------------------------------------
+# [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/roxygen2)]
+# (http://cran.r-project.org/package=roxygen2)
+# cran badge
+
+#' Add a badge for cran
+#'
+#' @param packagename the name of your package 
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#' cranbadge("badgecreatr")
+cranbadge <- function(packagename){
+    img_link <- paste0("http://www.r-pkg.org/badges/version/", packagename)
+    refer_link <- paste0("http://cran.r-project.org/package=", packagename)    
+    licencepaste(imagelink =img_link, 
+                 referlink = refer_link,
+                 name = "CRAN_Status_Badge")
+}
+

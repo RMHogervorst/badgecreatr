@@ -94,6 +94,12 @@ test_that("Licence placer works", {
     
 })
 
+context("Cran badge placer")
+# cran badge placer ####
+test_that("cran badge placed", {
+    badge_cran <- cranbadge("xyz")
+    expect_match(badge_cran, regexp = "www.r-pkg.org/badges/version/xyz")
+})
 
 # a githubcredentials tester
 # 
