@@ -81,7 +81,11 @@ badgeplacer <- function(location = ".", status = "active", travis = TRUE,
                                                ghaccount = githubaccount, 
                                                ghrepo = githubrepo ,
                                                branch = branch),
-                                   cranbadge(badge_result$packagename)
+                                   cranbadge(badge_result$packagename),
+                                   packageversionbadge(badge_result$packageversion),
+                                   codecovbadge(ghaccount = githubaccount, 
+                                                ghrepo = githubrepo ,
+                                                branch = branch)
                                    
                                    ), 
                          bottomyaml)

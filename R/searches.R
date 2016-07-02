@@ -19,12 +19,14 @@ findbadges <- function(location = "."){
     licencetype <- gsub("+ file LICENSE", "", gsub("License: ", "", licenceinformation)) 
     packagename <- grep("Package:", description, value = TRUE)
     packagename <- gsub(" ", "",   gsub("Package:", "", packagename))
+    version <- gsub(" ", "", gsub("Version:", "", grep("Version:", description, value = TRUE)))
         list <- list( "travisbadge" = buildbadge,
           "projectstatus" = projectstatbadge,
           "cran"= cranbadge,
           "codecoverage" = coverage,
           "licence" = licencetype,
-          "packagename" = packagename)
+          "packagename" = packagename,
+          "packageversion" = version)
     list
 }
 # tests

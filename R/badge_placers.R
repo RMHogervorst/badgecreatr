@@ -134,3 +134,11 @@ cranbadge <- function(packagename){
                  name = "CRAN_Status_Badge")
 }
 
+
+packageversionbadge <- function(packageversionnumber){
+    img_link <- paste0("https://img.shields.io/badge/Package%20version-", packageversionnumber, "-orange.svg?style=flat-square")
+    referlink <- "commits/master"
+    licencepaste(img_link, referlink, name = "packageversion")
+}
+
+#https://img.shields.io/badge/Package%20version-0.0.2-orange.svg?style=flat-square
