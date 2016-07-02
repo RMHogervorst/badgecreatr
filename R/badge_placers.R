@@ -135,6 +135,15 @@ cranbadge <- function(packagename){
 }
 
 
+#' place a badge with the version of your package
+#'
+#' @param packageversionnumber give by hand or let it search in description file.
+#'
+#' @return 
+#' @export
+#'
+#' @examples
+#' packageversionbadge("0.0.2)
 packageversionbadge <- function(packageversionnumber){
     img_link <- paste0("https://img.shields.io/badge/Package%20version-", packageversionnumber, "-orange.svg?style=flat-square")
     referlink <- "commits/master"
@@ -142,3 +151,18 @@ packageversionbadge <- function(packageversionnumber){
 }
 
 #https://img.shields.io/badge/Package%20version-0.0.2-orange.svg?style=flat-square
+
+minimal_r_version_badge <- function(rversion){
+    img_link <- paste0("https://img.shields.io/badge/R%3E%3D-", rversion, "-6666ff.svg?style=plastic")
+    referlink <- "https://cran.r-project.org/"
+    licencepaste(img_link, referlink, name = "minimal R version")
+    
+}
+# https://img.shields.io/badge/R%3E%3D-3.0.0-6666ff.svg
+#
+#  other option is with an extra image, but I cant't get this to work
+# ?logo=data:https://raw.githubusercontent.com/RMHogervorst/cleancodeexamples/master/images/Rlogo_small_online.png
+# 
+# https://img.shields.io/badge/style-flat--squared-green.svg??logo=data:https://raw.githubusercontent.com/RMHogervorst/cleancodeexamples/master/images/Rlogo_small_online.png
+# ##   ?logo=data:image/png;base64,… 	Insert logo image (≥ 14px high)
+# https://raw.githubusercontent.com/RMHogervorst/cleancodeexamples/master/images/Rlogo_small_online.png

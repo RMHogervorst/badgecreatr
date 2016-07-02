@@ -76,17 +76,17 @@ badgeplacer <- function(location = ".", status = "active", travis = TRUE,
                                               # ghrepo = account$ghrepo,
                                               # branch = account$branch),
                                    licbadgebuilder(badge_result$licence),
-                                   last_change_badge(),
+                                   minimal_r_version_badge(badge_result$R_version),
                                    travisbadge(createbadge = TRUE, 
                                                ghaccount = githubaccount, 
                                                ghrepo = githubrepo ,
                                                branch = branch),
-                                   cranbadge(badge_result$packagename),
-                                   packageversionbadge(badge_result$packageversion),
                                    codecovbadge(ghaccount = githubaccount, 
                                                 ghrepo = githubrepo ,
-                                                branch = branch)
-                                   
+                                                branch = branch),
+                                   cranbadge(badge_result$packagename),
+                                   packageversionbadge(badge_result$packageversion),
+                                   last_change_badge()
                                    ), 
                          bottomyaml)
         

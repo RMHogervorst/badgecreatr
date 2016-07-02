@@ -20,13 +20,16 @@ findbadges <- function(location = "."){
     packagename <- grep("Package:", description, value = TRUE)
     packagename <- gsub(" ", "",   gsub("Package:", "", packagename))
     version <- gsub(" ", "", gsub("Version:", "", grep("Version:", description, value = TRUE)))
+    rvers <- stringr::str_match(grep("R \\(", description, value = TRUE), "[0-9]{1,4}\\.[0-9]{1,4}\\.[0-9]{1,4}")[1,1]
+    # doesn't matter what, number{1,4}.number
         list <- list( "travisbadge" = buildbadge,
           "projectstatus" = projectstatbadge,
           "cran"= cranbadge,
           "codecoverage" = coverage,
           "licence" = licencetype,
           "packagename" = packagename,
-          "packageversion" = version)
+          "packageversion" = version,
+          "R_version"= rvers)
     list
 }
 # tests

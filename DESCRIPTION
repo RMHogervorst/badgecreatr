@@ -17,4 +17,5 @@ Suggests:
     testthat
 RoxygenNote: 5.0.1
 Imports: git2r,
-    methods
+    methods,
+    stringr
