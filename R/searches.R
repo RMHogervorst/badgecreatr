@@ -1,4 +1,4 @@
-
+## These functions search for badges and other licences. 
 
 #' What badges are already found in the Readme document
 #'

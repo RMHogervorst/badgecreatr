@@ -7,6 +7,8 @@ context("general function of projectstatusbadge")
 # but there has not yet been a stable, usable release suitable for the 
 # public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)"
 
+
+##projectstatus ####
 test_that("error when incorrect status",{
     expect_error(
         projectstatusbadge("kip"),
@@ -26,7 +28,9 @@ test_that("all status options work",{
     expect_match(projectstatusbadge("inactive"),regexp = "Project Status: Inactive")
     expect_match(projectstatusbadge("unsupported"),regexp = "Project Status: Unsupported")
 })
-context("general function of travisbadge")
+# travisbadge #####
+context("general function of travisbadge") 
+
 #
 ## possibly create fake github like hadley
 ## 
@@ -40,16 +44,56 @@ context("general function of travisbadge")
 #     git2r::commit(r, "Add GitHub links to DESCRIPTION")
 #     invisible(NULL)
 # }
- 
+#setup
+ghaccount <-"RMHogervorst"
+ghrepo = "badgecreatr"
+branch = "develop"
+
 test_that("travisbadge function creates output",{
-    testthat::skip("until github fake connectivity is functional")
-        expect_match(travisbadge(), regexp = "Build" )
-    expect_match(travisbadge(TRUE), regexp = "\\[\\!\\[Build" )
+    badge_travis <- travisbadge(createbadge = TRUE, ghaccount, ghrepo, branch)
+    expect_match(badge_travis, regexp = "Build" )
+    expect_match(badge_travis, regexp = "\\[\\!\\[Build" )
+    expect_match(badge_travis, regexp = "ci.org/RMHogervorst/badgecreatr.svg\\?branch=develop")
+    expect_error(travisbadge(createbadge = TRUE, ghaccount, ghrepo), 
+    regexp = 'argument "branch" is missing, with no default')
 })
 
 test_that("travisbadge function does nothing when FALSE",{
     expect_silent(travisbadge(FALSE))
 })
+
+rm(badge_travis)
+
+context("codecov")
+# codecov ####
+test_that("codecov function creates a badge", {
+    badge_codecov <- codecovbadge(ghaccount, ghrepo, branch)
+    expect_match(badge_codecov , 
+                 regexp = "\\[\\!\\[codecov")
+    expect_match(badge_codecov, 
+                 regexp = "https://codecov.io/gh/RMHogervorst/badgecreatr/branch/develop/graph/badge.svg")             
+                 
+})
+
+context("last change badge")
+# last change badge ####
+test_that("last change badge creates markdown",{
+    badge_lastchange <- last_change_badge()
+    expect_match(badge_lastchange, regexp = "\\[\\!\\[Last-changedate")
+    expect_match(badge_lastchange, regexp = "Sys.Date()")
+})
+
+context("Licence placer")
+# licence placer ####
+test_that("Licence placer works", {
+    expect_match(licbadgebuilder("MIT"), regexp = "license/mashape/apistatus.svg")
+    expect_match(licbadgebuilder("MIT"), regexp = "choosealicense.com/licenses/mit/")
+    expect_match(licbadgebuilder("GPL-3"), regexp = "badge/licence-GPL--3")
+    expect_match(licbadgebuilder("GPL-3"), regexp = "www.gnu.org/licenses/gpl-3.0.en")
+    expect_match(licbadgebuilder("CC0"), regexp = "choosealicense.com/licenses/cc0-1.0/")
+    
+})
+
 
 # a githubcredentials tester
 # 
@@ -74,10 +118,3 @@ test_that("travisbadge function does nothing when FALSE",{
 # ghrepo <- "badgecreatr"
 # branch <- "master"
 # codecovbadge(ghaccount, ghrepo, branch)
-test_that("codecov function creates a badge", {
-    ghrepo <- "badgecreatr"
-    branch <- "master"
-    expect_equal( codecovbadge(ghaccount, ghrepo, branch), 
-                  "[![codecov](https://codecov.io/gh/RMHogervorst/badgecreatr/branch/master/graph/badge.svg)](https://codecov.io/gh/RMHogervorst/badgecreatr)")
-   
-})
