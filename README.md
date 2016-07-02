@@ -2,25 +2,38 @@
 
 ------------------------------------------------------------------------
 
-[![minimal R version](https://img.shields.io/badge/R%3E%3D-3.2.4-6666ff.svg)](https://cran.r-project.org/) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/badgecreatr)](http://cran.r-project.org/package=badgecreatr) [![packageversion](https://img.shields.io/badge/Package%20version-0.0.2-orange.svg?style=flat-square)](commits/master) --- [![Last-changedate](https://img.shields.io/badge/last%20change-2016--07--02-yellowgreen.svg)](/commits/master)
+[![minimal R version](https://img.shields.io/badge/R%3E%3D-3.2.4-6666ff.svg)](https://cran.r-project.org/) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/badgecreatr)](http://cran.r-project.org/package=badgecreatr) [![packageversion](https://img.shields.io/badge/Package%20version-0.1.0-orange.svg?style=flat-square)](commits/master)
+
+------------------------------------------------------------------------
+
+[![Last-changedate](https://img.shields.io/badge/last%20change-2016--07--03-yellowgreen.svg)](/commits/master)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-introduction
+Introduction
 ============
 
 This package was inspired by the [badgerbadger](https://github.com/badges/badgerbadgerbadger) package that checks for badges of travis, code coverage open issues, dependencies and licenses. It would be nice to have a simple function that adds these things to a readme.rmd file in R. It will save you typing and searching for the exact markdown on the websites of travis, codecov, repostatus.org etc.
 
 This package does now place the following badges /shields:
 
--   \[x\] repo status <http://www.repostatus.org/>
--   \[x\] licence
+-   \[x\] repo status according to <http://www.repostatus.org/>
+-   \[x\] licence (recognize from DESCRIPTION file)
 -   \[x\] travis shield
 -   \[x\] code coverage
+-   \[x\] minimal R version (recognize from DESCRIPTION file)
 -   \[x\] cran badge
--   \[x\] packageversion
--   \[x\] last change
+-   \[x\] packageversion (recognize from DESCRIPTION file)
+-   \[x\] last change (this will automagically update everytime you knit your readme.rmd)
 
-workflow
+Possible future badges
+
+-   \[\] nr of open issues
+-   \[\] number of pull requests
+-   \[\] number of downloads CRAN
+-   \[\] number of dependencies and:
+-   \[\] a way to visualize their version
+
+Workflow
 ========
 
 I like to use the following workflow:
@@ -33,27 +46,32 @@ I like to use the following workflow:
 -   continue with the project
 -   submit to cran, bioconductor, ropensci etc
 
-installation and use
-====================
+You will probably call badgecreatr only once, somewhere during your work.
 
-For now you will have to install using `devtools::install_github("rmhogervorst/badgecreatr")` Whenever you have created a readme, use badgeplacer()
+If you call badgecreatr again when you already have badges, they will be recognized. \[(see CHANGELOG)\]\](CHANGELOG.md)
 
-content of `?badgeplacer`:
+Installation
+============
 
-`badgeplacer(location = ".", status = "active", travis = TRUE,   codecov = FALSE, licence = "search", githubaccount = "search",   githubrepo = "search", branch = "master")`
+For now you will have to install using `devtools::install_github("rmhogervorst/badgecreatr")` Whenever you have created a readme, use badgeplacer() or don't even load the package I would just call `badgecreatr::badgeplacer(githubaccount = "RMHogervorst",githubrepo = "badgecreatr")` for this package.
 
-The options are (bold is default):
+And if I would just start with this package I would make a different status:
 
--   location : folder where readme.rmd resides
--   status : one of: "concept", "wip", "suspended", "abandoned", *"active"*, "inactive", or "unsupported"
--   travis : logical *true* or false do you want to add this badge?
--   codecov : logical true or *false* do you want to add this badge?
--   licence : *"search"*, "gpl-2" , "MIT", etc
--   githubaccount : your githubname or *"search"* for it
--   githubrepo : your githubrepositoryname , or *"search"* for it
--   branch : *master*, develop, etc.
+`badgecreatr::badgeplacer(status = "wip"  ,  githubaccount = "RMHogervorst",githubrepo = "badgecreatr")` Which would make this a work in progress status badge.
 
-contact
+Use
+===
+
+You will have to supply the github accountname, repo and branch. I'm working to automatically recognize those.
+
+Contact
 =======
 
 Want to help or have questions? contact me, fork me or send a pull request!
+
+Inspiration
+-----------
+
+I found the projectstatus <http://www.repostatus.org/> and the wonderful [shields.io](shields.io) projects and wanted to implement that for all my packages. But that took a lot of work. Repetitive work, and I don't like that.
+
+The [badgerbadgerbadger](http://sam.pikesley.org/projects/badger/) project in ruby did all these things automatically. I wanted to do the same thing for R projects. And I did.

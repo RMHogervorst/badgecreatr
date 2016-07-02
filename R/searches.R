@@ -9,11 +9,17 @@
 #'
 #' 
 findbadges <- function(location = "."){
+    # readme
     readme <- readLines(file.path(location,"README.Rmd"))
-    buildbadge <- grep("\\[\\!\\[Build Status\\]", readme)
-    projectstatbadge <- grep("\\[\\!\\[Project Status:", readme)
-    cranbadge <- grep("\\[\\!\\[CRAN_Status_Badge", readme)
-    coverage <- grep("\\[\\!\\[Coverage Status\\]", readme)
+    projectstatbadge <-         grep("\\[\\!\\[Project Status:", readme)
+    licencebadge_readme <-      grep("\\[\\!\\[Licence:\\]", readme)
+    buildbadge <-               grep("\\[\\!\\[Build Status\\]", readme)
+    coverage <-                 grep("\\[\\!\\[Coverage Status\\]", readme)
+    minrversion <-              grep("\\[\\!\\[minimal R version\\]", readme)
+    cranbadge <-                grep("\\[\\!\\[CRAN_Status_Badge", readme)
+    packageversion_readme <-    grep("\\[\\!\\[packageversion", readme)
+    last_change_readme <-       grep("\\[\\!\\[Last-changedate\\]", readme)
+    # description file
     description <- readLines("DESCRIPTION")
     licenceinformation <-grep("License:", description, value = TRUE)
     licencetype <- gsub("+ file LICENSE", "", gsub("License: ", "", licenceinformation)) 
@@ -21,15 +27,31 @@ findbadges <- function(location = "."){
     packagename <- gsub(" ", "",   gsub("Package:", "", packagename))
     version <- gsub(" ", "", gsub("Version:", "", grep("Version:", description, value = TRUE)))
     rvers <- stringr::str_match(grep("R \\(", description, value = TRUE), "[0-9]{1,4}\\.[0-9]{1,4}\\.[0-9]{1,4}")[1,1]
-    # doesn't matter what, number{1,4}.number
-        list <- list( "travisbadge" = buildbadge,
-          "projectstatus" = projectstatbadge,
-          "cran"= cranbadge,
-          "codecoverage" = coverage,
-          "licence" = licencetype,
-          "packagename" = packagename,
-          "packageversion" = version,
-          "R_version"= rvers)
+    # travis file
+    travisyaml <- if(file.exists(".travis.yml")){ 
+        readLines(".travis.yml")
+        }else travisyaml <- NULL
+    travisfile <- ifelse(length(travisyaml)==0, FALSE, TRUE)
+    codecov_in_travis <-ifelse(length(grep("covr", travisyaml))==0, FALSE, TRUE)
+    # final list of     
+    list <- list(
+        "projectstatus_readme" = ifelse(length(projectstatbadge)==0, FALSE, TRUE ), #THE BADGE
+        "licencebadge_readme" = ifelse(length(licencebadge_readme)==0, FALSE, TRUE), # Badge
+        "travisbadge_readme" = ifelse(length(buildbadge)==0, FALSE, TRUE ), # FINDING THE BADGES
+        "codecoverage_readme" = ifelse(length(coverage)==0, FALSE, TRUE ),  # THE BADGE
+        "rversion_readme" = ifelse(length(minrversion)==0, FALSE, TRUE ),  # THE BADGE
+        "cranbadge_readme"= ifelse(length(cranbadge)==0, FALSE, TRUE ),  # THE BADGE
+        "packageversionbadge_readme"= ifelse(length(packageversion_readme)==0, FALSE, TRUE ),  # THE BADGE          
+        "last_change_readme"= ifelse(length(last_change_readme)==0, FALSE, TRUE ),  # THE BADGE          
+          
+                  "licence" = licencetype,     # TYPE
+                  "packagename" = packagename, # TYPE
+                  "packageversion" = version,  # TYPE
+                  "R_version"= rvers,          #TYPE
+                  "travisfile" = travisfile,
+                  "codecov_in_travisfile" =codecov_in_travis
+    )
+          
     list
 }
 # tests

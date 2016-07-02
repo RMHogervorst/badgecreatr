@@ -4,20 +4,13 @@
 \alias{badgeplacer}
 \title{Place badges inside readme file}
 \usage{
-badgeplacer(location = ".", status = "active", travis = TRUE,
-  codecov = FALSE, licence = "search", githubaccount = "search",
+badgeplacer(location = ".", status = "active", githubaccount = "search",
   githubrepo = "search", branch = "master")
 }
 \arguments{
 \item{location}{folder where readme.rmd resides}
 
 \item{status}{one of: "concept", "wip", "suspended", "abandoned", "active", "inactive",  or "unsupported"}
-
-\item{travis}{logical true or false}
-
-\item{codecov}{logical true or false}
-
-\item{licence}{"search", "gpl-2" , "MIT", etc}
 
 \item{githubaccount}{your githubname}
 
