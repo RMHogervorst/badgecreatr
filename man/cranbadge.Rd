@@ -16,6 +16,6 @@ markdown to put into readme
 Add a badge for cran
 }
 \examples{
-cranbadge("badgecreatr")
+cranbadge("dplyr")
 }
 
