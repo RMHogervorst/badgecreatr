@@ -1,13 +1,14 @@
 Package: badgecreatr
-Title: Create Badges for Travis, Projectstatus codecov etc in Github Readme
+Title: Create Badges for Travis, Projectstatus Codecov.io Etc in Github Readme
 Version: 0.1.0
 Authors@R: person("Roel M.", "Hogervorst", email ="hogervorst.rm@gmail.com", role = c("cre", "aut"))
 Description: Tired of copy and pasting almost identical markdown for badges in
-    every new r package that you create on github? 
-    This package will search for relevant information
-    such as a travis file, codecov and create the relevant badges in your 
-    readme.rmd file. Currently creates badges for  projectstatus, licence
-    travis build status, codecov, minimal dependent r version, cran, 
+    every new R package that you create on Github? 
+    This package will search for relevant information in your DESCRIPTION file
+    and your 
+    such as a .travis.yml file and if that one includes  and create the relevant badges in your 
+    readme.rmd file. Currently creates badges for  Repostatus, licence
+    'Travis' build status, 'codecov.io' code coverage, minimal R version, CRAN, 
     current version of your package and last change.
 Depends:
     R (>= 3.2.4)
