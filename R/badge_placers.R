@@ -153,10 +153,10 @@ minimal_r_version_badge <- function(rversion){
 #' @export
 #'
 #' @examples
-#' cranbadge("badgecreatr")
+#' cranbadge("dplyr")
 cranbadge <- function(packagename){
     img_link <- paste0("http://www.r-pkg.org/badges/version/", packagename)
-    refer_link <- paste0("http://cran.r-project.org/package=", packagename)    
+    refer_link <- paste0("https://cran.r-project.org/package=", packagename)    
     licencepaste(imagelink =img_link, 
                  referlink = refer_link,
                  name = "CRAN_Status_Badge")
