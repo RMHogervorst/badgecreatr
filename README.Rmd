@@ -75,8 +75,15 @@ You will probably call badgecreatr only once, somewhere during your work.
 If you call badgecreatr again when you already have badges, they will be recognized.
 [(see CHANGELOG)]](CHANGELOG.md)
 
-# Installation 
-For now you will have to install using `devtools::install_github("rmhogervorst/badgecreatr")`
+# Installation
+badgecreatr is on [CRAN](https://cran.r-project.org/package=badgecreatr), 
+install using `install.packages("badgecreatr")`
+
+The newest 'developmental' version is installed with 
+ `devtools::install_github("rmhogervorst/badgecreatr")`
+ 
+ 
+# use  
 Whenever you have created a readme, use badgeplacer() or don't even load the package 
 I would just call
 `badgecreatr::badgeplacer(githubaccount = "RMHogervorst",githubrepo = "badgecreatr")`
@@ -93,8 +100,11 @@ Which would make this a work in progress status badge.
 You will have to supply the github accountname, repo and branch. I'm working to automatically recognize those. 
 
 # Contact
-Want to help or have questions?  contact me, fork me or send a pull request!
+Want to help or have questions?  
+Contact me directly, use an [issue](https://github.com/RMHogervorst/badgecreatr/issues), fork me or submit a pull request.
 
+[![star this repo](http://githubbadges.com/star.svg?user=RMHogervorst&repo=badgecreatr&style=flat)](https://github.com/RMHogervorst/badgecreatr)
+[![fork this repo](http://githubbadges.com/fork.svg?user=RMHogervorst&repo=badgecreatr&style=flat)](https://github.com/RMHogervorst/badgecreatr/fork)
 
 ## Inspiration
 

@@ -2,11 +2,19 @@
 
 ------------------------------------------------------------------------
 
+<<<<<<< HEAD
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.2.4-6666ff.svg)](https://cran.r-project.org/) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/badgecreatr)](http://cran.r-project.org/package=badgecreatr) [![packageversion](https://img.shields.io/badge/Package%20version-0.1.0-orange.svg?style=flat-square)](commits/master)
 
 ------------------------------------------------------------------------
 
 [![Last-changedate](https://img.shields.io/badge/last%20change-2016--07--05-yellowgreen.svg)](/commits/master)
+=======
+[![minimal R version](https://img.shields.io/badge/R%3E%3D-3.2.4-6666ff.svg)](https://cran.r-project.org/) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/badgecreatr)](https://cran.r-project.org/package=badgecreatr) [![packageversion](https://img.shields.io/badge/Package%20version-0.1.0-orange.svg?style=flat-square)](commits/master)
+
+------------------------------------------------------------------------
+
+[![Last-changedate](https://img.shields.io/badge/last%20change-2016--07--04-yellowgreen.svg)](/commits/master)
+>>>>>>> 6c78ca9... [skip ci]  updated readme to reflect version on CRAN
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 ![badgeimage](badgecreatr4.jpg)
@@ -55,7 +63,14 @@ If you call badgecreatr again when you already have badges, they will be recogni
 Installation
 ============
 
-For now you will have to install using `devtools::install_github("rmhogervorst/badgecreatr")` Whenever you have created a readme, use badgeplacer() or don't even load the package I would just call `badgecreatr::badgeplacer(githubaccount = "RMHogervorst",githubrepo = "badgecreatr")` for this package.
+badgecreatr is on [CRAN](https://cran.r-project.org/package=badgecreatr), install using `install.packages("badgecreatr")`
+
+The newest 'developmental' version is installed with `devtools::install_github("rmhogervorst/badgecreatr")`
+
+use
+===
+
+Whenever you have created a readme, use badgeplacer() or don't even load the package I would just call `badgecreatr::badgeplacer(githubaccount = "RMHogervorst",githubrepo = "badgecreatr")` for this package.
 
 And if I would just start with this package I would make a different status:
 
@@ -69,7 +84,10 @@ You will have to supply the github accountname, repo and branch. I'm working to 
 Contact
 =======
 
-Want to help or have questions? contact me, fork me or send a pull request!
+Want to help or have questions?
+Contact me directly, use an [issue](https://github.com/RMHogervorst/badgecreatr/issues), fork me or submit a pull request.
+
+[![star this repo](http://githubbadges.com/star.svg?user=RMHogervorst&repo=badgecreatr&style=flat)](https://github.com/RMHogervorst/badgecreatr) [![fork this repo](http://githubbadges.com/fork.svg?user=RMHogervorst&repo=badgecreatr&style=flat)](https://github.com/RMHogervorst/badgecreatr/fork)
 
 Inspiration
 -----------
