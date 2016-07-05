@@ -29,6 +29,8 @@ knitr::opts_chunk$set(
 )
 ```
 
+![badgeimage](badgecreatr4.jpg)
+
 # Introduction
 This package was inspired by the [badgerbadger](https://github.com/badges/badgerbadgerbadger) package that checks for badges of travis, code coverage open issues, dependencies and licenses.
 It would be nice to have a simple function that adds these things to a readme.rmd file in R.
