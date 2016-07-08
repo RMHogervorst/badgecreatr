@@ -52,11 +52,11 @@ This package does now place the following badges /shields:
 
 Possible future badges
 
-- [] nr of open issues
-- [] number of pull requests
-- [] number of downloads CRAN
-- [] number of dependencies and:
-- [] a way to visualize their version
+- [ ] nr of open issues
+- [ ] number of pull requests
+- [ ] number of downloads CRAN
+- [ ] number of dependencies and:
+- [ ] a way to visualize their version
 
 
 # Workflow
