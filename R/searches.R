@@ -26,7 +26,13 @@ findbadges <- function(location = "."){
     packagename <- grep("Package:", description, value = TRUE)
     packagename <- gsub(" ", "",   gsub("Package:", "", packagename))
     version <- gsub(" ", "", gsub("Version:", "", grep("Version:", description, value = TRUE)))
-    rvers <- stringr::str_match(grep("R \\(", description, value = TRUE), "[0-9]{1,4}\\.[0-9]{1,4}\\.[0-9]{1,4}")[1,1]
+    rversiondescription <- grep("R \\(", description, value = TRUE)
+    if(length(rversiondescription)==0 ){
+        rversiondescription <-   paste0("R (>=", R.Version()$major,".", R.Version()$minor, ")")
+        message("R version not declared in DESCRIPTION, using your currently installed ", R.Version()$version.string, " nicknamed: ", R.Version()$nickname)
+            }
+    rvers <- stringr::str_match(rversiondescription, "[0-9]{1,4}\\.[0-9]{1,4}\\.[0-9]{1,4}")[1,1]
+    
     # travis file
     travisyaml <- if(file.exists(".travis.yml")){ 
         readLines(".travis.yml")
