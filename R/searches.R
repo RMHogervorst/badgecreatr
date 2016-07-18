@@ -12,9 +12,9 @@ findbadges <- function(location = "."){
     # readme
     readme <- readLines(file.path(location,"README.Rmd"))
     projectstatbadge <-         grep("\\[\\!\\[Project Status:", readme)
-    licencebadge_readme <-      grep("\\[\\!\\[Licence:\\]", readme)
+    licencebadge_readme <-      grep("\\[\\!\\[Licence:\\]|\\[\\!\\[Licence\\]", readme)
     buildbadge <-               grep("\\[\\!\\[Build Status\\]", readme)
-    coverage <-                 grep("\\[\\!\\[Coverage Status\\]", readme)
+    coverage <-                 grep("\\[\\!\\[Coverage Status\\]|\\[\\!\\[codecov\\]", readme)
     minrversion <-              grep("\\[\\!\\[minimal R version\\]", readme)
     cranbadge <-                grep("\\[\\!\\[CRAN_Status_Badge", readme)
     packageversion_readme <-    grep("\\[\\!\\[packageversion", readme)

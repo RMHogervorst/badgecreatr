@@ -53,9 +53,9 @@ badgeplacer <- function(location = ".", status = "active",
                 }else message("There was no .travis.yml or no codecov was set up in travis, no codecovbadge created")
                                        
             },
-            " ",
-            "---",
-            " ",
+            if(sum(badge_result$rversion_readme, 
+                   badge_result$cranbadge_readme, 
+                   badge_result$packageversionbadge_readme)==0) {" \n---\n "},
             if(!badge_result$rversion_readme){
                 minimal_r_version_badge(badge_result$R_version)
             },
@@ -65,9 +65,7 @@ badgeplacer <- function(location = ".", status = "active",
              if(!badge_result$packageversionbadge_readme){
                  packageversionbadge(badge_result$packageversion) 
              } ,
-            " ",
-            "---",
-            " ",
+            if(!badge_result$last_change_readme) {" \n---\n "},
             if(!badge_result$last_change_readme)last_change_badge()
                                    ), 
                          bottomyaml)
