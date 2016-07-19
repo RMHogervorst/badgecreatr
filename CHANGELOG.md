@@ -11,6 +11,9 @@ git2r recognition of github credentials such as ghname, ghrepo and current branc
 ### Deprecated 
 
 ### Fixed 
+- when you rerun the command, no superflous lines will be added.  
+- searches for licence badge and codecov badge didn't work. 
+tx @steplocke for both these fixes.
 
 ### Security 
 
