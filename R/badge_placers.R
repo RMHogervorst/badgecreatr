@@ -124,11 +124,16 @@ codecovbadge <- function(ghaccount, ghrepo, branch="master" ){
 #'
 #' @examples
 #' minimal_r_version_badge("3.0.3")
-minimal_r_version_badge <- function(rversion){
-    img_link <- paste0("https://img.shields.io/badge/R%3E%3D-", rversion, "-6666ff.svg")
+minimal_r_version_badge <- function(){
+    r_chunk <- c(
+        "```{r, echo = FALSE}", 
+        eval(expression("description <- readLines(\"DESCRIPTION\")")), 
+        eval(expression(paste("rvers <- stringr::str_match(grep(\"R \\\\(\", description, value = TRUE),",
+                              "\"[0-9]{1,4}\\\\.[0-9]{1,4}\\\\.[0-9]{1,4}\")[1,1]"))), 
+        "```")
+    img_link <- paste0("https://img.shields.io/badge/R%3E%3D-", "`r rvers`", "-6666ff.svg")
     referlink <- "https://cran.r-project.org/"
-    licencepaste(img_link, referlink, name = "minimal R version")
-    
+    c(r_chunk, licencepaste(img_link, referlink, name = "minimal R version"))
 }
 # https://img.shields.io/badge/R%3E%3D-3.0.0-6666ff.svg
 #
@@ -172,10 +177,17 @@ cranbadge <- function(packagename){
 #'
 #' @examples
 #' packageversionbadge("0.0.2")
-packageversionbadge <- function(packageversionnumber){
-    img_link <- paste0("https://img.shields.io/badge/Package%20version-", packageversionnumber, "-orange.svg?style=flat-square")
+packageversionbadge <- function(){
+    r_chunk <- c(
+        "```{r, echo = FALSE}", 
+        eval(expression("description <- readLines(\"DESCRIPTION\")")), 
+        eval(expression(paste("version <- gsub(\" \", \"\", gsub(\"Version:\", \"\",",
+                              "grep(\"Version:\", description, value = TRUE)))"))),
+        "```")
+    img_link <- paste0("https://img.shields.io/badge/Package%20version-", "`r version`", 
+                       "-orange.svg?style=flat-square")
     referlink <- "commits/master"
-    licencepaste(img_link, referlink, name = "packageversion")
+    c(r_chunk, licencepaste(img_link, referlink, name = "packageversion"))
 }
 
 #https://img.shields.io/badge/Package%20version-0.0.2-orange.svg?style=flat-square

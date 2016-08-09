@@ -57,13 +57,13 @@ badgeplacer <- function(location = ".", status = "active",
                    badge_result$cranbadge_readme, 
                    badge_result$packageversionbadge_readme)==0) {" \n---\n "},
             if(!badge_result$rversion_readme){
-                minimal_r_version_badge(badge_result$R_version)
+                minimal_r_version_badge()
             },
             if(!badge_result$cranbadge_readme){
                 cranbadge(badge_result$packagename)      
             },
              if(!badge_result$packageversionbadge_readme){
-                 packageversionbadge(badge_result$packageversion) 
+                 packageversionbadge() 
              } ,
             if(!badge_result$last_change_readme) {" \n---\n "},
             if(!badge_result$last_change_readme)last_change_badge()
