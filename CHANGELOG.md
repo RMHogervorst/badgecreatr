@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-git2r recognition of github credentials such as ghname, ghrepo and current branch.
+R-version badge will be updated when you re-knit the readme.rmd to readme (thanks  @privefl)
 
 ### Removed
 
