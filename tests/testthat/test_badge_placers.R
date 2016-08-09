@@ -94,9 +94,9 @@ test_that("codecov function creates a badge", {
 context("min r version")
 # minimal r version ####
 test_that("min r version creates correct badge", {
-    badge_rver <- minimal_r_version_badge("3.4.5")
-    expect_match(badge_rver, regexp = "\\[\\!\\[minimal R version\\]")
-    expect_match(badge_rver, regexp = "https://cran.r-project.org/")
+    badge_rver <- minimal_r_version_badge()
+    expect_match(badge_rver[5], regexp = "\\[\\!\\[minimal R version\\]")
+    expect_match(badge_rver[5], regexp = "https://cran.r-project.org/")
     rm(badge_rver)
 })
 
