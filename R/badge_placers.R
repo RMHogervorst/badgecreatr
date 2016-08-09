@@ -117,13 +117,13 @@ codecovbadge <- function(ghaccount, ghrepo, branch="master" ){
 
 #' Display the minimal R version
 #'
-#' @param rversion minimal r version
-#'
 #' @return markdown
 #' @export
+#' 
+#' @importFrom stringr str_match
 #'
 #' @examples
-#' minimal_r_version_badge("3.0.3")
+#' minimal_r_version_badge()
 minimal_r_version_badge <- function(){
     r_chunk <- c(
         "```{r, echo = FALSE}", 
@@ -168,15 +168,16 @@ cranbadge <- function(packagename){
 }
 
 # ----------------------------------------------------------------------
-#' place a badge with the version of your package
-#'
-#' @param packageversionnumber give by hand or let it search in description file.
+#' Place a badge with the version of your package.
+#' 
+#' Place a badge with the version of your package which is automatically read from
+#' your description file.
 #'
 #' @return markdown to put into readme.rmd
 #' @export
 #'
 #' @examples
-#' packageversionbadge("0.0.2")
+#' packageversionbadge()
 packageversionbadge <- function(){
     r_chunk <- c(
         "```{r, echo = FALSE}", 

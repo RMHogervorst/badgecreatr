@@ -24,5 +24,4 @@ Suggests:
     testthat
 RoxygenNote: 5.0.1
 Imports: 
-    methods,
     stringr

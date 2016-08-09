@@ -4,10 +4,7 @@
 \alias{minimal_r_version_badge}
 \title{Display the minimal R version}
 \usage{
-minimal_r_version_badge(rversion)
-}
-\arguments{
-\item{rversion}{minimal r version}
+minimal_r_version_badge()
 }
 \value{
 markdown
@@ -16,6 +13,6 @@ markdown
 Display the minimal R version
 }
 \examples{
-minimal_r_version_badge("3.0.3")
+minimal_r_version_badge()
 }
 
