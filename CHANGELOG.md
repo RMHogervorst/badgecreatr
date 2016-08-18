@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-R-version badge will be updated when you re-knit the readme.rmd to readme (thanks  @privefl)
+R-version badge will be updated when you re-knit the readme.rmd to readme (thanks  Florian Privé @privefl)
 
 ### Removed
 
@@ -13,7 +13,7 @@ R-version badge will be updated when you re-knit the readme.rmd to readme (thank
 ### Fixed 
 - when you rerun the command, no superflous lines will be added.  
 - searches for licence badge and codecov badge didn't work. 
-tx @steplocke for both these fixes.
+tx Stephanie Locke @steplocke for both these fixes.
 
 ### Security 
 
