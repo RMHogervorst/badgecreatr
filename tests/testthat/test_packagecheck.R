@@ -4,7 +4,7 @@
 context("badgeplacer function")
 
 test_that("badgeplacer throws error when no yaml", {
-    skip("because")
+    skip("because I couldn't get it to work")
     expect_error(badgeplacer("tests/testfiles/malformed"), 
                  regexp = "no top yaml")
     # expect_error(badgeplacer("tests/testfiles/malformed2"), 
