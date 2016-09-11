@@ -5,7 +5,7 @@
 \title{Place badges inside readme file}
 \usage{
 badgeplacer(location = ".", status = "active", githubaccount = "search",
-  githubrepo = "search", branch = "master")
+  githubrepo = "search", branch = "master", name = "README.Rmd")
 }
 \arguments{
 \item{location}{folder where readme.rmd resides}

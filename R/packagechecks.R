@@ -18,14 +18,14 @@
 #'
 badgeplacer <- function(location = ".", status = "active",  
                         githubaccount = "search", githubrepo = "search", 
-                        branch = "master"){
-    badge_result <-findbadges(location)
+                        branch = "master", name = "README.Rmd"){
+    badge_result <-findbadges(location, name)
     if(sum(sapply(badge_result, length))==0){message("no badges found in readme.")}
     #account <- githubcredentials(account = githubaccount,repo = githubrepo,
                                #  branch = branch)
-    readme <- readLines(file.path(location,"README.Rmd" ))
+    readme <- readLines(file.path(location,name ))
     # find yaml top content
-    if(length(grep("---", readme))<2){stop("no top yaml at readme.Rmd")}
+    if(length(grep("---", readme))<2){stop("no top yaml at ", name)}
     bottomyaml <- grep("---", readme)[2]
     # action based on bagdge_result
     #if(length(sapply(bagdge_result, length))==0){
@@ -71,7 +71,7 @@ badgeplacer <- function(location = ".", status = "active",
                          bottomyaml)
         
 
-    writeLines(readme, con = file.path(location,"README.Rmd" ))
+    writeLines(readme, con = file.path(location,name ))
     message("badges placed at top of readme.rmd document")
 }
 

@@ -1,15 +1,39 @@
 # tests for packagecheck
 # test badgeplacer
+context("curent location")
+test_that("working directory is tests/testthat",{
+    expect_match(getwd(), "D:/RmhDocs/Documents/docs/actief/Projecten/badgecreatr/tests/testthat")
+})
 
 context("badgeplacer function")
 
 test_that("badgeplacer throws error when no yaml", {
-    skip("because I couldn't get it to work")
-    expect_error(badgeplacer("tests/testfiles/malformed"), 
+   # skip("because I couldn't get it to work")
+   # this one fails on normal check, but should not fail during
+   # r cmd check
+   skip_if_not(getwd()== "D:/RmhDocs/Documents/docs/actief/Projecten/badgecreatr/tests/testthat",message = "wd is not testdir ")
+    expect_error(badgeplacer(name = "noyaml.Rmd"), 
                  regexp = "no top yaml")
     # expect_error(badgeplacer("tests/testfiles/malformed2"), 
     #              regexp = "no top yaml")  # does not yet recognize invalid yaml
 })
+# badgeplacer(name = "CopyOfnoyaml.Rmd") # this one works. 
+test_that("badgeplacer throws error when no yaml", {
+   #version for in interactive use
+    skip_if_not(getwd()== "D:/RmhDocs/Documents/docs/actief/Projecten/badgecreatr",message = "wd is not interactive")
+    expect_error(badgeplacer(location = "tests/testthat", name = "noyaml.Rmd"), 
+                 regexp = "no top yaml")
+    # expect_error(badgeplacer("tests/testfiles/malformed2"), 
+    #              regexp = "no top yaml")  # does not yet recognize invalid yaml
+})
+
+test_that("placement of badges works", {
+    skip_if_not(getwd()== "D:/RmhDocs/Documents/docs/actief/Projecten/badgecreatr",message = "wd is not interactive")
+    # copy CopyOfREadme.rmd 
+    # and add badges. 
+    # test if it worked.
+})
+
 
 test_that("badgeplacer places valid badges", {
     skip(" untill files are at right  location ")

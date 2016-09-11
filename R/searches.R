@@ -8,9 +8,9 @@
 #' @export
 #'
 #' 
-findbadges <- function(location = "."){
+findbadges <- function(location = ".", name = "README.Rmd"){
     # readme
-    readme <- readLines(file.path(location,"README.Rmd"))
+    readme <- readLines(file.path(location, name))
     projectstatbadge <-         grep("\\[\\!\\[Project Status:", readme)
     licencebadge_readme <-      grep("\\[\\!\\[Licence:\\]|\\[\\!\\[Licence\\]", readme)
     buildbadge <-               grep("\\[\\!\\[Build Status\\]", readme)
