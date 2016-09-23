@@ -2,7 +2,7 @@
 # test badgeplacer
 context("curent location")
 test_that("working directory is tests/testthat",{
-    expect_match(getwd(), "D:/RmhDocs/Documents/docs/actief/Projecten/badgecreatr/tests/testthat")
+    expect_match(getwd(), "/tests/testthat")
 })
 
 context("badgeplacer function")
