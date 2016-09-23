@@ -17,6 +17,8 @@ badgeplacer(location = ".", status = "active", githubaccount = "search",
 \item{githubrepo}{your githubrepositoryname}
 
 \item{branch}{master, develop, etc.}
+
+\item{name}{which file to place badges in defaults to README.Rmd}
 }
 \value{
 readme file with added badges

@@ -12,6 +12,7 @@
 #' @param githubaccount your githubname
 #' @param githubrepo your githubrepositoryname
 #' @param branch master, develop, etc.
+#' @param name which file to place badges in defaults to README.Rmd
 #'
 #' @return readme file with added badges
 #' @export

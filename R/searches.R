@@ -3,7 +3,8 @@
 #' What badges are already found in the Readme document
 #'
 #' @param location where should we search for readme.rmd?
-#'
+#' @param name which file to place badges in defaults to README.Rmd
+#' 
 #' @return list of locations inside of readme
 #' @export
 #'
