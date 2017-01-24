@@ -7,11 +7,18 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
+```{r, echo=FALSE, results='asis'}
 library(badgecreatr)
-last_change_badge2()
-codecovbadge(ghrepo = "badgecreatr", ghaccount = "RMHogervorst")
-projectstatusbadge(status = "active")
+I(
+    paste0(
+        last_change_badge2(),
+        codecovbadge(ghrepo = "badgecreatr", ghaccount = "RMHogervorst"),
+        projectstatusbadge(status = "active"),
+        cranbadge(packagename = "badgecreatr"),
+        licencebadge("GPL-3"),
+        travisbadge(ghrepo = "badgecreatr", ghaccount = "RMHogervorst",branch = "master")
+)    
+)
 ```
 
 

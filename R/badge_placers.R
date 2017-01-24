@@ -218,8 +218,7 @@ last_change_badge <- function(location = "."){
 last_change_badge2 <- function(location = "."){
     today <- gsub('-', '--', Sys.Date())
     licencepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
-                                    "`r ", today, "`",
-                                    "-yellowgreen.svg"),
+                                 today,                                     "-yellowgreen.svg"),
                  referlink = "/commits/master",
                  name = "Last-changedate")
 }
