@@ -1,0 +1,18 @@
+---
+title: "yet another readme"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(badgecreatr)
+last_change_badge2()
+codecovbadge(ghrepo = "badgecreatr", ghaccount = "RMHogervorst")
+projectstatusbadge(status = "active")
+```
+
+
+Does it work? does it work?

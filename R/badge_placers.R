@@ -209,3 +209,17 @@ last_change_badge <- function(location = "."){
                  referlink = "/commits/master",
                  name = "Last-changedate")
 }
+
+#' creates last-change badge
+#' 
+#' Will add current day to the repo. 
+#' @export
+#' @param location defaults to working directory 
+last_change_badge2 <- function(location = "."){
+    today <- gsub('-', '--', Sys.Date())
+    licencepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
+                                    "`r ", today, "`",
+                                    "-yellowgreen.svg"),
+                 referlink = "/commits/master",
+                 name = "Last-changedate")
+}
