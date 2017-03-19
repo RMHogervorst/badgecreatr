@@ -23,5 +23,6 @@ BugReports: https://github.com/RMHogervorst/badgecreatr/issues
 Suggests:
     testthat
 RoxygenNote: 5.0.1
-Imports: 
-    stringr
+Imports:
+    stringr,
+    git2r

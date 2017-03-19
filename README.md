@@ -6,7 +6,7 @@
 
 ------------------------------------------------------------------------
 
-[![Last-changedate](https://img.shields.io/badge/last%20change-2016--07--05-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2017--03--19-yellowgreen.svg)](/commits/master)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 ![badgeimage](badgecreatr4.jpg)
@@ -26,14 +26,16 @@ This package does now place the following badges /shields:
 -   \[x\] cran badge
 -   \[x\] packageversion (recognize from DESCRIPTION file)
 -   \[x\] last change (this will automagically update everytime you knit your readme.rmd)
+-   \[x\] finds github account and reponame automatically
+-   \[ \] finds local repo
 
 Possible future badges
 
--   \[\] nr of open issues
--   \[\] number of pull requests
--   \[\] number of downloads CRAN
--   \[\] number of dependencies and:
--   \[\] a way to visualize their version
+-   \[ \] nr of open issues
+-   \[ \] number of pull requests
+-   \[ \] number of downloads CRAN
+-   \[ \] number of dependencies and:
+-   \[ \] a way to visualize their version
 
 Workflow
 ========
@@ -59,7 +61,7 @@ badgecreatr is on [CRAN](https://cran.r-project.org/package=badgecreatr), instal
 
 The newest 'developmental' version is installed with `devtools::install_github("rmhogervorst/badgecreatr")`
 
-use
+Use
 ===
 
 Whenever you have created a readme, use badgeplacer() or don't even load the package I would just call `badgecreatr::badgeplacer(githubaccount = "RMHogervorst",githubrepo = "badgecreatr")` for this package.
@@ -67,9 +69,6 @@ Whenever you have created a readme, use badgeplacer() or don't even load the pac
 And if I would just start with this package I would make a different status:
 
 `badgecreatr::badgeplacer(status = "wip"  ,  githubaccount = "RMHogervorst",githubrepo = "badgecreatr")` Which would make this a work in progress status badge.
-
-Use
-===
 
 You will have to supply the github accountname, repo and branch. I'm working to automatically recognize those.
 
