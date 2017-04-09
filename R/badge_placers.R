@@ -71,11 +71,21 @@ licbadgebuilder <- function(licencetype){
 #' @param ghrepo githubrepositoryname
 #' @param branch master, develop etc
 #' @family badges
-#' @return link to travis image
+#' @return markdown including link to travis image
 #' @examples 
 #' travisbadge(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 #' @export
-travisbadge <- function(ghaccount, ghrepo, branch){
+travisbadge <- function(ghaccount = "search", ghrepo = "search", branch= "master"){
+    gh_results <- get_remote_reponame_username()
+    if(ghaccount == "search"){
+        ghaccount <- gh_results$username
+    }
+    if(ghrepo == "search"){
+        ghrepo <- gh_results$reponame
+    }
+    if(branch == "search"){
+        branch <- get_branch_name()
+    }
             referlink <- paste0("https://travis-ci.org/",ghaccount,"/",ghrepo)
             imagelink <- paste0(referlink, 
                                 ".svg?branch=",branch)
@@ -91,16 +101,26 @@ travisbadge <- function(ghaccount, ghrepo, branch){
 
 #' CodeCoverage ' ' Adds a code cov badge
 #' 
-#' adds codecov badge
+#' Adds codecov badge
 #'
-#' @param ghaccount your github account f.i. "rmhogervorst"
-#' @param ghrepo the name of the repo f.i. "badgecreatr"
-#' @param branch the branch, defaults to master
+#' @param ghaccount your github account f.i. "rmhogervorst",you can use "search"
+#' @param ghrepo the name of the repo f.i. "badgecreatr",you can use "search"
+#' @param branch the branch, defaults to master, you can use "search"
 #' @family badges
 #' @examples 
 #' codecovbadge(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 #' @export
-codecovbadge <- function(ghaccount, ghrepo, branch="master" ){
+codecovbadge <- function(ghaccount = "search", ghrepo = "search", branch="master" ){
+    gh_results <- get_remote_reponame_username()
+    if(ghaccount == "search"){
+        ghaccount <- gh_results$username
+    }
+    if(ghrepo == "search"){
+        ghrepo <- gh_results$reponame
+    }
+    if(branch == "search"){
+        branch <- get_branch_name()
+        }
     referlink <- paste0("https://codecov.io/gh/", ghaccount, "/", ghrepo)
     imagelink <- paste0(referlink, 
                         "/branch/", branch, 
