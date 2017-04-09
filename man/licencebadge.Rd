@@ -19,4 +19,3 @@ If it matches GPL or MIT a custum badge will be created.
 If it does not match, a general badge will be created with the name of the
 licence in grey.
 }
-

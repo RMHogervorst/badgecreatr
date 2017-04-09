@@ -17,4 +17,3 @@ list of locations inside of readme
 \description{
 What badges are already found in the Readme document
 }
-

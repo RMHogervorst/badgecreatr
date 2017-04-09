@@ -18,4 +18,3 @@ Add licence badge
 \examples{
 licbadgebuilder("GPL-3")
 }
-

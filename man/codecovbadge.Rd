@@ -19,4 +19,3 @@ adds codecov badge
 \examples{
 codecovbadge(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 }
-

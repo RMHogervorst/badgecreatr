@@ -15,4 +15,3 @@ Display the minimal R version
 \examples{
 minimal_r_version_badge()
 }
-

@@ -16,4 +16,3 @@ your description file.
 \examples{
 packageversionbadge()
 }
-

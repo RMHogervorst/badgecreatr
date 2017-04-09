@@ -18,4 +18,3 @@ Add a badge for cran
 \examples{
 cranbadge("dplyr")
 }
-
