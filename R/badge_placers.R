@@ -198,7 +198,8 @@ packageversionbadge <- function(){
 
 #' creates last-change badge
 #' 
-#' Will add current day to the repo. 
+#' Will add a badge containing the current date that changes 
+#' on every reknitting. This is a simple pasting of r code. 
 #'
 #' @param location defaults to working directory 
 last_change_badge <- function(location = "."){

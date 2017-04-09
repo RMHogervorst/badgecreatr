@@ -19,7 +19,19 @@
 #'
 badgeplacer <- function(location = ".", status = "active",  
                         githubaccount = "search", githubrepo = "search", 
-                        branch = "master", name = "README.Rmd"){
+                        branch = "search", name = "README.Rmd"){
+    remotenames <- get_remote_reponame_username()
+    if(githubaccount == "search"){
+        githubaccount <- remotenames$username
+    }
+    if(githubrepo == "search"){
+        githubrepo  <- remotenames$reponame
+    }
+    if(branch == "search"){
+        #default to master when you can't find something.
+        branch <- get_branch_name()
+    }
+    if(branch == ""){branch <- "master"}
     badge_result <-findbadges(location, name)
     if(sum(sapply(badge_result, length))==0){message("no badges found in readme.")}
     #account <- githubcredentials(account = githubaccount,repo = githubrepo,

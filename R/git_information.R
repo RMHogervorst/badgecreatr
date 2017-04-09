@@ -16,7 +16,9 @@ return_remotes <- function(debug = FALSE){
     vars
 }
 
-
+#' Return the name of the repo and and username.
+#' 
+#' This information can be fed into the badeplacers.
 get_remote_reponame_username <- function(){
     find_configuration <- git2r::config()
     url <- find_configuration$local$remote.origin.url
@@ -30,8 +32,9 @@ get_remote_reponame_username <- function(){
 }
 #get_remote_reponame_username()
 
+#' Get the name of the current branch
 get_branch_name <- function(location = "."){
-    repo <- repository(location)
+    repo <- git2r::repository(location)
     git2r::head(repo)@name
 }
 #get_branch_name()
