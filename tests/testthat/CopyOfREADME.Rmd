@@ -3,9 +3,11 @@ output:
   md_document:
     variant: markdown_github
 ---
+[![Licence](https://img.shields.io/badge/licence-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![codecov](https://codecov.io/gh/search/search/branch/master/graph/badge.svg)](https://codecov.io/gh/search/search)
 [![Project Status: Active ? The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Licence](https://img.shields.io/badge/licence-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-[![Build Status](https://travis-ci.org/RMHogervorst/badgecreatr.svg?branch=develop)](https://travis-ci.org/RMHogervorst/badgecreatr)
+[![Build Status](https://travis-ci.org/RMHogervorst/badgecreatr.svg?branch=master)](https://travis-ci.org/RMHogervorst/badgecreatr)
 [![codecov](https://codecov.io/gh/RMHogervorst/badgecreatr/branch/master/graph/badge.svg)](https://codecov.io/gh/RMHogervorst/badgecreatr)
  
 ---
@@ -48,8 +50,6 @@ This package does now place the following badges /shields:
 - [x] cran badge
 - [x] packageversion (recognize from DESCRIPTION file)
 - [x] last change (this will automagically update everytime you knit your readme.rmd)
-- [x] finds github account and reponame automatically
-- [ ] finds local repo
 
 
 Possible future badges
@@ -82,10 +82,10 @@ badgecreatr is on [CRAN](https://cran.r-project.org/package=badgecreatr),
 install using `install.packages("badgecreatr")`
 
 The newest 'developmental' version is installed with 
-`devtools::install_github("rmhogervorst/badgecreatr")`
+ `devtools::install_github("rmhogervorst/badgecreatr")`
  
  
-# Use  
+# use  
 Whenever you have created a readme, use badgeplacer() or don't even load the package 
 I would just call
 `badgecreatr::badgeplacer(githubaccount = "RMHogervorst",githubrepo = "badgecreatr")`
@@ -96,6 +96,9 @@ And if I would just start with this package I would make a different status:
 `badgecreatr::badgeplacer(status = "wip"  ,  githubaccount = "RMHogervorst",githubrepo = "badgecreatr")`
 Which would make this a work in progress status badge. 
 
+
+
+# Use
 You will have to supply the github accountname, repo and branch. I'm working to automatically recognize those. 
 
 # Contact

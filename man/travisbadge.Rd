@@ -22,4 +22,3 @@ Travisbadge creates travis badge.
 \examples{
 travisbadge(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 }
-

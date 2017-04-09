@@ -2,20 +2,17 @@
 % Please edit documentation in R/badge_placers.R
 \name{packageversionbadge}
 \alias{packageversionbadge}
-\title{place a badge with the version of your package}
+\title{Place a badge with the version of your package.}
 \usage{
-packageversionbadge(packageversionnumber)
-}
-\arguments{
-\item{packageversionnumber}{give by hand or let it search in description file.}
+packageversionbadge()
 }
 \value{
 markdown to put into readme.rmd
 }
 \description{
-place a badge with the version of your package
+Place a badge with the version of your package which is automatically read from
+your description file.
 }
 \examples{
-packageversionbadge("0.0.2")
+packageversionbadge()
 }
-

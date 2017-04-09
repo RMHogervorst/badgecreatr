@@ -5,7 +5,7 @@
 \title{Place badges inside readme file}
 \usage{
 badgeplacer(location = ".", status = "active", githubaccount = "search",
-  githubrepo = "search", branch = "master")
+  githubrepo = "search", branch = "search", name = "README.Rmd")
 }
 \arguments{
 \item{location}{folder where readme.rmd resides}
@@ -17,6 +17,8 @@ badgeplacer(location = ".", status = "active", githubaccount = "search",
 \item{githubrepo}{your githubrepositoryname}
 
 \item{branch}{master, develop, etc.}
+
+\item{name}{which file to place badges in defaults to README.Rmd}
 }
 \value{
 readme file with added badges
@@ -24,4 +26,3 @@ readme file with added badges
 \description{
 This is the main function to add badges to your readme.
 }
-

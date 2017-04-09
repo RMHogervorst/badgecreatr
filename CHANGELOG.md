@@ -4,13 +4,16 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-git2r recognition of github credentials such as ghname, ghrepo and current branch.
+R-version badge will be updated when you re-knit the readme.rmd to readme (thanks  Florian Privé @privefl)
 
 ### Removed
 
 ### Deprecated 
 
 ### Fixed 
+- when you rerun the command, no superflous lines will be added.  
+- searches for licence badge and codecov badge didn't work. 
+tx Stephanie Locke @steplocke for both these fixes.
 
 ### Security 
 

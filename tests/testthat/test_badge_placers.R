@@ -42,6 +42,7 @@ test_that("Licence placer works", {
     expect_match(licbadgebuilder("MIT"), regexp = "choosealicense.com/licenses/mit/")
     expect_match(licbadgebuilder("GPL-3"), regexp = "badge/licence-GPL--3")
     expect_match(licbadgebuilder("GPL-3"), regexp = "www.gnu.org/licenses/gpl-3.0.en")
+    expect_match(licbadgebuilder("GPL-2"), regexp = "old-licenses/gpl-2.0.html")
     expect_match(licbadgebuilder("CC0"), regexp = "choosealicense.com/licenses/cc0-1.0/")
     
 })
@@ -94,9 +95,9 @@ test_that("codecov function creates a badge", {
 context("min r version")
 # minimal r version ####
 test_that("min r version creates correct badge", {
-    badge_rver <- minimal_r_version_badge("3.4.5")
-    expect_match(badge_rver, regexp = "\\[\\!\\[minimal R version\\]")
-    expect_match(badge_rver, regexp = "https://cran.r-project.org/")
+    badge_rver <- minimal_r_version_badge()
+    expect_match(badge_rver[5], regexp = "\\[\\!\\[minimal R version\\]")
+    expect_match(badge_rver[5], regexp = "https://cran.r-project.org/")
     rm(badge_rver)
 })
 
@@ -110,6 +111,23 @@ test_that("cran badge placed", {
 })
 
 # packageversion ####
+# This function does not create a badge, but a rmarkdown chunk.
+context("package versionbadge function creates the right chunk")
+
+test_that("package version badge creates valid markdown and codechunk",{
+    # there is probably a nicer way to test this thing
+    badge_packageversion <- packageversionbadge()
+    expect_match(badge_packageversion[1], "echo = FALSE")
+    expect_match(badge_packageversion[2], "DESCRIPTION")
+    expect_match(badge_packageversion[3], "\"Version:\", description")
+    expect_match(badge_packageversion[4], "```")
+    expect_match(badge_packageversion[5], "!\\[packageversion\\]")
+    rm(badge_packageversion)
+})
+
+    
+
+
 
 
 context("last change badge")

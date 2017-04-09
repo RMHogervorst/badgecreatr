@@ -12,20 +12,33 @@
 #' @param githubaccount your githubname
 #' @param githubrepo your githubrepositoryname
 #' @param branch master, develop, etc.
+#' @param name which file to place badges in defaults to README.Rmd
 #'
 #' @return readme file with added badges
 #' @export
 #'
 badgeplacer <- function(location = ".", status = "active",  
                         githubaccount = "search", githubrepo = "search", 
-                        branch = "master"){
-    badge_result <-findbadges(location)
+                        branch = "search", name = "README.Rmd"){
+    remotenames <- get_remote_reponame_username()
+    if(githubaccount == "search"){
+        githubaccount <- remotenames$username
+    }
+    if(githubrepo == "search"){
+        githubrepo  <- remotenames$reponame
+    }
+    if(branch == "search"){
+        #default to master when you can't find something.
+        branch <- get_branch_name()
+    }
+    if(branch == ""){branch <- "master"}
+    badge_result <-findbadges(location, name)
     if(sum(sapply(badge_result, length))==0){message("no badges found in readme.")}
     #account <- githubcredentials(account = githubaccount,repo = githubrepo,
                                #  branch = branch)
-    readme <- readLines(file.path(location,"README.Rmd" ))
+    readme <- readLines(file.path(location,name ))
     # find yaml top content
-    if(length(grep("---", readme))<2){stop("no top yaml at readme.Rmd")}
+    if(length(grep("---", readme))<2){stop("no top yaml at ", name)}
     bottomyaml <- grep("---", readme)[2]
     # action based on bagdge_result
     #if(length(sapply(bagdge_result, length))==0){
@@ -53,27 +66,25 @@ badgeplacer <- function(location = ".", status = "active",
                 }else message("There was no .travis.yml or no codecov was set up in travis, no codecovbadge created")
                                        
             },
-            " ",
-            "---",
-            " ",
+            if(sum(badge_result$rversion_readme, 
+                   badge_result$cranbadge_readme, 
+                   badge_result$packageversionbadge_readme)==0) {" \n---\n "},
             if(!badge_result$rversion_readme){
-                minimal_r_version_badge(badge_result$R_version)
+                minimal_r_version_badge()
             },
             if(!badge_result$cranbadge_readme){
                 cranbadge(badge_result$packagename)      
             },
              if(!badge_result$packageversionbadge_readme){
-                 packageversionbadge(badge_result$packageversion) 
+                 packageversionbadge() 
              } ,
-            " ",
-            "---",
-            " ",
+            if(!badge_result$last_change_readme) {" \n---\n "},
             if(!badge_result$last_change_readme)last_change_badge()
                                    ), 
                          bottomyaml)
         
 
-    writeLines(readme, con = file.path(location,"README.Rmd" ))
+    writeLines(readme, con = file.path(location,name ))
     message("badges placed at top of readme.rmd document")
 }
 

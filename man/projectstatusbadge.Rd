@@ -19,4 +19,3 @@ Add project status badge
  
 projectstatusbadge("unsupported")
 }
-

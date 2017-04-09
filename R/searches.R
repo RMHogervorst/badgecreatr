@@ -3,18 +3,19 @@
 #' What badges are already found in the Readme document
 #'
 #' @param location where should we search for readme.rmd?
-#'
+#' @param name which file to place badges in defaults to README.Rmd
+#' 
 #' @return list of locations inside of readme
 #' @export
 #'
 #' 
-findbadges <- function(location = "."){
+findbadges <- function(location = ".", name = "README.Rmd"){
     # readme
-    readme <- readLines(file.path(location,"README.Rmd"))
+    readme <- readLines(file.path(location, name))
     projectstatbadge <-         grep("\\[\\!\\[Project Status:", readme)
-    licencebadge_readme <-      grep("\\[\\!\\[Licence:\\]", readme)
+    licencebadge_readme <-      grep("\\[\\!\\[Licence:\\]|\\[\\!\\[Licence\\]", readme)
     buildbadge <-               grep("\\[\\!\\[Build Status\\]", readme)
-    coverage <-                 grep("\\[\\!\\[Coverage Status\\]", readme)
+    coverage <-                 grep("\\[\\!\\[Coverage Status\\]|\\[\\!\\[codecov\\]", readme)
     minrversion <-              grep("\\[\\!\\[minimal R version\\]", readme)
     cranbadge <-                grep("\\[\\!\\[CRAN_Status_Badge", readme)
     packageversion_readme <-    grep("\\[\\!\\[packageversion", readme)
@@ -25,14 +26,6 @@ findbadges <- function(location = "."){
     licencetype <- gsub("+ file LICENSE", "", gsub("License: ", "", licenceinformation)) 
     packagename <- grep("Package:", description, value = TRUE)
     packagename <- gsub(" ", "",   gsub("Package:", "", packagename))
-    version <- gsub(" ", "", gsub("Version:", "", grep("Version:", description, value = TRUE)))
-    rversiondescription <- grep("R \\(", description, value = TRUE)
-    if(length(rversiondescription)==0 ){
-        rversiondescription <-   paste0("R (>=", R.Version()$major,".", R.Version()$minor, ")")
-        message("R version not declared in DESCRIPTION, using your currently installed ", R.Version()$version.string, " nicknamed: ", R.Version()$nickname)
-            }
-    rvers <- stringr::str_match(rversiondescription, "[0-9]{1,4}\\.[0-9]{1,4}\\.[0-9]{1,4}")[1,1]
-    
     # travis file
     travisyaml <- if(file.exists(".travis.yml")){ 
         readLines(".travis.yml")
@@ -52,8 +45,6 @@ findbadges <- function(location = "."){
           
                   "licence" = licencetype,     # TYPE
                   "packagename" = packagename, # TYPE
-                  "packageversion" = version,  # TYPE
-                  "R_version"= rvers,          #TYPE
                   "travisfile" = travisfile,
                   "codecov_in_travisfile" =codecov_in_travis
     )

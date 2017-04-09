@@ -4,10 +4,12 @@
 \alias{findbadges}
 \title{What badges are already found in the Readme document}
 \usage{
-findbadges(location = ".")
+findbadges(location = ".", name = "README.Rmd")
 }
 \arguments{
 \item{location}{where should we search for readme.rmd?}
+
+\item{name}{which file to place badges in defaults to README.Rmd}
 }
 \value{
 list of locations inside of readme
@@ -15,4 +17,3 @@ list of locations inside of readme
 \description{
 What badges are already found in the Readme document
 }
-
