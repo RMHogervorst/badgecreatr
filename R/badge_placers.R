@@ -252,3 +252,20 @@ last_change_badge_static <- function(location = "."){
                  referlink = "/commits/master",
                  name = "Last-changedate")
 }
+
+
+#' R documentation badge
+#' 
+#' Add a documentation badge, from DataCamp.
+#' @param packagename the name of your package
+#' @export
+#' @examples 
+#' rdocumentation_badge("dplyr)
+rdocumentation_badge <- function(packagename){
+    licencepaste(
+        imagelink = paste0("http://www.rdocumentation.org/badges/version/", packagename),
+        referlink = paste0("http://www.rdocumentation.org/packages/", packagename),
+        name = "Rdoc"
+        
+    )
+}
