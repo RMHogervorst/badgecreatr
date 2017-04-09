@@ -4,7 +4,7 @@
 \alias{packageversionbadge}
 \title{Place a badge with the version of your package.}
 \usage{
-packageversionbadge()
+packageversionbadge(chunk = TRUE)
 }
 \value{
 markdown to put into readme.rmd

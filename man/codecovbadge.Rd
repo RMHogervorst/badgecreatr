@@ -4,17 +4,17 @@
 \alias{codecovbadge}
 \title{CodeCoverage ' ' Adds a code cov badge}
 \usage{
-codecovbadge(ghaccount, ghrepo, branch = "master")
+codecovbadge(ghaccount = "search", ghrepo = "search", branch = "master")
 }
 \arguments{
-\item{ghaccount}{your github account f.i. "rmhogervorst"}
+\item{ghaccount}{your github account f.i. "rmhogervorst",you can use "search"}
 
-\item{ghrepo}{the name of the repo f.i. "badgecreatr"}
+\item{ghrepo}{the name of the repo f.i. "badgecreatr",you can use "search"}
 
-\item{branch}{the branch, defaults to master}
+\item{branch}{the branch, defaults to master, you can use "search"}
 }
 \description{
-adds codecov badge
+Adds codecov badge
 }
 \examples{
 codecovbadge(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")

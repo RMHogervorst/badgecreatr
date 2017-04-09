@@ -4,7 +4,7 @@
 \alias{minimal_r_version_badge}
 \title{Display the minimal R version}
 \usage{
-minimal_r_version_badge()
+minimal_r_version_badge(chunk = TRUE)
 }
 \value{
 markdown

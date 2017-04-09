@@ -53,8 +53,28 @@ but it communicates the basic properties of the package:
 
 - Maturity (project status)
 - Licence
-- Last change
+- Last change (static)
 
 ```{r scen 1}
 minimal_badges("concept", "MIT")
 ```
+
+### Scenario 2: adding dynamic badges to your readme
+
+You add badges that change everytime you re-knit your document so that everything
+stays up to date.
+
+Communicate
+- Maturity (project status)
+- Licence
+- Last change
+- minimal r version
+- package version
+- travis badge (when a travis file is available)
+- codecov badge (when this is specified in the travis file)
+
+
+```{r scen 2}
+dynamic_badges_minimal(licence = "MIT", travisfile = TRUE, codecov = TRUE)
+```
+

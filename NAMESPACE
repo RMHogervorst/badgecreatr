@@ -3,6 +3,7 @@
 export(badgeplacer)
 export(codecovbadge)
 export(cranbadge)
+export(dynamic_badges_minimal)
 export(findbadges)
 export(githubcredentials)
 export(last_change_badge_static)

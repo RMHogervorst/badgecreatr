@@ -2,7 +2,7 @@
 % Please edit documentation in R/badge_placers.R
 \name{last_change_badge_static}
 \alias{last_change_badge_static}
-\title{creates last-change badge}
+\title{Creates last-change badge}
 \usage{
 last_change_badge_static(location = ".")
 }
@@ -10,7 +10,9 @@ last_change_badge_static(location = ".")
 \item{location}{defaults to working directory}
 }
 \description{
-Will add current day to the repo.
+Will add current day to the repo. This function will 
+not change when you reknit the readme. If you want that you will 
+have to use the link{last_change_badge} function.
 }
 \seealso{
 Other badges: \code{\link{codecovbadge}},

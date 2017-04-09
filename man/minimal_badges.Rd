@@ -17,7 +17,12 @@ text to put into rmd
 \description{
 Returns markdown to manually place in your readme.Rmd file.
 This is a function you might want to use in the early stages of your project.
+This function returns badges link{projectstatusbadge}, link(licencebadge), 
+and link(last_change_badge_static).
 }
 \examples{
 minimal_badges("abandoned", "GPL-3")
+}
+\seealso{
+Other scenarios: \code{\link{dynamic_badges_minimal}}
 }

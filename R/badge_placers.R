@@ -145,7 +145,7 @@ codecovbadge <- function(ghaccount = "search", ghrepo = "search", branch="master
 #' @family badges
 #' @examples
 #' minimal_r_version_badge()
-minimal_r_version_badge <- function(){
+minimal_r_version_badge <- function(chunk = TRUE){
     r_chunk <- c(
         "```{r, echo = FALSE}", 
         eval(expression("description <- readLines(\"DESCRIPTION\")")), 
@@ -154,7 +154,9 @@ minimal_r_version_badge <- function(){
         "```")
     img_link <- paste0("https://img.shields.io/badge/R%3E%3D-", "`r rvers`", "-6666ff.svg")
     referlink <- "https://cran.r-project.org/"
-    c(r_chunk, licencepaste(img_link, referlink, name = "minimal R version"))
+    result <- c(if(chunk){r_chunk}, 
+                licencepaste(img_link, referlink, name = "minimal R version"))
+    result
 }
 # https://img.shields.io/badge/R%3E%3D-3.0.0-6666ff.svg
 #
@@ -199,7 +201,7 @@ cranbadge <- function(packagename){
 #' @family badges
 #' @examples
 #' packageversionbadge()
-packageversionbadge <- function(){
+packageversionbadge <- function(chunk = TRUE){
     r_chunk <- c(
         "```{r, echo = FALSE}", 
         eval(expression("description <- readLines(\"DESCRIPTION\")")), 
@@ -209,7 +211,10 @@ packageversionbadge <- function(){
     img_link <- paste0("https://img.shields.io/badge/Package%20version-", "`r version`", 
                        "-orange.svg?style=flat-square")
     referlink <- "commits/master"
-    c(r_chunk, licencepaste(img_link, referlink, name = "packageversion"))
+    result <- c(
+        if(chunk){r_chunk}, 
+        licencepaste(img_link, referlink, name = "packageversion"))
+    result
 }
 
 #https://img.shields.io/badge/Package%20version-0.0.2-orange.svg?style=flat-square
@@ -232,9 +237,11 @@ last_change_badge <- function(location = "."){
                  name = "Last-changedate")
 }
 
-#' creates last-change badge
+#' Creates last-change badge
 #' 
-#' Will add current day to the repo. 
+#' Will add current day to the repo. This function will 
+#' not change when you reknit the readme. If you want that you will 
+#' have to use the link{last_change_badge} function.
 #' @export
 #' @family badges
 #' @param location defaults to working directory 
