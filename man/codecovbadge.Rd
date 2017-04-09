@@ -19,3 +19,13 @@ adds codecov badge
 \examples{
 codecovbadge(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 }
+\seealso{
+Other badges: \code{\link{cranbadge}},
+  \code{\link{last_change_badge_static}},
+  \code{\link{last_change_badge}},
+  \code{\link{licbadgebuilder}},
+  \code{\link{minimal_r_version_badge}},
+  \code{\link{packageversionbadge}},
+  \code{\link{projectstatusbadge}},
+  \code{\link{travisbadge}}
+}

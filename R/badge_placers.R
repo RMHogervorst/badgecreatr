@@ -21,12 +21,12 @@
 #' Add project status badge
 #'
 #' @param status one of concept, wip, suspended, abandoned, active, inactive or unsupported
-#'
+#' @family badges
 #' @return text to put into rmd
 #' @examples  
 #' projectstatusbadge("unsupported")
 #' @export
-projectstatusbadge <- function(status){
+projectstatusbadge <- function(status = NULL){
     name <- c("concept", "wip", "suspended", "abandoned", "active", "inactive", "unsupported")
     if(!status %in% name)stop("status needs to be one of concept, wip, suspended, abandoned, active, inactive, unsupported")
     projectstatus <- paste0("http://www.repostatus.org/badges/latest/",status, "_md.txt" )
@@ -41,7 +41,7 @@ projectstatusbadge <- function(status){
 #' Add licence badge
 #'
 #' @param licencetype one of GPL-3, GPL-2, MIT, or CC0.
-#'
+#' @family badges
 #' @return markdown
 #' @export
 #' @examples 
@@ -70,7 +70,7 @@ licbadgebuilder <- function(licencetype){
 #' @param ghaccount githubaccountname
 #' @param ghrepo githubrepositoryname
 #' @param branch master, develop etc
-#' 
+#' @family badges
 #' @return link to travis image
 #' @examples 
 #' travisbadge(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
@@ -96,6 +96,7 @@ travisbadge <- function(ghaccount, ghrepo, branch){
 #' @param ghaccount your github account f.i. "rmhogervorst"
 #' @param ghrepo the name of the repo f.i. "badgecreatr"
 #' @param branch the branch, defaults to master
+#' @family badges
 #' @examples 
 #' codecovbadge(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 #' @export
@@ -121,7 +122,7 @@ codecovbadge <- function(ghaccount, ghrepo, branch="master" ){
 #' @export
 #' 
 #' @importFrom stringr str_match
-#'
+#' @family badges
 #' @examples
 #' minimal_r_version_badge()
 minimal_r_version_badge <- function(){
@@ -156,7 +157,7 @@ minimal_r_version_badge <- function(){
 #'
 #' @return markdown to put into readme
 #' @export
-#'
+#' @family badges
 #' @examples
 #' cranbadge("dplyr")
 cranbadge <- function(packagename){
@@ -175,7 +176,7 @@ cranbadge <- function(packagename){
 #'
 #' @return markdown to put into readme.rmd
 #' @export
-#'
+#' @family badges
 #' @examples
 #' packageversionbadge()
 packageversionbadge <- function(){
@@ -200,7 +201,7 @@ packageversionbadge <- function(){
 #' 
 #' Will add a badge containing the current date that changes 
 #' on every reknitting. This is a simple pasting of r code. 
-#'
+#' @family badges
 #' @param location defaults to working directory 
 last_change_badge <- function(location = "."){
     # gsub("-", "--", Sys.Date())
@@ -215,8 +216,9 @@ last_change_badge <- function(location = "."){
 #' 
 #' Will add current day to the repo. 
 #' @export
+#' @family badges
 #' @param location defaults to working directory 
-last_change_badge2 <- function(location = "."){
+last_change_badge_static <- function(location = "."){
     today <- gsub('-', '--', Sys.Date())
     licencepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
                                  today,                                     "-yellowgreen.svg"),

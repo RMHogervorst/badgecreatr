@@ -15,3 +15,13 @@ Display the minimal R version
 \examples{
 minimal_r_version_badge()
 }
+\seealso{
+Other badges: \code{\link{codecovbadge}},
+  \code{\link{cranbadge}},
+  \code{\link{last_change_badge_static}},
+  \code{\link{last_change_badge}},
+  \code{\link{licbadgebuilder}},
+  \code{\link{packageversionbadge}},
+  \code{\link{projectstatusbadge}},
+  \code{\link{travisbadge}}
+}

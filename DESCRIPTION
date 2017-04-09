@@ -21,8 +21,11 @@ LazyData: true
 URL: https://github.com/RMHogervorst/badgecreatr
 BugReports: https://github.com/RMHogervorst/badgecreatr/issues
 Suggests:
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 RoxygenNote: 6.0.1
 Imports:
     stringr,
     git2r
+VignetteBuilder: knitr

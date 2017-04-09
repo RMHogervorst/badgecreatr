@@ -13,3 +13,13 @@ last_change_badge(location = ".")
 Will add a badge containing the current date that changes 
 on every reknitting. This is a simple pasting of r code.
 }
+\seealso{
+Other badges: \code{\link{codecovbadge}},
+  \code{\link{cranbadge}},
+  \code{\link{last_change_badge_static}},
+  \code{\link{licbadgebuilder}},
+  \code{\link{minimal_r_version_badge}},
+  \code{\link{packageversionbadge}},
+  \code{\link{projectstatusbadge}},
+  \code{\link{travisbadge}}
+}

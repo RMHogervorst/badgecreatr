@@ -1,0 +1,60 @@
+---
+title: "General use of the package"
+author: "Roel M. Hogervorst"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{General use of the package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Badgecreatr was developed with myself in mind. I often create packages on github
+and wanted to have a standardized way to add badges to the readme. In github the
+readme file on top of the repository is automatically rendered as html and can
+be viewed by everyone. 
+
+I've written a blogpost about the package [here](http://rmhogervorst.nl/cleancode/blog/2016/07/08/introducing-badgecreatr-create-and-place-badges-in-readme-rmd.html)
+
+## Badges or shields
+Many projects have shields that signal the status of the project. When you make
+use of continuous integration tools such as [travis-ci](https://docs.travis-ci.com/user/languages/r "a R-specific guide for travis"), you let the service rebuild and retest your package after every
+commit to github. Travis has a badge that signals if the build passed or not. 
+I've added extra information such as under what licence the code is shared, 
+the latest change in the package and what version the package has. 
+
+Keep in mind that I don't create all of the badges (only 2 are of my invention), 
+this package is just a convenient way to place badges in your readme. 
+
+# Use cases
+I realized that I don't often use the package in it's original form anymore, 
+so the use cases might change. I've identified some cases.
+
+- [] scenario 0: you just want to add a few loose badges
+- [] scenario 1: starting a package with minimal badges.
+- [] scenario 2: base version but with logic added to seperate code part that tracks changes to R version, change date and versions.
+- [] scenario 3: you already have some badges, but you want to add newer ones (cran, rdocumentation, travis, etc).
+- [] scenario 4: you want to add certain badges, essentially a list of badges that you want, regardless of whats already there (so it should ignore badges, ignore if there is a travis file)
+
+### Scenario 0: add a few loose badges
+You just want to add a badge for projectstatus.
+```{r scen 0}
+library(badgecreatr)
+projectstatusbadge("wip") # any of concept, wip, suspended, abandoned, active, inactive, unsupported
+```
+
+This results in markdown that you can paste into your readme file.
+Other badges could be `last_change_badge_static` This would input the current 
+date. 
+
+### Scenario 1: starting a package with minimal badges
+I imagin using this to add some quick badges that you might update later
+but it communicates the basic properties of the package:
+
+- Maturity (project status)
+- Licence
+- Last change
+
+```{r scen 1}
+minimal_badges("concept", "MIT")
+```

@@ -4,7 +4,7 @@
 \alias{projectstatusbadge}
 \title{Add project status badge}
 \usage{
-projectstatusbadge(status)
+projectstatusbadge(status = NULL)
 }
 \arguments{
 \item{status}{one of concept, wip, suspended, abandoned, active, inactive or unsupported}
@@ -18,4 +18,14 @@ Add project status badge
 \examples{
  
 projectstatusbadge("unsupported")
+}
+\seealso{
+Other badges: \code{\link{codecovbadge}},
+  \code{\link{cranbadge}},
+  \code{\link{last_change_badge_static}},
+  \code{\link{last_change_badge}},
+  \code{\link{licbadgebuilder}},
+  \code{\link{minimal_r_version_badge}},
+  \code{\link{packageversionbadge}},
+  \code{\link{travisbadge}}
 }
