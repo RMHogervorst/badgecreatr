@@ -43,7 +43,6 @@ projectstatusbadge <- function(status = NULL){
 #' @param licencetype one of GPL-3, GPL-2, MIT, or CC0.
 #' @family badges
 #' @return markdown
-#' @export
 #' @examples 
 #' licbadgebuilder("GPL-3")
 licbadgebuilder <- function(licencetype){

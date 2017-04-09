@@ -8,9 +8,6 @@
 #' @param branch master, develop etc.
 #'
 #' @return markdown text to be placed in readme
-#' @export
-#'
-#' 
 githubcredentials <- function(account = "search", repo = "search", branch = "master"){
     if(account == "search"){
         if(repo != "search"){stop("provide accountname and reponame please")}

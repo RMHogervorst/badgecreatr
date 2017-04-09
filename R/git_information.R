@@ -2,7 +2,6 @@
 #'
 #' a function that checks the remote branches 
 #' and returns their names.
-#' @export
 return_remotes <- function(debug = FALSE){
     #probably a check if it is a repo?
     if(git2r::is_empty()){stop("The repo seems to be empty")}

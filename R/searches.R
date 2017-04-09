@@ -6,9 +6,6 @@
 #' @param name which file to place badges in defaults to README.Rmd
 #' 
 #' @return list of locations inside of readme
-#' @export
-#'
-#' 
 findbadges <- function(location = ".", name = "README.Rmd"){
     # readme
     readme <- readLines(file.path(location, name))
