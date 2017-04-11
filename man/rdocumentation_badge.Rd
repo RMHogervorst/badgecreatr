@@ -12,3 +12,6 @@ rdocumentation_badge(packagename)
 \description{
 Add a documentation badge, from DataCamp.
 }
+\examples{
+rdocumentation_badge("dplyr")
+}

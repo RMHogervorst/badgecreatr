@@ -35,10 +35,10 @@ minimal_badges <- function(status = "concept",licence = "search" ){
 #' dynamic_badges_minimal("abandoned", "GPL-3") 
 dynamic_badges_minimal <- function(status = "concept",licence = "search",
                                    last_change = TRUE, minimal_r_version = TRUE,
-                                   travisfile= "search", codecov = "search"){
+                                   travisfile= "search", codecov = "search", location = "."){
     # apply some logic to search for travis and codecov
     if(any(travisfile == "search", codecov == "search")){
-        badges <- findbadges()
+        badges <- findbadges(location = location)
         travisfile <- badges$travisfile
         codecov <- badges$codecov_in_travisfile
     }
@@ -46,9 +46,8 @@ dynamic_badges_minimal <- function(status = "concept",licence = "search",
 
     paste0(
         "```{r, echo = FALSE}", 
-        eval(expression("description <- readLines(\"DESCRIPTION\")")), 
-        eval(expression(paste("version <- gsub(\" \", \"\", gsub(\"Version:\", \"\",",
-                              "grep(\"Version:\", description, value = TRUE)))"))),
+        eval(expression("description <- read.dcf('DESCRIPTION')")), 
+        eval(expression("version <- as.vector(description[, 'Version'])")),
         "```",
         projectstatusbadge(status = status),
         licencebadge(licence = licence),
@@ -56,10 +55,10 @@ dynamic_badges_minimal <- function(status = "concept",licence = "search",
         if(minimal_r_version){minimal_r_version_badge(FALSE)},
         packageversionbadge(FALSE),
         if(travisfile){
-            travisbadge()
+            travisbadge(location = location)
         },
         if(codecov){
-            codecovbadge()
+            codecovbadge(location = location)
         }
         )
     

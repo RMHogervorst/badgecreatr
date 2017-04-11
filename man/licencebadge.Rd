@@ -4,16 +4,16 @@
 \alias{licencebadge}
 \title{Create a licencebadge}
 \usage{
-licencebadge(licence = "search")
+licencebadge(licence = "search", location = ".")
 }
 \arguments{
-\item{licence}{f.i. GPL-3, MIT, etc or search}
+\item{licence}{License, for example `GPL-3`, `MIT`, etc. Alternatively, `search`.}
 }
 \value{
 markdown
 }
 \description{
-when licence= "search" this function wil look in your
+when `licence="search"`` this function wil look in your
 DESCRIPTION file and search for the "Licence:" part. 
 If it matches GPL or MIT a custum badge will be created. 
 If it does not match, a general badge will be created with the name of the

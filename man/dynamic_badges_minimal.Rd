@@ -6,7 +6,7 @@
 \usage{
 dynamic_badges_minimal(status = "concept", licence = "search",
   last_change = TRUE, minimal_r_version = TRUE, travisfile = "search",
-  codecov = "search")
+  codecov = "search", location = ".")
 }
 \arguments{
 \item{status}{one of concept, wip, suspended, abandoned, active, inactive or unsupported}

@@ -6,5 +6,6 @@ projectstatusbadge("wip") # any of concept, wip, suspended, abandoned, active, i
 minimal_badges("concept", "MIT")
 
 ## ----scen 2--------------------------------------------------------------
-dynamic_badges_minimal(licence = "MIT", travisfile = TRUE, codecov = TRUE)
+getwd()
+dynamic_badges_minimal(licence = "MIT", travisfile = TRUE, codecov = TRUE, location = "../")
 

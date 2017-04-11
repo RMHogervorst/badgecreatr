@@ -20,16 +20,16 @@
 badgeplacer <- function(location = ".", status = "active",  
                         githubaccount = "search", githubrepo = "search", 
                         branch = "search", name = "README.Rmd"){
-    remotenames <- get_remote_reponame_username()
+    git_info <- search_git(location)
     if(githubaccount == "search"){
-        githubaccount <- remotenames$username
+        githubaccount <- git_info$account
     }
     if(githubrepo == "search"){
-        githubrepo  <- remotenames$reponame
+        githubrepo  <- git_info$repo
     }
     if(branch == "search"){
         #default to master when you can't find something.
-        branch <- get_branch_name()
+        branch <- git_info()$branch
     }
     if(branch == ""){branch <- "master"}
     badge_result <-findbadges(location, name)

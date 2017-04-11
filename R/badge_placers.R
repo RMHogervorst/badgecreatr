@@ -27,13 +27,13 @@
 #' projectstatusbadge("unsupported")
 #' @export
 projectstatusbadge <- function(status = NULL){
-    name <- c("concept", "wip", "suspended", "abandoned", "active", "inactive", "unsupported")
-    if(!status %in% name)stop("status needs to be one of concept, wip, suspended, abandoned, active, inactive, unsupported")
-    projectstatus <- paste0("http://www.repostatus.org/badges/latest/",status, "_md.txt" )
-    repostatus <- readLines(con = projectstatus, encoding = "UTF-8" )
-    #repostatus <- readLines(textConnection(projectstatus, encoding="UTF-8"), encoding="UTF-8")
-    #repostatus <- gsub("â€“", "-", repostatus)
-    repostatus
+  name <- c("concept", "wip", "suspended", "abandoned", "active", "inactive", "unsupported")
+  if(!status %in% name)stop("status needs to be one of concept, wip, suspended, abandoned, active, inactive, unsupported")
+  projectstatus <- paste0("http://www.repostatus.org/badges/latest/",status, "_md.txt" )
+  repostatus <- readLines(con = projectstatus, encoding = "UTF-8" )
+  #repostatus <- readLines(textConnection(projectstatus, encoding="UTF-8"), encoding="UTF-8")
+  #repostatus <- gsub("â€“", "-", repostatus)
+  repostatus
 }
 
 # ----------------------------------------------------------------------
@@ -46,16 +46,16 @@ projectstatusbadge <- function(status = NULL){
 #' @examples 
 #' licbadgebuilder("GPL-3")
 licbadgebuilder <- function(licencetype){
-    switch (licencetype,
-            "GPL-2" = {licencepaste("https://img.shields.io/badge/licence-GPL--2-blue.svg",
-                                    "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html")},
-            "GPL-3" = {licencepaste("https://img.shields.io/badge/licence-GPL--3-blue.svg",
-                                    "https://www.gnu.org/licenses/gpl-3.0.en.html")},
-            "MIT" = {licencepaste("https://img.shields.io/github/license/mashape/apistatus.svg",
-                                  "http://choosealicense.com/licenses/mit/")},
-            "CC0" = {licencepaste("https://img.shields.io/badge/licence-CC0-blue.svg",
-                                  "http://choosealicense.com/licenses/cc0-1.0/")}
-    )
+  switch (licencetype,
+          "GPL-2" = {licencepaste("https://img.shields.io/badge/licence-GPL--2-blue.svg",
+                                  "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html")},
+          "GPL-3" = {licencepaste("https://img.shields.io/badge/licence-GPL--3-blue.svg",
+                                  "https://www.gnu.org/licenses/gpl-3.0.en.html")},
+          "MIT" = {licencepaste("https://img.shields.io/github/license/mashape/apistatus.svg",
+                                "http://choosealicense.com/licenses/mit/")},
+          "CC0" = {licencepaste("https://img.shields.io/badge/licence-CC0-blue.svg",
+                                "http://choosealicense.com/licenses/cc0-1.0/")}
+  )
 }
 
 # https://img.shields.io/badge/licence-GPL--3-red.svg
@@ -74,24 +74,21 @@ licbadgebuilder <- function(licencetype){
 #' @examples 
 #' travisbadge(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 #' @export
-travisbadge <- function(ghaccount = "search", ghrepo = "search", branch= "master"){
-    gh_results <- get_remote_reponame_username()
-    if(ghaccount == "search"){
-        ghaccount <- gh_results$username
-    }
-    if(ghrepo == "search"){
-        ghrepo <- gh_results$reponame
-    }
-    if(branch == "search"){
-        branch <- get_branch_name()
-    }
-            referlink <- paste0("https://travis-ci.org/",ghaccount,"/",ghrepo)
-            imagelink <- paste0(referlink, 
-                                ".svg?branch=",branch)
-            badge <-licencepaste(imagelink,referlink, name =  "Build Status")
-            badge
-        
-    
+travisbadge <- function(ghaccount = "search", ghrepo = "search", branch = "master", location = "."){
+  git_info <- search_git(location)
+  if(ghaccount == "search") ghaccount <- git_info$account
+  if(ghrepo == "search") ghrepo  <- git_info$repo
+  if(branch == "search"){
+    #default to master when you can't find something.
+    branch <- git_info()$branch
+  }
+  referlink <- paste0("https://travis-ci.org/", ghaccount,"/", ghrepo)
+  imagelink <- paste0(referlink, 
+                      ".svg?branch=",branch)
+  badge <-licencepaste(imagelink, referlink, name =  "Build Status")
+  badge
+  
+  
 }  
 # -------------------------------------------------------------------------
 
@@ -109,23 +106,20 @@ travisbadge <- function(ghaccount = "search", ghrepo = "search", branch= "master
 #' @examples 
 #' codecovbadge(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 #' @export
-codecovbadge <- function(ghaccount = "search", ghrepo = "search", branch="master" ){
-    gh_results <- get_remote_reponame_username()
-    if(ghaccount == "search"){
-        ghaccount <- gh_results$username
-    }
-    if(ghrepo == "search"){
-        ghrepo <- gh_results$reponame
-    }
-    if(branch == "search"){
-        branch <- get_branch_name()
-        }
-    referlink <- paste0("https://codecov.io/gh/", ghaccount, "/", ghrepo)
-    imagelink <- paste0(referlink, 
-                        "/branch/", branch, 
-                        "/graph/badge.svg" )
-    codecovbadge <-licencepaste(imagelink,referlink, name =  "codecov")
-    codecovbadge
+codecovbadge <- function(ghaccount = "search", ghrepo = "search", branch="master", location = "."){
+  git_info <- search_git(location)
+  if(ghaccount == "search") ghaccount <- git_info$account
+  if(ghrepo == "search") ghrepo  <- git_info$repo
+  if(branch == "search"){
+    #default to master when you can't find something.
+    branch <- git_info()$branch
+  }
+  referlink <- paste0("https://codecov.io/gh/", ghaccount, "/", ghrepo)
+  imagelink <- paste0(referlink, 
+                      "/branch/", branch, 
+                      "/graph/badge.svg" )
+  codecovbadge <-licencepaste(imagelink,referlink, name =  "codecov")
+  codecovbadge
 }
 
 # test:
@@ -145,18 +139,18 @@ codecovbadge <- function(ghaccount = "search", ghrepo = "search", branch="master
 #' @examples
 #' minimal_r_version_badge()
 minimal_r_version_badge <- function(chunk = TRUE){
-    r_chunk <- c(
-        "```{r, echo = FALSE}", 
-        eval(expression("dep <- as.vector(read.dcf('DESCRIPTION')[, 'Depends'])")),
-        eval(expression("m <- regexpr('R *\\\\(>= \\\\d+.\\\\d+.\\\\d+\\\\)', dep)")),
-        eval(expression("rm <- regmatches(dep, m)")),
-        eval(expression("rvers <- gsub('.*(\\\\d+.\\\\d+.\\\\d+).*', '\\\\1', rm)")),
-        "```")
-    img_link <- paste0("https://img.shields.io/badge/R%3E%3D-", "`r rvers`", "-6666ff.svg")
-    referlink <- "https://cran.r-project.org/"
-    result <- c(if(chunk){r_chunk}, 
-                licencepaste(img_link, referlink, name = "minimal R version"))
-    result
+  r_chunk <- c(
+    "```{r, echo = FALSE}", 
+    eval(expression("dep <- as.vector(read.dcf('DESCRIPTION')[, 'Depends'])")),
+    eval(expression("m <- regexpr('R *\\\\(>= \\\\d+.\\\\d+.\\\\d+\\\\)', dep)")),
+    eval(expression("rm <- regmatches(dep, m)")),
+    eval(expression("rvers <- gsub('.*(\\\\d+.\\\\d+.\\\\d+).*', '\\\\1', rm)")),
+    "```")
+  img_link <- paste0("https://img.shields.io/badge/R%3E%3D-", "`r rvers`", "-6666ff.svg")
+  referlink <- "https://cran.r-project.org/"
+  result <- c(if(chunk){r_chunk}, 
+              licencepaste(img_link, referlink, name = "minimal R version"))
+  result
 }
 # https://img.shields.io/badge/R%3E%3D-3.0.0-6666ff.svg
 #
@@ -183,11 +177,11 @@ minimal_r_version_badge <- function(chunk = TRUE){
 #' @examples
 #' cranbadge("dplyr")
 cranbadge <- function(packagename){
-    img_link <- paste0("http://www.r-pkg.org/badges/version/", packagename)
-    refer_link <- paste0("https://cran.r-project.org/package=", packagename)    
-    licencepaste(imagelink =img_link, 
-                 referlink = refer_link,
-                 name = "CRAN_Status_Badge")
+  img_link <- paste0("http://www.r-pkg.org/badges/version/", packagename)
+  refer_link <- paste0("https://cran.r-project.org/package=", packagename)    
+  licencepaste(imagelink =img_link, 
+               referlink = refer_link,
+               name = "CRAN_Status_Badge")
 }
 
 # ----------------------------------------------------------------------
@@ -202,17 +196,17 @@ cranbadge <- function(packagename){
 #' @examples
 #' packageversionbadge()
 packageversionbadge <- function(chunk = TRUE){
-    r_chunk <- c(
-        "```{r, echo = FALSE}", 
-        eval(expression("version <- as.vector(read.dcf('DESCRIPTION')[, 'Version'])")), 
-        "```")
-    img_link <- paste0("https://img.shields.io/badge/Package%20version-", "`r version`", 
-                       "-orange.svg?style=flat-square")
-    referlink <- "commits/master"
-    result <- c(
-        if(chunk){r_chunk}, 
-        licencepaste(img_link, referlink, name = "packageversion"))
-    result
+  r_chunk <- c(
+    "```{r, echo = FALSE}", 
+    eval(expression("version <- as.vector(read.dcf('DESCRIPTION')[, 'Version'])")), 
+    "```")
+  img_link <- paste0("https://img.shields.io/badge/Package%20version-", "`r version`", 
+                     "-orange.svg?style=flat-square")
+  referlink <- "commits/master"
+  result <- c(
+    if(chunk){r_chunk}, 
+    licencepaste(img_link, referlink, name = "packageversion"))
+  result
 }
 
 #https://img.shields.io/badge/Package%20version-0.0.2-orange.svg?style=flat-square
@@ -227,12 +221,12 @@ packageversionbadge <- function(chunk = TRUE){
 #' @family badges
 #' @param location defaults to working directory 
 last_change_badge <- function(location = "."){
-    # gsub("-", "--", Sys.Date())
-    licencepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
-                                    "`r ", "gsub('-', '--', Sys.Date())", "`",
-                                    "-yellowgreen.svg"),
-                 referlink = "/commits/master",
-                 name = "Last-changedate")
+  # gsub("-", "--", Sys.Date())
+  licencepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
+                                  "`r ", "gsub('-', '--', Sys.Date())", "`",
+                                  "-yellowgreen.svg"),
+               referlink = "/commits/master",
+               name = "Last-changedate")
 }
 
 #' Creates last-change badge
@@ -244,11 +238,11 @@ last_change_badge <- function(location = "."){
 #' @family badges
 #' @param location defaults to working directory 
 last_change_badge_static <- function(location = "."){
-    today <- gsub('-', '--', Sys.Date())
-    licencepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
-                                 today,                                     "-yellowgreen.svg"),
-                 referlink = "/commits/master",
-                 name = "Last-changedate")
+  today <- gsub('-', '--', Sys.Date())
+  licencepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
+                                  today,                                     "-yellowgreen.svg"),
+               referlink = "/commits/master",
+               name = "Last-changedate")
 }
 
 
@@ -258,12 +252,11 @@ last_change_badge_static <- function(location = "."){
 #' @param packagename the name of your package
 #' @export
 #' @examples 
-#' rdocumentation_badge("dplyr)
+#' rdocumentation_badge("dplyr")
 rdocumentation_badge <- function(packagename){
-    licencepaste(
-        imagelink = paste0("http://www.rdocumentation.org/badges/version/", packagename),
-        referlink = paste0("http://www.rdocumentation.org/packages/", packagename),
-        name = "Rdoc"
-        
-    )
+  licencepaste(
+    imagelink = paste0("http://www.rdocumentation.org/badges/version/", packagename),
+    referlink = paste0("http://www.rdocumentation.org/packages/", packagename),
+    name = "Rdoc"
+  )
 }
