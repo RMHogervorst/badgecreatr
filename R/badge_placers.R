@@ -147,9 +147,10 @@ codecovbadge <- function(ghaccount = "search", ghrepo = "search", branch="master
 minimal_r_version_badge <- function(chunk = TRUE){
     r_chunk <- c(
         "```{r, echo = FALSE}", 
-        eval(expression("description <- readLines(\"DESCRIPTION\")")), 
-        eval(expression(paste("rvers <- stringr::str_match(grep(\"R \\\\(\", description, value = TRUE),",
-                              "\"[0-9]{1,4}\\\\.[0-9]{1,4}\\\\.[0-9]{1,4}\")[1,1]"))), 
+        eval(expression("dep <- as.vector(read.dcf('DESCRIPTION')[, 'Depends'])")),
+        eval(expression("m <- regexpr('R *\\\\(>= \\\\d+.\\\\d+.\\\\d+\\\\)', dep)")),
+        eval(expression("rm <- regmatches(dep, m)")),
+        eval(expression("rvers <- gsub('.*(\\\\d+.\\\\d+.\\\\d+).*', '\\\\1', rm)")),
         "```")
     img_link <- paste0("https://img.shields.io/badge/R%3E%3D-", "`r rvers`", "-6666ff.svg")
     referlink <- "https://cran.r-project.org/"
@@ -203,9 +204,7 @@ cranbadge <- function(packagename){
 packageversionbadge <- function(chunk = TRUE){
     r_chunk <- c(
         "```{r, echo = FALSE}", 
-        eval(expression("description <- readLines(\"DESCRIPTION\")")), 
-        eval(expression(paste("version <- gsub(\" \", \"\", gsub(\"Version:\", \"\",",
-                              "grep(\"Version:\", description, value = TRUE)))"))),
+        eval(expression("version <- as.vector(read.dcf('DESCRIPTION')[, 'Version'])")), 
         "```")
     img_link <- paste0("https://img.shields.io/badge/Package%20version-", "`r version`", 
                        "-orange.svg?style=flat-square")
