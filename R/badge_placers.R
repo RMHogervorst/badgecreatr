@@ -199,6 +199,7 @@ packageversionbadge <- function(chunk = TRUE){
   r_chunk <- c(
     "```{r, echo = FALSE}", 
     eval(expression("version <- as.vector(read.dcf('DESCRIPTION')[, 'Version'])")), 
+    eval(expression("version <- gsub('-', '.', version)")),
     "```")
   img_link <- paste0("https://img.shields.io/badge/Package%20version-", "`r version`", 
                      "-orange.svg?style=flat-square")
