@@ -29,10 +29,10 @@ badgeplacer <- function(location = ".", status = "active",
     }
     if(branch == "search"){
         #default to master when you can't find something.
-        branch <- git_info()$branch
+        branch <- git_info$branch
     }
     if(branch == ""){branch <- "master"}
-    badge_result <-findbadges(location, name)
+    badge_result <- findbadges(location, name)
     if(sum(sapply(badge_result, length))==0){message("no badges found in readme.")}
     #account <- githubcredentials(account = githubaccount,repo = githubrepo,
                                #  branch = branch)
@@ -54,7 +54,8 @@ badgeplacer <- function(location = ".", status = "active",
                      travisbadge(
                                  ghaccount = githubaccount, 
                                  ghrepo = githubrepo ,
-                                 branch = branch)
+                                 branch = branch,
+                                 location = location)
                  }else message("No .travis.yml file was found, no travis badge will be created")
                                         
             },
@@ -62,7 +63,8 @@ badgeplacer <- function(location = ".", status = "active",
                 if(badge_result$codecov_in_travisfile){
                     codecovbadge(ghaccount = githubaccount, 
                                  ghrepo = githubrepo ,
-                                 branch = branch)
+                                 branch = branch,
+                                 location = location)
                 }else message("There was no .travis.yml or no codecov was set up in travis, no codecovbadge created")
                                        
             },
