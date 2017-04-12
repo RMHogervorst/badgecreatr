@@ -2,19 +2,21 @@
 
 
 #' Give or search for github name and repo.
+#' If you don't put anything here, leaving everything empty,
+#' this function will check the git repository for information.
 #'
-#' @param account accountname or search for
-#' @param repo repositoryname or search for
+#' @param account accountname 
+#' @param repo repositoryname 
 #' @param branch master, develop etc.
 #'
 #' @return markdown text to be placed in readme
-githubcredentials <- function(account = "search", repo = "search", branch = "master"){
-    if(account == "search"){
-        if(repo != "search"){stop("provide accountname and reponame please")}
+githubcredentials <- function(account = NULL, repo = NULL, branch = NULL){
+    if(is.null(account)|is.null(repo)){
+        #if(repo != "search"){stop("provide accountname and reponame please")}
         link <- git2r::remote_url(git2r::repository())
-        credz <- gsub(".git", "", gsub("https://github.com/", "", link))
-        ghaccount <- gsub("/[A-z]{3,}", "", credz)
-        ghrepo <- gsub("[A-z]{3,}/", "", credz)
+        credentials <- gsub(".git", "", gsub("https://github.com/", "", link))
+        ghaccount <- gsub("/[A-z]{3,}", "", credentials)
+        ghrepo <- gsub("[A-z]{3,}/", "", credentials)
         branch <- attr(git2r::branches(flags = "local"), "names")
     }else{
         ghaccount <- account
