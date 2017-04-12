@@ -4,7 +4,8 @@
 \alias{travisbadge}
 \title{Travisbadge creates travis badge.}
 \usage{
-travisbadge(ghaccount = "search", ghrepo = "search", branch = "master")
+travisbadge(ghaccount = "search", ghrepo = "search", branch = "master",
+  location = ".")
 }
 \arguments{
 \item{ghaccount}{githubaccountname}

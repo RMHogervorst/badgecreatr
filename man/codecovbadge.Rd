@@ -4,7 +4,8 @@
 \alias{codecovbadge}
 \title{CodeCoverage ' ' Adds a code cov badge}
 \usage{
-codecovbadge(ghaccount = "search", ghrepo = "search", branch = "master")
+codecovbadge(ghaccount = "search", ghrepo = "search", branch = "master",
+  location = ".")
 }
 \arguments{
 \item{ghaccount}{your github account f.i. "rmhogervorst",you can use "search"}

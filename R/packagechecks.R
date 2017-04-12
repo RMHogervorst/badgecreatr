@@ -20,19 +20,19 @@
 badgeplacer <- function(location = ".", status = "active",  
                         githubaccount = "search", githubrepo = "search", 
                         branch = "search", name = "README.Rmd"){
-    remotenames <- get_remote_reponame_username()
+    git_info <- search_git(location)
     if(githubaccount == "search"){
-        githubaccount <- remotenames$username
+        githubaccount <- git_info$account
     }
     if(githubrepo == "search"){
-        githubrepo  <- remotenames$reponame
+        githubrepo  <- git_info$repo
     }
     if(branch == "search"){
         #default to master when you can't find something.
-        branch <- get_branch_name()
+        branch <- git_info$branch
     }
     if(branch == ""){branch <- "master"}
-    badge_result <-findbadges(location, name)
+    badge_result <- findbadges(location, name)
     if(sum(sapply(badge_result, length))==0){message("no badges found in readme.")}
     #account <- githubcredentials(account = githubaccount,repo = githubrepo,
                                #  branch = branch)
@@ -54,7 +54,8 @@ badgeplacer <- function(location = ".", status = "active",
                      travisbadge(
                                  ghaccount = githubaccount, 
                                  ghrepo = githubrepo ,
-                                 branch = branch)
+                                 branch = branch,
+                                 location = location)
                  }else message("No .travis.yml file was found, no travis badge will be created")
                                         
             },
@@ -62,7 +63,8 @@ badgeplacer <- function(location = ".", status = "active",
                 if(badge_result$codecov_in_travisfile){
                     codecovbadge(ghaccount = githubaccount, 
                                  ghrepo = githubrepo ,
-                                 branch = branch)
+                                 branch = branch,
+                                 location = location)
                 }else message("There was no .travis.yml or no codecov was set up in travis, no codecovbadge created")
                                        
             },

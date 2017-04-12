@@ -17,6 +17,7 @@ be viewed by everyone.
 I've written a blogpost about the package [here](http://rmhogervorst.nl/cleancode/blog/2016/07/08/introducing-badgecreatr-create-and-place-badges-in-readme-rmd.html)
 
 ## Badges or shields
+
 Many projects have shields that signal the status of the project. When you make
 use of continuous integration tools such as [travis-ci](https://docs.travis-ci.com/user/languages/r "a R-specific guide for travis"), you let the service rebuild and retest your package after every
 commit to github. Travis has a badge that signals if the build passed or not. 
@@ -27,6 +28,7 @@ Keep in mind that I don't create all of the badges (only 2 are of my invention),
 this package is just a convenient way to place badges in your readme. 
 
 # Use cases
+
 I realized that I don't often use the package in it's original form anymore, 
 so the use cases might change. I've identified some cases.
 
@@ -37,6 +39,7 @@ so the use cases might change. I've identified some cases.
 - [] scenario 4: you want to add certain badges, essentially a list of badges that you want, regardless of whats already there (so it should ignore badges, ignore if there is a travis file)
 
 ### Scenario 0: add a few loose badges
+
 You just want to add a badge for projectstatus.
 ```{r scen 0}
 library(badgecreatr)
@@ -48,6 +51,7 @@ Other badges could be `last_change_badge_static` This would input the current
 date. 
 
 ### Scenario 1: starting a package with minimal badges
+
 I imagin using this to add some quick badges that you might update later
 but it communicates the basic properties of the package:
 
@@ -75,6 +79,7 @@ Communicate
 
 
 ```{r scen 2}
-dynamic_badges_minimal(licence = "MIT", travisfile = TRUE, codecov = TRUE)
+getwd()
+dynamic_badges_minimal(licence = "MIT", travisfile = TRUE, codecov = TRUE, location = "../")
 ```
 
