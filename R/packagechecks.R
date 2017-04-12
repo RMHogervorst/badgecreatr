@@ -3,7 +3,7 @@
 # 
 ### put badges in readme function
 
-#' Place badges inside readme file
+#' Place badges inside readme .Rmd file
 #' 
 #' This is the main function to add badges to your readme.
 #'
