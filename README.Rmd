@@ -49,13 +49,14 @@ This package does now place the following badges /shields:
 - [x] packageversion (recognize from DESCRIPTION file)
 - [x] last change (this will automagically update everytime you knit your readme.rmd)
 - [x] finds github account and reponame automatically
-- [ ] finds local repo
-
+- [x] finds local repo
+- [x] nr of open issues
+- [x] number of pull requests
+- [x] rdocumentation badge
 
 Possible future badges
 
-- [ ] nr of open issues
-- [ ] number of pull requests
+
 - [ ] number of downloads CRAN
 - [ ] number of dependencies and:
 - [ ] a way to visualize their version

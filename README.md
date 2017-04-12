@@ -1,20 +1,12 @@
-[![Project Status: Active ? The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Licence](https://img.shields.io/badge/licence-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html) [![Build Status](https://travis-ci.org/RMHogervorst/badgecreatr.svg?branch=master)](https://travis-ci.org/RMHogervorst/badgecreatr) [![codecov](https://codecov.io/gh/RMHogervorst/badgecreatr/branch/master/graph/badge.svg)](https://codecov.io/gh/RMHogervorst/badgecreatr)
+[![Project Status: Active ? The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Licence](https://img.shields.io/badge/licence-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html) [![Build Status](https://travis-ci.org/RMHogervorst/badgecreatr.svg?branch=develop)](https://travis-ci.org/RMHogervorst/badgecreatr) [![codecov](https://codecov.io/gh/RMHogervorst/badgecreatr/branch/master/graph/badge.svg)](https://codecov.io/gh/RMHogervorst/badgecreatr)
 
 ------------------------------------------------------------------------
 
-<<<<<<< HEAD
-[![minimal R version](https://img.shields.io/badge/R%3E%3D-3.2.4-6666ff.svg)](https://cran.r-project.org/) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/badgecreatr)](http://cran.r-project.org/package=badgecreatr) [![packageversion](https://img.shields.io/badge/Package%20version-0.1.0-orange.svg?style=flat-square)](commits/master)
-
-------------------------------------------------------------------------
-
-[![Last-changedate](https://img.shields.io/badge/last%20change-2016--07--05-yellowgreen.svg)](/commits/master)
-=======
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.2.4-6666ff.svg)](https://cran.r-project.org/) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/badgecreatr)](https://cran.r-project.org/package=badgecreatr) [![packageversion](https://img.shields.io/badge/Package%20version-0.1.0-orange.svg?style=flat-square)](commits/master)
 
 ------------------------------------------------------------------------
 
-[![Last-changedate](https://img.shields.io/badge/last%20change-2016--07--04-yellowgreen.svg)](/commits/master)
->>>>>>> 6c78ca9... [skip ci]  updated readme to reflect version on CRAN
+[![Last-changedate](https://img.shields.io/badge/last%20change-2017--04--12-yellowgreen.svg)](/commits/master)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 ![badgeimage](badgecreatr4.jpg)
@@ -34,14 +26,17 @@ This package does now place the following badges /shields:
 -   \[x\] cran badge
 -   \[x\] packageversion (recognize from DESCRIPTION file)
 -   \[x\] last change (this will automagically update everytime you knit your readme.rmd)
+-   \[x\] finds github account and reponame automatically
+-   \[x\] finds local repo
+-   \[x\] nr of open issues
+-   \[x\] number of pull requests
+-   \[x\] rdocumentation badge
 
 Possible future badges
 
--   \[\] nr of open issues
--   \[\] number of pull requests
--   \[\] number of downloads CRAN
--   \[\] number of dependencies and:
--   \[\] a way to visualize their version
+-   \[ \] number of downloads CRAN
+-   \[ \] number of dependencies and:
+-   \[ \] a way to visualize their version
 
 Workflow
 ========
@@ -67,7 +62,7 @@ badgecreatr is on [CRAN](https://cran.r-project.org/package=badgecreatr), instal
 
 The newest 'developmental' version is installed with `devtools::install_github("rmhogervorst/badgecreatr")`
 
-use
+Use
 ===
 
 Whenever you have created a readme, use badgeplacer() or don't even load the package I would just call `badgecreatr::badgeplacer(githubaccount = "RMHogervorst",githubrepo = "badgecreatr")` for this package.
@@ -75,9 +70,6 @@ Whenever you have created a readme, use badgeplacer() or don't even load the pac
 And if I would just start with this package I would make a different status:
 
 `badgecreatr::badgeplacer(status = "wip"  ,  githubaccount = "RMHogervorst",githubrepo = "badgecreatr")` Which would make this a work in progress status badge.
-
-Use
-===
 
 You will have to supply the github accountname, repo and branch. I'm working to automatically recognize those.
 
