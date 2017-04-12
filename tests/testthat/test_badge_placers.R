@@ -38,12 +38,12 @@ test_that("all status options work",{
 context("Licence placer")
 # licence placer ####
 test_that("Licence placer works", {
-    expect_match(licbadgebuilder("MIT"), regexp = "license/mashape/apistatus.svg")
-    expect_match(licbadgebuilder("MIT"), regexp = "choosealicense.com/licenses/mit/")
-    expect_match(licbadgebuilder("GPL-3"), regexp = "badge/licence-GPL--3")
-    expect_match(licbadgebuilder("GPL-3"), regexp = "www.gnu.org/licenses/gpl-3.0.en")
-    expect_match(licbadgebuilder("GPL-2"), regexp = "old-licenses/gpl-2.0.html")
-    expect_match(licbadgebuilder("CC0"), regexp = "choosealicense.com/licenses/cc0-1.0/")
+    expect_match(badgecreatr:::licbadgebuilder("MIT"), regexp = "license/mashape/apistatus.svg")
+    expect_match(badgecreatr:::licbadgebuilder("MIT"), regexp = "choosealicense.com/licenses/mit/")
+    expect_match(badgecreatr:::licbadgebuilder("GPL-3"), regexp = "badge/licence-GPL--3")
+    expect_match(badgecreatr:::licbadgebuilder("GPL-3"), regexp = "www.gnu.org/licenses/gpl-3.0.en")
+    expect_match(badgecreatr:::licbadgebuilder("GPL-2"), regexp = "old-licenses/gpl-2.0.html")
+    expect_match(badgecreatr:::licbadgebuilder("CC0"), regexp = "choosealicense.com/licenses/cc0-1.0/")
     
 })
 
@@ -73,8 +73,6 @@ test_that("travisbadge function creates output",{
     expect_match(badge_travis, regexp = "Build" )
     expect_match(badge_travis, regexp = "\\[\\!\\[Build" )
     expect_match(badge_travis, regexp = "ci.org/RMHogervorst/badgecreatr.svg\\?branch=develop")
-    expect_error(travisbadge(ghaccount, ghrepo), 
-    regexp = 'argument "branch" is missing, with no default')
     rm(badge_travis)
     
 })
@@ -133,7 +131,7 @@ test_that("package version badge creates valid markdown and codechunk",{
 context("last change badge")
 # last change badge ####
 test_that("last change badge creates markdown",{
-    badge_lastchange <- last_change_badge()
+    badge_lastchange <- badgecreatr:::last_change_badge()
     expect_match(badge_lastchange, regexp = "\\[\\!\\[Last-changedate")
     expect_match(badge_lastchange, regexp = "Sys.Date()")
     rm(badge_lastchange)

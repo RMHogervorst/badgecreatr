@@ -14,7 +14,7 @@
 # 
 # 
 # 
-# Most badges wil be created with the licencepaste function defined in utils.
+# Most badges wil be created with the badgepaste function defined in utils.
 
 # ------------------------------------------------------------------------
 
@@ -47,13 +47,13 @@ projectstatusbadge <- function(status = NULL){
 #' licbadgebuilder("GPL-3")
 licbadgebuilder <- function(licencetype){
   switch (licencetype,
-          "GPL-2" = {licencepaste("https://img.shields.io/badge/licence-GPL--2-blue.svg",
+          "GPL-2" = {badgepaste("https://img.shields.io/badge/licence-GPL--2-blue.svg",
                                   "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html")},
-          "GPL-3" = {licencepaste("https://img.shields.io/badge/licence-GPL--3-blue.svg",
+          "GPL-3" = {badgepaste("https://img.shields.io/badge/licence-GPL--3-blue.svg",
                                   "https://www.gnu.org/licenses/gpl-3.0.en.html")},
-          "MIT" = {licencepaste("https://img.shields.io/github/license/mashape/apistatus.svg",
+          "MIT" = {badgepaste("https://img.shields.io/github/license/mashape/apistatus.svg",
                                 "http://choosealicense.com/licenses/mit/")},
-          "CC0" = {licencepaste("https://img.shields.io/badge/licence-CC0-blue.svg",
+          "CC0" = {badgepaste("https://img.shields.io/badge/licence-CC0-blue.svg",
                                 "http://choosealicense.com/licenses/cc0-1.0/")}
   )
 }
@@ -85,7 +85,7 @@ travisbadge <- function(ghaccount = "search", ghrepo = "search", branch = "maste
   referlink <- paste0("https://travis-ci.org/", ghaccount,"/", ghrepo)
   imagelink <- paste0(referlink, 
                       ".svg?branch=",branch)
-  badge <-licencepaste(imagelink, referlink, name =  "Build Status")
+  badge <-badgepaste(imagelink, referlink, name =  "Build Status")
   badge
   
   
@@ -118,7 +118,7 @@ codecovbadge <- function(ghaccount = "search", ghrepo = "search", branch="master
   imagelink <- paste0(referlink, 
                       "/branch/", branch, 
                       "/graph/badge.svg" )
-  codecovbadge <-licencepaste(imagelink,referlink, name =  "codecov")
+  codecovbadge <-badgepaste(imagelink,referlink, name =  "codecov")
   codecovbadge
 }
 
@@ -149,7 +149,7 @@ minimal_r_version_badge <- function(chunk = TRUE){
   img_link <- paste0("https://img.shields.io/badge/R%3E%3D-", "`r rvers`", "-6666ff.svg")
   referlink <- "https://cran.r-project.org/"
   result <- c(if(chunk){r_chunk}, 
-              licencepaste(img_link, referlink, name = "minimal R version"))
+              badgepaste(img_link, referlink, name = "minimal R version"))
   result
 }
 # https://img.shields.io/badge/R%3E%3D-3.0.0-6666ff.svg
@@ -179,7 +179,7 @@ minimal_r_version_badge <- function(chunk = TRUE){
 cranbadge <- function(packagename){
   img_link <- paste0("http://www.r-pkg.org/badges/version/", packagename)
   refer_link <- paste0("https://cran.r-project.org/package=", packagename)    
-  licencepaste(imagelink =img_link, 
+  badgepaste(imagelink =img_link, 
                referlink = refer_link,
                name = "CRAN_Status_Badge")
 }
@@ -206,7 +206,7 @@ packageversionbadge <- function(chunk = TRUE){
   referlink <- "commits/master"
   result <- c(
     if(chunk){r_chunk}, 
-    licencepaste(img_link, referlink, name = "packageversion"))
+    badgepaste(img_link, referlink, name = "packageversion"))
   result
 }
 
@@ -220,10 +220,11 @@ packageversionbadge <- function(chunk = TRUE){
 #' Will add a badge containing the current date that changes 
 #' on every reknitting. This is a simple pasting of r code. 
 #' @family badges
-#' @param location defaults to working directory 
+#' @param location defaults to working directory
+#' @export 
 last_change_badge <- function(location = "."){
   # gsub("-", "--", Sys.Date())
-  licencepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
+  badgepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
                                   "`r ", "gsub('-', '--', Sys.Date())", "`",
                                   "-yellowgreen.svg"),
                referlink = "/commits/master",
@@ -240,7 +241,7 @@ last_change_badge <- function(location = "."){
 #' @param location defaults to working directory 
 last_change_badge_static <- function(location = "."){
   today <- gsub('-', '--', Sys.Date())
-  licencepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
+  badgepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
                                   today,                                     "-yellowgreen.svg"),
                referlink = "/commits/master",
                name = "Last-changedate")
@@ -255,9 +256,45 @@ last_change_badge_static <- function(location = "."){
 #' @examples 
 #' rdocumentation_badge("dplyr")
 rdocumentation_badge <- function(packagename){
-  licencepaste(
+  badgepaste(
     imagelink = paste0("http://www.rdocumentation.org/badges/version/", packagename),
     referlink = paste0("http://www.rdocumentation.org/packages/", packagename),
     name = "Rdoc"
   )
 }
+
+
+#' Add a github star badge
+#' 
+#' @export
+github_star_badge <- function(ghaccount = NULL, ghrepo = NULL){
+    if(is.null(ghaccount) | is.null(ghrepo)){
+        account <- githubcredentials()
+        ghaccount <- account$ghaccount
+        ghrepo <- account$ghrepo
+    }
+        
+    badgepaste(
+        imagelink = paste0("http://githubbadges.com/star.svg?user=", ghaccount, "&repo=", ghrepo,"r&style=flat"),
+        referlink = paste0("https://github.com/",ghaccount,"/",ghrepo),
+        name = "star this repo"
+    )
+}
+
+#' Add a github fork badge
+#' 
+#' @export
+github_fork_badge <- function(ghaccount = NULL, ghrepo = NULL){
+    if(is.null(ghaccount) | is.null(ghrepo)){
+        account <- githubcredentials()
+        ghaccount <- account$ghaccount
+        ghrepo <- account$ghrepo
+    }
+    
+    badgepaste(
+        imagelink = paste0("http://githubbadges.com/fork.svg?user=", ghaccount, "&repo=", ghrepo,"r&style=flat"),
+        referlink = paste0("https://github.com/",ghaccount,"/",ghrepo,"/fork"),
+        name = "fork this repo"
+    )
+}
+

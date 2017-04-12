@@ -64,8 +64,8 @@ test_that("travisbadge function does nothing when FALSE",{
 #"[![Licence](https://img.shields.io/badge/licence-GPL--3-red.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)"
 # should return the four different badges.  
 # 
-# licencepaste
+# badgepaste
 # should return valid markdown for image and link. 
-# licencepaste("https://img.shields.io/badge/licence-GPL--3-red.svg",
+# badgepaste("https://img.shields.io/badge/licence-GPL--3-red.svg",
 #"https://www.gnu.org/licenses/gpl-3.0.en.html")
 # 

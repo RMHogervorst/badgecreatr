@@ -11,7 +11,7 @@
 #' @param name what to call the button
 #'
 #' @return markdown
-licencepaste<- function(imagelink, referlink, name= "Licence"){
+badgepaste<- function(imagelink, referlink, name= "Licence"){
     paste0("[![", name,"]","(",imagelink, ")]","(",referlink,")")
 }
 # tests

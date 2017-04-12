@@ -121,7 +121,7 @@ licencebadge <- function(licence = "search", location = "."){
   )
   if(!(licencetype %in% recommended_licenses)){
     message("the licence ", licencetype, " is not recommended for R packages")
-    licencepaste(imagelink = paste0("https://img.shields.io/badge/licence-",
+    badgepaste(imagelink = paste0("https://img.shields.io/badge/licence-",
                                     gsub("-","--", licencetype), "-lightgrey.svg"),
                  referlink = "http://choosealicense.com/")
   } else {
