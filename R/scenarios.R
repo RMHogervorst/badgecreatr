@@ -15,9 +15,9 @@
 #' minimal_badges("abandoned", "GPL-3")
 minimal_badges <- function(status = "concept",licence = "search" ){
     paste0(
-        projectstatusbadge(status = status),
-        licencebadge(licence = licence),
-        last_change_badge_static()
+        badge_projectstatus(status = status),
+        badge_licence(licence = licence),
+        badge_last_change_static()
     )
 }
 
@@ -49,16 +49,16 @@ dynamic_badges_minimal <- function(status = "concept",licence = "search",
         eval(expression("description <- read.dcf('DESCRIPTION')")), 
         eval(expression("version <- as.vector(description[, 'Version'])")),
         "```",
-        projectstatusbadge(status = status),
-        licencebadge(licence = licence),
-        if(last_change){last_change_badge()} ,
-        if(minimal_r_version){minimal_r_version_badge(FALSE)},
-        packageversionbadge(FALSE),
+        badge_projectstatus(status = status),
+        badge_licence(licence = licence),
+        if(last_change){badge_last_change()} ,
+        if(minimal_r_version){badge_minimal_r_version(FALSE)},
+        badge_packageversion(FALSE),
         if(travisfile){
-            travisbadge(location = location)
+            badge_travis(location = location)
         },
         if(codecov){
-            codecovbadge(location = location)
+            badge_codecov(location = location)
         }
         )
     

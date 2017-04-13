@@ -24,9 +24,9 @@
 #' @family badges
 #' @return text to put into rmd
 #' @examples  
-#' projectstatusbadge("unsupported")
+#' badge_projectstatus("unsupported")
 #' @export
-projectstatusbadge <- function(status = NULL){
+badge_projectstatus <- function(status = NULL){
   name <- c("concept", "wip", "suspended", "abandoned", "active", "inactive", "unsupported")
   if(!status %in% name)stop("status needs to be one of concept, wip, suspended, abandoned, active, inactive, unsupported")
   projectstatus <- paste0("http://www.repostatus.org/badges/latest/",status, "_md.txt" )
@@ -72,14 +72,13 @@ licbadgebuilder <- function(licencetype){
 #' @family badges
 #' @return markdown including link to travis image
 #' @examples 
-#' travisbadge(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
+#' badge_travis(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 #' @export
-travisbadge <- function(ghaccount = "search", ghrepo = "search", branch = "master", location = "."){
-  git_info <- search_git(location)
-  if(ghaccount == "search") ghaccount <- git_info$account
-  if(ghrepo == "search") ghrepo  <- git_info$repo
-  if(branch == "search"){
-    #default to master when you can't find something.
+badge_travis <- function(ghaccount = NULL, ghrepo = NULL, branch = NULL, location = "."){
+  git_info <- search_git(location) 
+  if(is.null(ghaccount)) ghaccount <- git_info$account
+  if(is.null(ghrepo) ) ghrepo  <- git_info$repo
+  if(is.null(branch)){
     branch <- git_info()$branch
   }
   referlink <- paste0("https://travis-ci.org/", ghaccount,"/", ghrepo)
@@ -104,9 +103,9 @@ travisbadge <- function(ghaccount = "search", ghrepo = "search", branch = "maste
 #' @param branch the branch, defaults to master, you can use "search"
 #' @family badges
 #' @examples 
-#' codecovbadge(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
+#' badge_codecov(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 #' @export
-codecovbadge <- function(ghaccount = "search", ghrepo = "search", branch="master", location = "."){
+badge_codecov <- function(ghaccount = "search", ghrepo = "search", branch="master", location = "."){
   git_info <- search_git(location)
   if(ghaccount == "search") ghaccount <- git_info$account
   if(ghrepo == "search") ghrepo  <- git_info$repo
@@ -137,8 +136,8 @@ codecovbadge <- function(ghaccount = "search", ghrepo = "search", branch="master
 #' @importFrom stringr str_match
 #' @family badges
 #' @examples
-#' minimal_r_version_badge()
-minimal_r_version_badge <- function(chunk = TRUE){
+#' badge_minimal_r_version()
+badge_minimal_r_version <- function(chunk = TRUE){
   r_chunk <- c(
     "```{r, echo = FALSE}", 
     eval(expression("dep <- as.vector(read.dcf('DESCRIPTION')[, 'Depends'])")),
@@ -152,14 +151,6 @@ minimal_r_version_badge <- function(chunk = TRUE){
               badgepaste(img_link, referlink, name = "minimal R version"))
   result
 }
-# https://img.shields.io/badge/R%3E%3D-3.0.0-6666ff.svg
-#
-#  other option is with an extra image, but I cant't get this to work
-# ?logo=data:https://raw.githubusercontent.com/RMHogervorst/cleancodeexamples/master/images/Rlogo_small_online.png
-# 
-# https://img.shields.io/badge/style-flat--squared-green.svg??logo=data:https://raw.githubusercontent.com/RMHogervorst/cleancodeexamples/master/images/Rlogo_small_online.png
-# ##   ?logo=data:image/png;base64,… 	Insert logo image (≥ 14px high)
-# https://raw.githubusercontent.com/RMHogervorst/cleancodeexamples/master/images/Rlogo_small_online.png
 
 
 # ------------------------------------------------------------------------
@@ -175,8 +166,8 @@ minimal_r_version_badge <- function(chunk = TRUE){
 #' @export
 #' @family badges
 #' @examples
-#' cranbadge("dplyr")
-cranbadge <- function(packagename){
+#' badge_cran("dplyr")
+badge_cran <- function(packagename){
   img_link <- paste0("http://www.r-pkg.org/badges/version/", packagename)
   refer_link <- paste0("https://cran.r-project.org/package=", packagename)    
   badgepaste(imagelink =img_link, 
@@ -194,8 +185,8 @@ cranbadge <- function(packagename){
 #' @export
 #' @family badges
 #' @examples
-#' packageversionbadge()
-packageversionbadge <- function(chunk = TRUE){
+#' badge_packageversion()
+badge_packageversion <- function(chunk = TRUE){
   r_chunk <- c(
     "```{r, echo = FALSE}", 
     eval(expression("version <- as.vector(read.dcf('DESCRIPTION')[, 'Version'])")), 
@@ -210,8 +201,6 @@ packageversionbadge <- function(chunk = TRUE){
   result
 }
 
-#https://img.shields.io/badge/Package%20version-0.0.2-orange.svg?style=flat-square
-
 
 ## -----------------------------------------------------------------------
 
@@ -222,7 +211,7 @@ packageversionbadge <- function(chunk = TRUE){
 #' @family badges
 #' @param location defaults to working directory
 #' @export 
-last_change_badge <- function(location = "."){
+badge_last_change <- function(location = "."){
   # gsub("-", "--", Sys.Date())
   badgepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
                                   "`r ", "gsub('-', '--', Sys.Date())", "`",
@@ -231,7 +220,7 @@ last_change_badge <- function(location = "."){
                name = "Last-changedate")
 }
 
-#' Creates last-change badge
+#' Creates last-change badge static
 #' 
 #' Will add current day to the repo. This function will 
 #' not change when you reknit the readme. If you want that you will 
@@ -239,7 +228,7 @@ last_change_badge <- function(location = "."){
 #' @export
 #' @family badges
 #' @param location defaults to working directory 
-last_change_badge_static <- function(location = "."){
+badge_last_change_static <- function(location = "."){
   today <- gsub('-', '--', Sys.Date())
   badgepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
                                   today,                                     "-yellowgreen.svg"),
@@ -254,8 +243,8 @@ last_change_badge_static <- function(location = "."){
 #' @param packagename the name of your package
 #' @export
 #' @examples 
-#' rdocumentation_badge("dplyr")
-rdocumentation_badge <- function(packagename){
+#' badge_rdocumentation("dplyr")
+badge_rdocumentation <- function(packagename){
   badgepaste(
     imagelink = paste0("http://www.rdocumentation.org/badges/version/", packagename),
     referlink = paste0("http://www.rdocumentation.org/packages/", packagename),
@@ -267,7 +256,7 @@ rdocumentation_badge <- function(packagename){
 #' Add a github star badge
 #' 
 #' @export
-github_star_badge <- function(ghaccount = NULL, ghrepo = NULL){
+badge_github_star <- function(ghaccount = NULL, ghrepo = NULL){
     if(is.null(ghaccount) | is.null(ghrepo)){
         account <- githubcredentials()
         ghaccount <- account$ghaccount
@@ -284,7 +273,7 @@ github_star_badge <- function(ghaccount = NULL, ghrepo = NULL){
 #' Add a github fork badge
 #' 
 #' @export
-github_fork_badge <- function(ghaccount = NULL, ghrepo = NULL){
+badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL){
     if(is.null(ghaccount) | is.null(ghrepo)){
         account <- githubcredentials()
         ghaccount <- account$ghaccount
@@ -298,3 +287,39 @@ github_fork_badge <- function(ghaccount = NULL, ghrepo = NULL){
     )
 }
 
+#' Create a licencebadge
+#' 
+#' when `licence="search"`` this function wil look in your
+#' DESCRIPTION file and search for the "Licence:" part. 
+#' If it matches GPL or MIT a custum badge will be created. 
+#' If it does not match, a general badge will be created with the name of the
+#' licence in grey.
+#'
+#' @param licence License, for example `GPL-3`, `MIT`, etc. Alternatively, `search`.
+#' 
+#' @return markdown
+#' @export
+badge_licence <- function(licence = NULL, location = "."){
+    if(is.null(licence){
+        description <- read.dcf(file.path(location, "DESCRIPTION"))
+        licencetype <- as.vector(description[1, "License"])
+        if(length(licenceinfo) == 0) stop("No licence was described in DESCRIPTION")
+    } else {
+        licencetype <- licence
+    }
+    
+    recommended_licenses <- c(
+        "GPL-2", "GPL-3", #"LGPL-2", "LGPL-2.1", "LGPL-3", 
+        #"AGPL-3", "Artistic-2.0",
+        #"BSD_2_clause", "BSD_3_clause", 
+        "MIT"
+    )
+    if(!(licencetype %in% recommended_licenses)){
+        message("the licence ", licencetype, " is not recommended for R packages")
+        badgepaste(imagelink = paste0("https://img.shields.io/badge/licence-",
+                                      gsub("-","--", licencetype), "-lightgrey.svg"),
+                   referlink = "http://choosealicense.com/")
+    } else {
+        licbadgebuilder(licencetype)
+    }
+}    
