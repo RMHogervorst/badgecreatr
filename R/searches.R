@@ -92,39 +92,3 @@ findbadges <- function(location = ".", name = "README.Rmd"){
 
 ## --------------------------------------------------------------
 
-#' Create a licencebadge
-#' 
-#' when `licence="search"`` this function wil look in your
-#' DESCRIPTION file and search for the "Licence:" part. 
-#' If it matches GPL or MIT a custum badge will be created. 
-#' If it does not match, a general badge will be created with the name of the
-#' licence in grey.
-#'
-#' @param licence License, for example `GPL-3`, `MIT`, etc. Alternatively, `search`.
-#'
-#' @return markdown
-#' @export
-licencebadge <- function(licence = "search", location = "."){
-  if(licence == "search"){
-    description <- read.dcf(file.path(location, "DESCRIPTION"))
-    licencetype <- as.vector(description[1, "License"])
-    if(length(licenceinfo) == 0) stop("No licence was described in DESCRIPTION")
-  } else {
-    licencetype <- licence
-  }
-  
-  recommended_licenses <- c(
-    "GPL-2", "GPL-3", #"LGPL-2", "LGPL-2.1", "LGPL-3", 
-    #"AGPL-3", "Artistic-2.0",
-    #"BSD_2_clause", "BSD_3_clause", 
-    "MIT"
-  )
-  if(!(licencetype %in% recommended_licenses)){
-    message("the licence ", licencetype, " is not recommended for R packages")
-    badgepaste(imagelink = paste0("https://img.shields.io/badge/licence-",
-                                    gsub("-","--", licencetype), "-lightgrey.svg"),
-                 referlink = "http://choosealicense.com/")
-  } else {
-    licbadgebuilder(licencetype)
-  }
-}    
