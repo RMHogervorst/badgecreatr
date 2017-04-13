@@ -13,6 +13,8 @@ badge_travis(ghaccount = NULL, ghrepo = NULL, branch = NULL,
 \item{ghrepo}{githubrepositoryname}
 
 \item{branch}{master, develop etc}
+
+\item{location}{defaults to current location}
 }
 \value{
 markdown including link to travis image

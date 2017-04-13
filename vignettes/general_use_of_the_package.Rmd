@@ -43,7 +43,7 @@ so the use cases might change. I've identified some cases.
 You just want to add a badge for projectstatus.
 ```{r scen 0}
 library(badgecreatr)
-projectstatusbadge("wip") # any of concept, wip, suspended, abandoned, active, inactive, unsupported
+badge_projectstatus("wip") # any of concept, wip, suspended, abandoned, active, inactive, unsupported
 ```
 
 This results in markdown that you can paste into your readme file.
@@ -78,7 +78,8 @@ Communicate
 - codecov badge (when this is specified in the travis file)
 
 
-```{r scen 2}
+```{r scen 2, eval=FALSE}
+## doesn not work yet.
 getwd()
 dynamic_badges_minimal(licence = "MIT", travisfile = TRUE, codecov = TRUE, location = "../")
 ```

@@ -8,6 +8,8 @@ badge_licence(licence = NULL, location = ".")
 }
 \arguments{
 \item{licence}{License, for example `GPL-3`, `MIT`, etc. Alternatively, `search`.}
+
+\item{location}{defaults to current directory}
 }
 \value{
 markdown

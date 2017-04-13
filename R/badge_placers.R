@@ -31,7 +31,7 @@ badge_projectstatus <- function(status = NULL){
 #' @family badges
 #' @return markdown
 #' @examples 
-#' licbadgebuilder("GPL-3")
+#' badgereader:::licbadgebuilder("GPL-3")
 licbadgebuilder <- function(licencetype){
   switch (licencetype,
           "GPL-2" = {badgepaste("https://img.shields.io/badge/licence-GPL--2-blue.svg",
@@ -56,18 +56,21 @@ licbadgebuilder <- function(licencetype){
 #' @param ghaccount githubaccountname
 #' @param ghrepo githubrepositoryname
 #' @param branch master, develop etc
+#' @param location defaults to current location
 #' @family badges
 #' @return markdown including link to travis image
 #' @examples 
 #' badge_travis(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 #' @export
-badge_travis <- function(ghaccount = NULL, ghrepo = NULL, branch = NULL, location = "."){
+badge_travis <- function(ghaccount = NULL, ghrepo = NULL, branch = NULL, 
+                         location = "."){
     credentials<- github_credentials_helper(ghaccount = ghaccount, 
                                             ghrepo = ghrepo,
                                             branch = branch,
                                             location = location
     )
-  referlink <- paste0("https://travis-ci.org/", credetials$ghaccount,"/", credentials$ghrepo)
+  referlink <- paste0("https://travis-ci.org/", credentials$ghaccount,"/", 
+                      credentials$ghrepo)
   imagelink <- paste0(referlink, 
                       ".svg?branch=",credentials$branch)
   badge <-badgepaste(imagelink, referlink, name =  "Build Status")
@@ -84,9 +87,7 @@ badge_travis <- function(ghaccount = NULL, ghrepo = NULL, branch = NULL, locatio
 #' 
 #' Adds codecov badge
 #'
-#' @param ghaccount your github account f.i. "rmhogervorst",you can use "search"
-#' @param ghrepo the name of the repo f.i. "badgecreatr",you can use "search"
-#' @param branch the branch, defaults to master, you can use "search"
+#' @inheritParams badge_travis
 #' @family badges
 #' @examples 
 #' badge_codecov(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
@@ -116,8 +117,7 @@ badge_codecov <- function(ghaccount = NULL, ghrepo = NULL, branch=NULL, location
 #'
 #' @return markdown
 #' @export
-#' 
-#' @importFrom stringr str_match
+#' @param chunk places a r chunk in the readme
 #' @family badges
 #' @examples
 #' badge_minimal_r_version()
@@ -164,7 +164,7 @@ badge_cran <- function(packagename){
 #' 
 #' Place a badge with the version of your package which is automatically read from
 #' your description file.
-#'
+#' @param chunk this argument places a rmarkdown chunk
 #' @return markdown to put into readme.rmd
 #' @export
 #' @family badges
@@ -240,9 +240,11 @@ badge_rdocumentation <- function(packagename){
 
 #' Add a github star badge
 #' 
+#' @inheritParams badge_travis
 #' @export
 #' @family badges
-badge_github_star <- function(ghaccount = NULL, ghrepo = NULL){
+badge_github_star <- function(ghaccount = NULL, ghrepo = NULL, 
+                              branch = NULL, location = NULL){
     credentials<- github_credentials_helper(ghaccount = ghaccount, 
                                             ghrepo = ghrepo,
                                             branch = branch,
@@ -261,12 +263,13 @@ badge_github_star <- function(ghaccount = NULL, ghrepo = NULL){
 
 #' Add a github fork badge
 #' 
+#' @inheritParams badge_travis
 #' @export
 #' @family badges
-badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL){
+badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL, location = NULL){
     credentials<- github_credentials_helper(ghaccount = ghaccount, 
                                             ghrepo = ghrepo,
-                                            branch = branch,
+                                            branch = NULL,
                                             location = location
     )
     
@@ -287,7 +290,7 @@ badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL){
 #' If it matches GPL or MIT a custum badge will be created. 
 #' If it does not match, a general badge will be created with the name of the
 #' licence in grey.
-#'
+#' @param location defaults to current directory
 #' @param licence License, for example `GPL-3`, `MIT`, etc. Alternatively, `search`.
 #' @family badges
 #' @return markdown
@@ -296,7 +299,7 @@ badge_licence <- function(licence = NULL, location = "."){
     if(is.null(licence)){
         description <- read.dcf(file.path(location, "DESCRIPTION"))
         licencetype <- as.vector(description[1, "License"])
-        if(length(licenceinfo) == 0) stop("No licence was described in DESCRIPTION")
+        if(length(licencetype) == 0) stop("No licence was described in DESCRIPTION")
     } else {
         licencetype <- licence
     }

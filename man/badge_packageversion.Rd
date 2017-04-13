@@ -6,6 +6,9 @@
 \usage{
 badge_packageversion(chunk = TRUE)
 }
+\arguments{
+\item{chunk}{this argument places a rmarkdown chunk}
+}
 \value{
 markdown to put into readme.rmd
 }

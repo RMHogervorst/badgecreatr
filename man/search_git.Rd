@@ -6,6 +6,9 @@
 \usage{
 search_git(location = ".")
 }
+\arguments{
+\item{location}{defaults to current location}
+}
 \description{
 a function that checks the remote branches 
 and returns their names.

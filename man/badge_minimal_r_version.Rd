@@ -6,6 +6,9 @@
 \usage{
 badge_minimal_r_version(chunk = TRUE)
 }
+\arguments{
+\item{chunk}{places a r chunk in the readme}
+}
 \value{
 markdown
 }

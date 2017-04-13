@@ -4,7 +4,7 @@
 #' and returns their names.
 #' 
 #' @importFrom git2r repository remotes branches
-
+#' @param location defaults to current location
 search_git <- function(location = "."){
   if(!dir.exists(location)) stop("location is not a folder")
   repo <- tryCatch(git2r::repository(location), error=function(e)e)

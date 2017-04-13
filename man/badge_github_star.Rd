@@ -4,7 +4,17 @@
 \alias{badge_github_star}
 \title{Add a github star badge}
 \usage{
-badge_github_star(ghaccount = NULL, ghrepo = NULL)
+badge_github_star(ghaccount = NULL, ghrepo = NULL, branch = NULL,
+  location = NULL)
+}
+\arguments{
+\item{ghaccount}{githubaccountname}
+
+\item{ghrepo}{githubrepositoryname}
+
+\item{branch}{master, develop etc}
+
+\item{location}{defaults to current location}
 }
 \description{
 Add a github star badge

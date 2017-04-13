@@ -4,7 +4,14 @@
 \alias{badge_github_fork}
 \title{Add a github fork badge}
 \usage{
-badge_github_fork(ghaccount = NULL, ghrepo = NULL)
+badge_github_fork(ghaccount = NULL, ghrepo = NULL, location = NULL)
+}
+\arguments{
+\item{ghaccount}{githubaccountname}
+
+\item{ghrepo}{githubrepositoryname}
+
+\item{location}{defaults to current location}
 }
 \description{
 Add a github fork badge

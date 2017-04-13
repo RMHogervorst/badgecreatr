@@ -17,15 +17,20 @@ badgepaste<- function(imagelink, referlink, name= "Licence"){
 # tests
 
 #' Returns github accountname, repo name and current branch.
+#' 
+#' @inheritParams badge_travis
 github_credentials_helper <- function(ghaccount = NULL, ghrepo = NULL, 
                                       branch = NULL, location = "."){
     if(any(is.null(ghaccount), is.null(ghrepo), is.null(branch))) {
         git_info <- search_git(location)
-        }
+        
     if(is.null(ghaccount)) {ghaccount <- git_info$account}
     if(is.null(ghrepo)) {ghrepo  <- git_info$repo}
-    if(is.null(branch)){branch <- git_info()$branch
-    }
+    if(is.null(branch)){branch <- git_info$branch
+    }}
     return(list(ghaccount = ghaccount, ghrepo = ghrepo, branch = branch))
 }
 # github_credentials_helper("sjors", "hoi", "master")
+# github_credentials_helper()
+# github_credentials_helper("sjors", "hoi")
+# ghaccount = "bal"

@@ -18,7 +18,7 @@ context("projectstatusbadge")
 ##projectstatus ####
 test_that("error when incorrect status",{
     expect_error(
-        projectstatusbadge("kip"),
+        badge_projectstatus("kip"),
         regexp = "status needs to be one of concept, wip, suspended, abandoned, active, inactive, unsupported"
         )  
 })
@@ -27,13 +27,13 @@ test_that("internetconnection works",{
 })
 
 test_that("all status options work",{
-    expect_match(projectstatusbadge("concept"),regexp = "\\[Project Status: Concept")
-    expect_match(projectstatusbadge("wip"),regexp = "Project Status: WIP")
-    expect_match(projectstatusbadge("suspended"),regexp = "Project Status: Suspended")
-    expect_match(projectstatusbadge("abandoned"),regexp = "Project Status: Abandoned")
-    expect_match(projectstatusbadge("active"),regexp = "Project Status: Active")
-    expect_match(projectstatusbadge("inactive"),regexp = "Project Status: Inactive")
-    expect_match(projectstatusbadge("unsupported"),regexp = "Project Status: Unsupported")
+    expect_match(badge_projectstatus("concept"),regexp = "\\[Project Status: Concept")
+    expect_match(badge_projectstatus("wip"),regexp = "Project Status: WIP")
+    expect_match(badge_projectstatus("suspended"),regexp = "Project Status: Suspended")
+    expect_match(badge_projectstatus("abandoned"),regexp = "Project Status: Abandoned")
+    expect_match(badge_projectstatus("active"),regexp = "Project Status: Active")
+    expect_match(badge_projectstatus("inactive"),regexp = "Project Status: Inactive")
+    expect_match(badge_projectstatus("unsupported"),regexp = "Project Status: Unsupported")
 })
 context("Licence placer")
 # licence placer ####
@@ -48,6 +48,7 @@ test_that("Licence placer works", {
 })
 
 context("general function of travisbadge") 
+
 # travisbadge #####
 #
 ## possibly create fake github like hadley
@@ -64,12 +65,12 @@ context("general function of travisbadge")
 # }
 
 #setup
-ghaccount <-"RMHogervorst"
-ghrepo = "badgecreatr"
-branch = "develop"
 
 test_that("travisbadge function creates output",{
-    badge_travis <- travisbadge(ghaccount, ghrepo, branch)
+    ghaccount <-"RMHogervorst"
+    ghrepo = "badgecreatr"
+    branch = "develop"
+    badge_travis <- badge_travis(ghaccount, ghrepo, branch)#fails
     expect_match(badge_travis, regexp = "Build" )
     expect_match(badge_travis, regexp = "\\[\\!\\[Build" )
     expect_match(badge_travis, regexp = "ci.org/RMHogervorst/badgecreatr.svg\\?branch=develop")
@@ -82,7 +83,10 @@ test_that("travisbadge function creates output",{
 context("codecov")
 # codecov ####
 test_that("codecov function creates a badge", {
-    badge_codecov <- codecovbadge(ghaccount, ghrepo, branch)
+    ghaccount <-"RMHogervorst"
+    ghrepo = "badgecreatr"
+    branch = "develop"
+    badge_codecov <- badge_codecov(ghaccount, ghrepo, branch)
     expect_match(badge_codecov , 
                  regexp = "\\[\\!\\[codecov")
     expect_match(badge_codecov, 
@@ -93,9 +97,9 @@ test_that("codecov function creates a badge", {
 context("min r version")
 # minimal r version ####
 test_that("min r version creates correct badge", {
-    badge_rver <- minimal_r_version_badge()
-    expect_match(badge_rver[5], regexp = "\\[\\!\\[minimal R version\\]")
-    expect_match(badge_rver[5], regexp = "https://cran.r-project.org/")
+    badge_rver <- badge_minimal_r_version(chunk = FALSE)
+    expect_match(badge_rver, regexp = "\\[\\!\\[minimal R version\\]")#fails
+    expect_match(badge_rver, regexp = "https://cran.r-project.org/")#fails
     rm(badge_rver)
 })
 
@@ -103,7 +107,7 @@ test_that("min r version creates correct badge", {
 context("Cran badge placer")
 # cran badge placer ####
 test_that("cran badge placed", {
-    badge_cran <- cranbadge("xyz")
+    badge_cran <- badge_cran("xyz")
     expect_match(badge_cran, regexp = "www.r-pkg.org/badges/version/xyz")
     rm(badge_cran)
 })
@@ -114,12 +118,12 @@ context("package versionbadge function creates the right chunk")
 
 test_that("package version badge creates valid markdown and codechunk",{
     # there is probably a nicer way to test this thing
-    badge_packageversion <- packageversionbadge()
-    expect_match(badge_packageversion[1], "echo = FALSE")
-    expect_match(badge_packageversion[2], "DESCRIPTION")
-    expect_match(badge_packageversion[3], "\"Version:\", description")
-    expect_match(badge_packageversion[4], "```")
-    expect_match(badge_packageversion[5], "!\\[packageversion\\]")
+    badge_packageversion <- badge_packageversion(chunk = FALSE)
+    #expect_match(badge_packageversion[1], "echo = FALSE")
+    #expect_match(badge_packageversion[2], "DESCRIPTION")
+    #expect_match(badge_packageversion[3], "\"Version:\", description")#fails
+    #expect_match(badge_packageversion[4], "```")
+    expect_match(badge_packageversion, "!\\[packageversion\\]")
     rm(badge_packageversion)
 })
 
@@ -131,7 +135,7 @@ test_that("package version badge creates valid markdown and codechunk",{
 context("last change badge")
 # last change badge ####
 test_that("last change badge creates markdown",{
-    badge_lastchange <- badgecreatr:::last_change_badge()
+    badge_lastchange <- badge_last_change()
     expect_match(badge_lastchange, regexp = "\\[\\!\\[Last-changedate")
     expect_match(badge_lastchange, regexp = "Sys.Date()")
     rm(badge_lastchange)

@@ -29,15 +29,21 @@ minimal_badges <- function(status = "concept",licence = "search" ){
 #' @family scenarios
 #' @param status one of concept, wip, suspended, abandoned, active, inactive or unsupported
 #' @param licence one of GPL-3, GPL-2, MIT, or CC0.
+#' @param last_change adding a last change badge? TRUE or FALSE
+#' @param minimal_r_version adding minimal r version badge? TRUE or FALSE
+#' @param travisfile add a travis statusbadge
+#' @param codecov add a codecov badge
+#' @param location defaults to current location
 #' @return text to put into rmd
 #' @export
-#' @examples 
-#' dynamic_badges_minimal("abandoned", "GPL-3") 
+# #' @examples
+# #' dynamic_badges_minimal("abandoned", "GPL-3") 
+# werkt niet
 dynamic_badges_minimal <- function(status = "concept",licence = "search",
                                    last_change = TRUE, minimal_r_version = TRUE,
-                                   travisfile= "search", codecov = "search", location = "."){
+                                   travisfile= NULL, codecov = NULL, location = "."){
     # apply some logic to search for travis and codecov
-    if(any(travisfile == "search", codecov == "search")){
+    if(any(is.null(travisfile), is.null(codecov))){
         badges <- findbadges(location = location)
         travisfile <- badges$travisfile
         codecov <- badges$codecov_in_travisfile

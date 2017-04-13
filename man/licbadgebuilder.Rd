@@ -16,7 +16,7 @@ markdown
 Add licence badge
 }
 \examples{
-licbadgebuilder("GPL-3")
+badgereader:::licbadgebuilder("GPL-3")
 }
 \seealso{
 Other badges: \code{\link{badge_codecov}},
