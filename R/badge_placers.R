@@ -62,15 +62,14 @@ licbadgebuilder <- function(licencetype){
 #' badge_travis(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 #' @export
 badge_travis <- function(ghaccount = NULL, ghrepo = NULL, branch = NULL, location = "."){
-  git_info <- search_git(location) 
-  if(is.null(ghaccount)) ghaccount <- git_info$account
-  if(is.null(ghrepo) ) ghrepo  <- git_info$repo
-  if(is.null(branch)){
-    branch <- git_info()$branch
-  }
-  referlink <- paste0("https://travis-ci.org/", ghaccount,"/", ghrepo)
+    credentials<- github_credentials_helper(ghaccount = ghaccount, 
+                                            ghrepo = ghrepo,
+                                            branch = branch,
+                                            location = location
+    )
+  referlink <- paste0("https://travis-ci.org/", credetials$ghaccount,"/", credentials$ghrepo)
   imagelink <- paste0(referlink, 
-                      ".svg?branch=",branch)
+                      ".svg?branch=",credentials$branch)
   badge <-badgepaste(imagelink, referlink, name =  "Build Status")
   badge
   
@@ -92,17 +91,15 @@ badge_travis <- function(ghaccount = NULL, ghrepo = NULL, branch = NULL, locatio
 #' @examples 
 #' badge_codecov(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 #' @export
-badge_codecov <- function(ghaccount = "search", ghrepo = "search", branch="master", location = "."){
-  git_info <- search_git(location)
-  if(ghaccount == "search") ghaccount <- git_info$account
-  if(ghrepo == "search") ghrepo  <- git_info$repo
-  if(branch == "search"){
-    #default to master when you can't find something.
-    branch <- git_info()$branch
-  }
-  referlink <- paste0("https://codecov.io/gh/", ghaccount, "/", ghrepo)
+badge_codecov <- function(ghaccount = NULL, ghrepo = NULL, branch=NULL, location = "."){
+  credentials<- github_credentials_helper(ghaccount = ghaccount, 
+                                          ghrepo = ghrepo,
+                                          branch = branch,
+                                          location = location
+                                          )
+  referlink <- paste0("https://codecov.io/gh/", credentials$ghaccount, "/", credentials$ghrepo)
   imagelink <- paste0(referlink, 
-                      "/branch/", branch, 
+                      "/branch/", credentials$branch, 
                       "/graph/badge.svg" )
   codecovbadge <-badgepaste(imagelink,referlink, name =  "codecov")
   codecovbadge
@@ -246,15 +243,18 @@ badge_rdocumentation <- function(packagename){
 #' @export
 #' @family badges
 badge_github_star <- function(ghaccount = NULL, ghrepo = NULL){
-    if(is.null(ghaccount) | is.null(ghrepo)){
-        account <- githubcredentials()
-        ghaccount <- account$ghaccount
-        ghrepo <- account$ghrepo
-    }
-        
+    credentials<- github_credentials_helper(ghaccount = ghaccount, 
+                                            ghrepo = ghrepo,
+                                            branch = branch,
+                                            location = location
+    )
+      
     badgepaste(
-        imagelink = paste0("http://githubbadges.com/star.svg?user=", ghaccount, "&repo=", ghrepo,"r&style=flat"),
-        referlink = paste0("https://github.com/",ghaccount,"/",ghrepo),
+        imagelink = paste0("http://githubbadges.com/star.svg?user=", 
+                           credentials$ghaccount, "&repo=", credentials$ghrepo,
+                           "r&style=flat"),
+        referlink = paste0("https://github.com/",credentials$ghaccount,"/",
+                           credentials$ghrepo),
         name = "star this repo"
     )
 }
@@ -264,15 +264,18 @@ badge_github_star <- function(ghaccount = NULL, ghrepo = NULL){
 #' @export
 #' @family badges
 badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL){
-    if(is.null(ghaccount) | is.null(ghrepo)){
-        account <- githubcredentials()
-        ghaccount <- account$ghaccount
-        ghrepo <- account$ghrepo
-    }
+    credentials<- github_credentials_helper(ghaccount = ghaccount, 
+                                            ghrepo = ghrepo,
+                                            branch = branch,
+                                            location = location
+    )
     
     badgepaste(
-        imagelink = paste0("http://githubbadges.com/fork.svg?user=", ghaccount, "&repo=", ghrepo,"r&style=flat"),
-        referlink = paste0("https://github.com/",ghaccount,"/",ghrepo,"/fork"),
+        imagelink = paste0("http://githubbadges.com/fork.svg?user=", 
+                           credentials$ghaccount, "&repo=", 
+                           credentials$ghrepo,"r&style=flat"),
+        referlink = paste0("https://github.com/",credentials$ghaccount,"/",
+                           credentials$ghrepo,"/fork"),
         name = "fork this repo"
     )
 }
