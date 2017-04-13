@@ -7,5 +7,11 @@
 \title{badgecreatr}
 \description{
 Create badges in your readme file 
-with a simple function. Run this once and the badges are created.
+with a simple function. 
+Run badgecreatr once and the badges are created.
+Run it again the badges are refreshed.
+}
+\details{
+Other options include badges only and interactive versions
+that change when you re-knit your badges.
 }

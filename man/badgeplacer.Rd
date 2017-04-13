@@ -2,7 +2,7 @@
 % Please edit documentation in R/packagechecks.R
 \name{badgeplacer}
 \alias{badgeplacer}
-\title{Place badges inside readme file}
+\title{Place badges inside readme .Rmd file}
 \usage{
 badgeplacer(location = ".", status = "active", githubaccount = "search",
   githubrepo = "search", branch = "search", name = "README.Rmd")

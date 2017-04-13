@@ -290,7 +290,7 @@ badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL){
 #' @return markdown
 #' @export
 badge_licence <- function(licence = NULL, location = "."){
-    if(is.null(licence){
+    if(is.null(licence)){
         description <- read.dcf(file.path(location, "DESCRIPTION"))
         licencetype <- as.vector(description[1, "License"])
         if(length(licenceinfo) == 0) stop("No licence was described in DESCRIPTION")

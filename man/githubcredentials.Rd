@@ -2,14 +2,16 @@
 % Please edit documentation in R/git_recognition.R
 \name{githubcredentials}
 \alias{githubcredentials}
-\title{Give or search for github name and repo.}
+\title{Give or search for github name and repo.
+If you don't put anything here, leaving everything empty,
+this function will check the git repository for information.}
 \usage{
-githubcredentials(account = "search", repo = "search", branch = "master")
+githubcredentials(account = NULL, repo = NULL, branch = NULL)
 }
 \arguments{
-\item{account}{accountname or search for}
+\item{account}{accountname}
 
-\item{repo}{repositoryname or search for}
+\item{repo}{repositoryname}
 
 \item{branch}{master, develop etc.}
 }
@@ -18,4 +20,6 @@ markdown text to be placed in readme
 }
 \description{
 Give or search for github name and repo.
+If you don't put anything here, leaving everything empty,
+this function will check the git repository for information.
 }
