@@ -1,18 +1,5 @@
 # badge placers  #######################
-# These functions will be called to place a badge in the 
-# readme file. 
-# 
-# I keep the following order (also in test_badge_placers):
-# - project status badge
-# - licence badge
-# - travis badge
-# - codecov badge
-# - minimal r version
-# - cran badge
-# - package version badge
-# - last change.
-# 
-# 
+# These functions create the markdown necessary to display the badges
 # 
 # Most badges wil be created with the badgepaste function defined in utils.
 
@@ -242,6 +229,7 @@ badge_last_change_static <- function(location = "."){
 #' Add a documentation badge, from DataCamp.
 #' @param packagename the name of your package
 #' @export
+#' @family badges
 #' @examples 
 #' badge_rdocumentation("dplyr")
 badge_rdocumentation <- function(packagename){
@@ -256,6 +244,7 @@ badge_rdocumentation <- function(packagename){
 #' Add a github star badge
 #' 
 #' @export
+#' @family badges
 badge_github_star <- function(ghaccount = NULL, ghrepo = NULL){
     if(is.null(ghaccount) | is.null(ghrepo)){
         account <- githubcredentials()
@@ -273,6 +262,7 @@ badge_github_star <- function(ghaccount = NULL, ghrepo = NULL){
 #' Add a github fork badge
 #' 
 #' @export
+#' @family badges
 badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL){
     if(is.null(ghaccount) | is.null(ghrepo)){
         account <- githubcredentials()
@@ -296,7 +286,7 @@ badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL){
 #' licence in grey.
 #'
 #' @param licence License, for example `GPL-3`, `MIT`, etc. Alternatively, `search`.
-#' 
+#' @family badges
 #' @return markdown
 #' @export
 badge_licence <- function(licence = NULL, location = "."){
