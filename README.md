@@ -6,7 +6,7 @@
 
 ------------------------------------------------------------------------
 
-[![Last-changedate](https://img.shields.io/badge/last%20change-2017--04--12-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2017--04--13-yellowgreen.svg)](/commits/master)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 ![badgeimage](badgecreatr4.jpg)
@@ -37,6 +37,8 @@ Possible future badges
 -   \[ \] number of downloads CRAN
 -   \[ \] number of dependencies and:
 -   \[ \] a way to visualize their version
+
+Other changes initiatilzation on readme.md only (without active components)
 
 Workflow
 ========

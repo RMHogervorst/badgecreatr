@@ -61,6 +61,10 @@ Possible future badges
 - [ ] number of dependencies and:
 - [ ] a way to visualize their version
 
+Other changes
+initiatilzation on readme.md only (without active components)
+
+
 
 # Workflow
 I like to use the following workflow:
