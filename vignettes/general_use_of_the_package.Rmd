@@ -32,22 +32,27 @@ this package is just a convenient way to place badges in your readme.
 I realized that I don't often use the package in it's original form anymore, 
 so the use cases might change. I've identified some cases.
 
-- [] scenario 0: you just want to add a few loose badges
-- [] scenario 1: starting a package with minimal badges.
+- [x] scenario 0: you just want to add a few loose badges
+- [x] scenario 1: starting a package with minimal badges.
 - [] scenario 2: base version but with logic added to seperate code part that tracks changes to R version, change date and versions.
 - [] scenario 3: you already have some badges, but you want to add newer ones (cran, rdocumentation, travis, etc).
 - [] scenario 4: you want to add certain badges, essentially a list of badges that you want, regardless of whats already there (so it should ignore badges, ignore if there is a travis file)
+- [] scenario 5: You don't want a RMarkdown file, but a markdown file. Since
+markdown cannot process R, we add badges once.
 
 ### Scenario 0: add a few loose badges
 
 You just want to add a badge for projectstatus.
+All the badges start with badge_. So adding badges is as simple as 
+typing badge_ and looking through the options. 
+
 ```{r scen 0}
 library(badgecreatr)
 badge_projectstatus("wip") # any of concept, wip, suspended, abandoned, active, inactive, unsupported
 ```
 
-This results in markdown that you can paste into your readme file.
-Other badges could be `last_change_badge_static` This would input the current 
+The badge functions result in markdown that you can paste into your readme file.
+This would input the current 
 date. 
 
 ### Scenario 1: starting a package with minimal badges
@@ -60,7 +65,7 @@ but it communicates the basic properties of the package:
 - Last change (static)
 
 ```{r scen 1}
-minimal_badges("concept", "MIT")
+minimal_badges(status = "concept", licence = "MIT",date = "2017-05-17")
 ```
 
 ### Scenario 2: adding dynamic badges to your readme
@@ -78,9 +83,19 @@ Communicate
 - codecov badge (when this is specified in the travis file)
 
 
-```{r scen 2, eval=FALSE}
+```{r scen 2}
 ## doesn not work yet.
 getwd()
 dynamic_badges_minimal(licence = "MIT", travisfile = TRUE, codecov = TRUE, location = "../")
 ```
 
+### Scenario 3: you already have some badges, but you want to add other ones (cran, rdocumentation, travis, etc)
+
+```{r }
+
+```
+
+### scenario 4: you want to add certain badges, essentially a list of badges that you want, regardless of what is already there (so it should ignore badges, ignore if there is a travis file)
+
+### scenario 5: You don't want a RMarkdown file, but a markdown file. 
+Since markdown cannot process R, we add badges once. 

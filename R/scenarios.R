@@ -13,11 +13,11 @@
 #' @export
 #' @examples 
 #' minimal_badges("abandoned", "GPL-3")
-minimal_badges <- function(status = "concept",licence = "search" ){
+minimal_badges <- function(status = "concept",licence = NULL, date = NULL ){
     paste0(
         badge_projectstatus(status = status),
         badge_licence(licence = licence),
-        badge_last_change_static()
+        badge_last_change_static(date = date)
     )
 }
 

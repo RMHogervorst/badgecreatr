@@ -8,13 +8,10 @@ output:
 [![Build Status](https://travis-ci.org/RMHogervorst/badgecreatr.svg?branch=develop)](https://travis-ci.org/RMHogervorst/badgecreatr)
 [![codecov](https://codecov.io/gh/RMHogervorst/badgecreatr/branch/master/graph/badge.svg)](https://codecov.io/gh/RMHogervorst/badgecreatr)
  
----
- 
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.2.4-6666ff.svg)](https://cran.r-project.org/)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/badgecreatr)](https://cran.r-project.org/package=badgecreatr)
-[![packageversion](https://img.shields.io/badge/Package%20version-0.1.0-orange.svg?style=flat-square)](commits/master)
- 
----
+[![packageversion](https://img.shields.io/badge/Package%20version-0.1.0-orange.svg?style=flat-square)](commits/develop)
+
  
 [![Last-changedate](https://img.shields.io/badge/last%20change-`r gsub('-', '--', Sys.Date())`-yellowgreen.svg)](/commits/master)
 
@@ -57,7 +54,7 @@ This package does now place the following badges /shields:
 Possible future badges
 
 
-- [ ] number of downloads CRAN
+- [x] number of downloads CRAN
 - [ ] number of dependencies and:
 - [ ] a way to visualize their version
 
@@ -84,24 +81,18 @@ If you call badgecreatr again when you already have badges, they will be recogni
 
 # Installation
 badgecreatr is on [CRAN](https://cran.r-project.org/package=badgecreatr), 
-install using `install.packages("badgecreatr")`
+install using `install.packages("badgecreatr")`. But is has a flaw that I have fixed in the dev version.
 
 The newest 'developmental' version is installed with 
 `devtools::install_github("rmhogervorst/badgecreatr")`
  
  
 # Use  
-Whenever you have created a readme, use badgeplacer() or don't even load the package 
-I would just call
-`badgecreatr::badgeplacer(githubaccount = "RMHogervorst",githubrepo = "badgecreatr")`
-for this package. 
+You can use this package in multiple ways: add a bunch of badges at once with `badgecreatr::badgeplacer()`,
+or you can add the badges with seperate commands, I have named them all `badge_*` so that autocomplete will
+make it much easier for you to find the correct one. See the 
+[vignette about scenarios of use](inst/doc/general_use_of_the_package.html) for more info.
 
-And if I would just start with this package I would make a different status:
-
-`badgecreatr::badgeplacer(status = "wip"  ,  githubaccount = "RMHogervorst",githubrepo = "badgecreatr")`
-Which would make this a work in progress status badge. 
-
-You will have to supply the github accountname, repo and branch. I'm working to automatically recognize those. 
 
 # Contact
 Want to help or have questions?  

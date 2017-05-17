@@ -45,9 +45,6 @@ licbadgebuilder <- function(licencetype){
   )
 }
 
-# https://img.shields.io/badge/licence-GPL--3-red.svg
-# licbadgebuilder("GPL-3) 
-#"[![Licence](https://img.shields.io/badge/licence-GPL--3-red.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)"
 
 # -------------------------------------------------------------------------
 
@@ -211,11 +208,12 @@ badge_last_change <- function(location = "."){
 #' have to use the link{last_change_badge} function.
 #' @export
 #' @family badges
-#' @param location defaults to working directory 
-badge_last_change_static <- function(location = "."){
-  today <- gsub('-', '--', Sys.Date())
+#' @param date if NULL/empty current date. otherwise use yyyy-mm-dd format
+badge_last_change_static <- function(date){
+  date <- ifelse(is.null(date), Sys.Date(), date)
+  paste_ready_date <- gsub('-', '--', date)
   badgepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
-                                  today,                                     "-yellowgreen.svg"),
+                                paste_ready_date,                                     "-yellowgreen.svg"),
                referlink = "/commits/master",
                name = "Last-changedate")
 }
@@ -285,13 +283,13 @@ badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL, location = NULL){
 
 #' Create a licencebadge
 #' 
-#' when `licence="search"`` this function wil look in your
+#' when `licence= NULL' this function wil look in your
 #' DESCRIPTION file and search for the "Licence:" part. 
 #' If it matches GPL or MIT a custum badge will be created. 
 #' If it does not match, a general badge will be created with the name of the
 #' licence in grey.
 #' @param location defaults to current directory
-#' @param licence License, for example `GPL-3`, `MIT`, etc. Alternatively, `search`.
+#' @param licence License, for example `GPL-3`, `MIT`, etc. Alternatively, leaving it empty will search.
 #' @family badges
 #' @return markdown
 #' @export

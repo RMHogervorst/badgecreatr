@@ -140,3 +140,7 @@ test_that("last change badge creates markdown",{
     expect_match(badge_lastchange, regexp = "Sys.Date()")
     rm(badge_lastchange)
 })
+test_that("last change badge static works",{
+    expect_match(badge_last_change_static("2017-01-02"), "last%20change-2017--01--02")
+    expect_match(badge_last_change_static(), gsub("-", "--", Sys.Date()))
+})
