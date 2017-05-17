@@ -1,16 +1,4 @@
 # unit tests of all the individual placers.
-# 
-# I keep the following order (also in badge_placers):
-# - project status badge
-# - licence badge
-# - travis badge
-# - codecov badge
-# - minimal r version
-# - cran badge
-# - package version badge
-# - last change.
-
-
 
 context("projectstatusbadge")
 # tests: 
@@ -143,4 +131,12 @@ test_that("last change badge creates markdown",{
 test_that("last change badge static works",{
     expect_match(badge_last_change_static("2017-01-02"), "last%20change-2017--01--02")
     expect_match(badge_last_change_static(), gsub("-", "--", Sys.Date()))
+})
+
+context("badge rank")
+test_that("pasting works, really this should work", {
+    badge <- badge_rank("badgecreatr")
+    expect_match(badge, "\\[\\!\\[rpackages.io rank\\]")
+    expect_match(badge, "badge/badgecreatr.svg")
+    expect_match(badge, "www.rpackages.io/package/badgecreatr")
 })

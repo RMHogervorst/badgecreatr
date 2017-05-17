@@ -209,7 +209,7 @@ badge_last_change <- function(location = "."){
 #' @export
 #' @family badges
 #' @param date if NULL/empty current date. otherwise use yyyy-mm-dd format
-badge_last_change_static <- function(date){
+badge_last_change_static <- function(date = NULL){
   date <- ifelse(is.null(date), Sys.Date(), date)
   paste_ready_date <- gsub('-', '--', date)
   badgepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
@@ -317,3 +317,20 @@ badge_licence <- function(licence = NULL, location = "."){
         licbadgebuilder(licencetype)
     }
 }    
+
+#' RPackages.io ranking
+#' 
+#' If this is something you care about, you can add
+#' the current rank of your package to your readme. 
+#' 
+#' @param packagename the name of your package
+#' @family badges
+#' @return markdown
+#' @export
+badge_rank <- function(packagename){
+    badgepaste(
+        imagelink = paste0("https://www.rpackages.io/badge/", packagename, ".svg"),
+        referlink = paste0("https://www.rpackages.io/package/", packagename),
+        name = "rpackages.io rank"
+    )
+}
