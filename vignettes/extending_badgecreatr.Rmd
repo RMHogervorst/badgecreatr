@@ -1,0 +1,91 @@
+---
+title: "Extending badgecreatr"
+author: "Roel M. hogervorst"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Extending badgecreatr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+Since more then two people make use of this project, let me tell you how to extend this package.
+
+This package creates markdown and in some cases rmarkdown chunks. These chunks are displayed in 
+nicely formated html because code sharing websites such as Github, Gitlab and Bitbucket display
+markdown files in the browser. It is very useful. 
+
+# Overview
+There are three types of functions. 
+
+1. functions that create a chunk of markdown: they all start with `badge_*`. 
+2. There are also functions that search for information in your DESCRIPTION file, or other files such as `travis.yml`.
+3. Finally a third kind of function that places badges in a document, either a README.Rmd or README.md. 
+
+I previously used clunky and ugly code to do the search and placement actions. But I try to seperate 
+that all out into simple functions.
+
+
+## 1. Adding a badge
+If you have a badge that you would like to add, fork the project and modify `R/badges.R` , 
+`tests/testthat/test_badges.R`, and `changelog.md`. Then give me a pull-request to add it to the project.
+
+A badge needs:
+
+* *A function that starts with 'badge_'.*  All badges have the following structure:
+
+```
+[![name of badge](link to image)](clickable link)  # for example:
+[![Licence](https://img.shields.io/badge/licence-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)`
+```
+There is an internal function `badgepaste(imagelink = ,referlink = ,name = )` that makes this easy:
+````
+badgepaste(imagelink = "https://img.shields.io/badge/licence-GPL--3-blue.svg",
+referlink = "https://www.gnu.org/licenses/gpl-3.0.en.html",
+name = "Licence")
+```
+
+* *A unit test in `test_badges.R`* Add and modify the following code to test your function.
+Usually you only need to test if the link to the image is what you expect, you can assume that `badgepaste` works.
+
+```
+context("name of badge")
+test_that("description of test", {
+    badge <- your_badge_function("badgecreatr") # if you do multiple tests, this might help.
+    expect_match(badge, "\\[\\!\\[rpackages.io rank\\]") # here I test all the parts 
+    expect_match(badge, "badge/badgecreatr.svg")
+    expect_match(badge, "www.rpackages.io/package/badgecreatr")
+})
+```
+
+* *Documentation* We use [roxygen](http://r-pkgs.had.co.nz/man.html#roxygen-comments "Hadley Wickham's book about writing packages, page documentation") to document our functions. Minimal requirements are:
+
+1. title
+2. description
+3. `@param, @family badges, @return (markdown or Rmarkdown), @export (otherwise you can't use it`
+
+Like:
+```
+#' A title
+#' 
+#' A description of what this is.
+#' @param argument describe what this argument does, and defaults to
+#' @family badges
+#' @return markdown / Rmarkdown
+#' @export
+badge_yourfunction <- function(argument){
+    your function details
+}
+```
+
+* *a line in the changelog* that has your name and the name of the badge: `- badge for ... badge_name, by @githubname and full name if you like.`
+
+## 2. Adding search functions
+I don't have any requirements, except a test that shows when it breaks.
+
+## 3. Adding badge placers
+Add a test that shows when this function breaks.
+
+
+# Thank you !
+
