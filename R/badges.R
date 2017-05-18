@@ -9,7 +9,7 @@
 #'
 #' @param status one of concept, wip, suspended, abandoned, active, inactive or unsupported
 #' @family badges
-#' @return text to put into rmd
+#' @return markdown
 #' @examples  
 #' badge_projectstatus("unsupported")
 #' @export
@@ -55,7 +55,7 @@ licbadgebuilder <- function(licencetype){
 #' @param branch master, develop etc
 #' @param location defaults to current location
 #' @family badges
-#' @return markdown including link to travis image
+#' @return markdown
 #' @examples 
 #' badge_travis(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 #' @export
@@ -86,6 +86,7 @@ badge_travis <- function(ghaccount = NULL, ghrepo = NULL, branch = NULL,
 #'
 #' @inheritParams badge_travis
 #' @family badges
+#' @return markdown
 #' @examples 
 #' badge_codecov(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 #' @export
@@ -103,11 +104,7 @@ badge_codecov <- function(ghaccount = NULL, ghrepo = NULL, branch=NULL, location
   codecovbadge
 }
 
-# test:
-# ghaccount <- "RMHogervorst"
-# ghrepo <- "badgecreatr"
-# branch <- "master"
-# codecovbadge(ghaccount, ghrepo, branch)
+
 # -----------------------------------------------------------------------
 
 #' Display the minimal R version
@@ -116,6 +113,7 @@ badge_codecov <- function(ghaccount = NULL, ghrepo = NULL, branch=NULL, location
 #' @export
 #' @param chunk places a r chunk in the readme
 #' @family badges
+#' @return Rmarkdown
 #' @examples
 #' badge_minimal_r_version()
 badge_minimal_r_version <- function(chunk = TRUE){
@@ -144,7 +142,7 @@ badge_minimal_r_version <- function(chunk = TRUE){
 #' One of the metacran badges. 
 #' @param packagename the name of your package 
 #'
-#' @return markdown to put into readme
+#' @return markdown
 #' @export
 #' @family badges
 #' @examples
@@ -165,7 +163,7 @@ badge_cran <- function(packagename){
 #' One of the metacran badges. 
 #' @param packagename the name of your package 
 #'
-#' @return markdown to put into readme
+#' @return markdown
 #' @export
 #' @family badges
 #' @examples
@@ -185,6 +183,7 @@ badge_cran_version_ago <- function(packagename){
 #' @inheritParams badge_cran_version_ago
 #' @export
 #' @family badges
+#' @return markdown
 #' @examples
 #' badge_cran_version_release("dplyr")
 badge_cran_version_release <- function(packagename){
@@ -201,6 +200,7 @@ badge_cran_version_release <- function(packagename){
 #' @inheritParams badge_cran_version_ago
 #' @export
 #' @family badges
+#' @return markdown
 #' @examples
 #' badge_cran_ago("dplyr")
 badge_cran_ago <- function(packagename){
@@ -217,6 +217,7 @@ badge_cran_ago <- function(packagename){
 #' @inheritParams badge_cran_version_ago
 #' @export
 #' @family badges
+#' @return markdown
 #' @examples
 #' badge_cran_date("dplyr")
 badge_cran_date <- function(packagename){
@@ -236,6 +237,7 @@ badge_cran_date <- function(packagename){
 #' @param packagename name of the package
 #' @param period defaults to month, other options are last-week, last-day, grand-total
 #' @export
+#' @return markdown
 #' @examples
 #' badge_cran_downloads("dplyr", period = "last-week")
 badge_cran_downloads <- function(packagename, period = NULL){
@@ -257,7 +259,7 @@ badge_cran_downloads <- function(packagename, period = NULL){
 #' Place a badge with the version of your package which is automatically read from
 #' your description file.
 #' @param chunk this argument places a rmarkdown chunk
-#' @return markdown to put into readme.rmd
+#' @return Rmarkdown
 #' @export
 #' @family badges
 #' @examples
@@ -286,6 +288,7 @@ badge_packageversion <- function(chunk = TRUE){
 #' on every reknitting. This is a simple pasting of r code. 
 #' @family badges
 #' @param location defaults to working directory
+#' @return Rmarkdown
 #' @export 
 badge_last_change <- function(location = "."){
   # gsub("-", "--", Sys.Date())
@@ -303,6 +306,7 @@ badge_last_change <- function(location = "."){
 #' have to use the link{last_change_badge} function.
 #' @export
 #' @family badges
+#' @return markdown
 #' @param date if NULL/empty current date. otherwise use yyyy-mm-dd format
 badge_last_change_static <- function(date = NULL){
   date <- ifelse(is.null(date), Sys.Date(), date)
@@ -320,6 +324,7 @@ badge_last_change_static <- function(date = NULL){
 #' @param packagename the name of your package
 #' @export
 #' @family badges
+#' @return markdown
 #' @examples 
 #' badge_rdocumentation("dplyr")
 badge_rdocumentation <- function(packagename){
@@ -336,6 +341,7 @@ badge_rdocumentation <- function(packagename){
 #' @inheritParams badge_travis
 #' @export
 #' @family badges
+#' @return markdown
 badge_github_star <- function(ghaccount = NULL, ghrepo = NULL, 
                               branch = NULL, location = NULL){
     credentials<- github_credentials_helper(ghaccount = ghaccount, 
@@ -359,6 +365,7 @@ badge_github_star <- function(ghaccount = NULL, ghrepo = NULL,
 #' @inheritParams badge_travis
 #' @export
 #' @family badges
+#' @return markdown
 badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL, location = NULL){
     credentials<- github_credentials_helper(ghaccount = ghaccount, 
                                             ghrepo = ghrepo,
