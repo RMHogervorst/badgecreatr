@@ -135,12 +135,13 @@ badge_minimal_r_version <- function(chunk = TRUE){
 
 
 # ------------------------------------------------------------------------
-# [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/roxygen2)]
-# (http://cran.r-project.org/package=roxygen2)
-# cran badge
 
-#' Add a badge for cran
-#'
+#' Add a badge for CRAN
+#' 
+#' Shows the version number of the package on CRAN, 
+#' or “not published” if the package is not published on CRAN.
+#' See \url{https://r-pkg.org/services#badges}
+#' One of the metacran badges. 
 #' @param packagename the name of your package 
 #'
 #' @return markdown to put into readme
@@ -155,6 +156,100 @@ badge_cran <- function(packagename){
                referlink = refer_link,
                name = "CRAN_Status_Badge")
 }
+
+# Variations on CRAN versions and release dates. ------------------
+
+#' CRAN version and release in time
+#' 
+#' See \url{https://r-pkg.org/services#badges}
+#' One of the metacran badges. 
+#' @param packagename the name of your package 
+#'
+#' @return markdown to put into readme
+#' @export
+#' @family badges
+#' @examples
+#' badge_cran_version_ago("dplyr")
+badge_cran_version_ago <- function(packagename){
+    img_link <- paste0("http://www.r-pkg.org/badges/version-ago/", packagename)
+    refer_link <- paste0("https://cran.r-project.org/package=", packagename)    
+    badgepaste(imagelink =img_link, 
+               referlink = refer_link,
+               name = "CRAN_Status_Badge_version_ago")
+    
+}
+
+
+#' CRAN version and date of release
+#' 
+#' @inheritParams badge_cran_version_ago
+#' @export
+#' @family badges
+#' @examples
+#' badge_cran_version_release("dplyr")
+badge_cran_version_release <- function(packagename){
+    img_link <- paste0("http://www.r-pkg.org/badges/version-last-release/", packagename)
+    refer_link <- paste0("https://cran.r-project.org/package=", packagename)    
+    badgepaste(imagelink =img_link, 
+               referlink = refer_link,
+               name = "CRAN_Status_Badge_version_last_release")
+    
+}
+
+#' CRAN time ago released
+#' 
+#' @inheritParams badge_cran_version_ago
+#' @export
+#' @family badges
+#' @examples
+#' badge_cran_ago("dplyr")
+badge_cran_ago <- function(packagename){
+    img_link <- paste0("http://www.r-pkg.org/badges/ago/", packagename)
+    refer_link <- paste0("https://cran.r-project.org/package=", packagename)    
+    badgepaste(imagelink =img_link, 
+               referlink = refer_link,
+               name = "CRAN_time_from_release")
+    
+}
+
+#http://www.r-pkg.org/badges/last-release/{package} 
+#' CRAN release date of current version. 
+#' @inheritParams badge_cran_version_ago
+#' @export
+#' @family badges
+#' @examples
+#' badge_cran_date("dplyr")
+badge_cran_date <- function(packagename){
+    img_link <- paste0("http://www.r-pkg.org/badges/last-release/", packagename)
+    refer_link <- paste0("https://cran.r-project.org/package=", packagename)    
+    badgepaste(imagelink =img_link, 
+               referlink = refer_link,
+               name = "CRAN_latest_release_date")
+}
+
+
+#' Add a badge for downloads from CRAN
+#' 
+#' Display the number of downloads from CRAN. Use
+#' last-week, last-day, or grand-total, defaults to montly.
+#' 
+#' @param packagename name of the package
+#' @param period defaults to month, other options are last-week, last-day, grand-total
+#' @export
+#' @examples
+#' badge_cran_downloads("dplyr", period = "last-week")
+badge_cran_downloads <- function(packagename, period = NULL){
+    if(is.null(period)){
+        paste_thing <-  packagename
+        }else{
+            if(!period %in% c("last-week", "last-day","grand-total"))stop("Use last-week, last-day, or grand-total for period")
+            paste_thing <- paste0(period, "/",packagename)
+        }# do something with missing
+    badgepaste(imagelink = paste0("http://cranlogs.r-pkg.org/badges/",paste_thing),
+               referlink = paste0("https://cran.r-project.org/package=", packagename),
+               name = "metacran downloads")
+}
+
 
 # ----------------------------------------------------------------------
 #' Place a badge with the version of your package.

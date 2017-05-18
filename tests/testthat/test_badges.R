@@ -92,12 +92,20 @@ test_that("min r version creates correct badge", {
 })
 
 
-context("Cran badge placer")
+context("Cran badges")
 # cran badge placer ####
 test_that("cran badge placed", {
     badge_cran <- badge_cran("xyz")
     expect_match(badge_cran, regexp = "www.r-pkg.org/badges/version/xyz")
     rm(badge_cran)
+})
+
+test_that("other cran badges links are correct", {
+    expect_match(badge_cran_version_ago("xyz"), "www.r-pkg.org/badges/version-ago/xyz")
+    expect_match(badge_cran_version_release("xyz"), "www.r-pkg.org/badges/version-last-release/xyz")
+    expect_match(badge_cran_downloads("xyz", period = "last-week"), "cranlogs.r-pkg.org/badges/last-week/xyz")
+    expect_match(badge_cran_downloads("xyz"), "cranlogs.r-pkg.org/badges/xyz")
+    expect_match(badge_cran_ago("xyz"), "cranlogs.r-pkg.org/badges/xyz")
 })
 
 # packageversion ####
