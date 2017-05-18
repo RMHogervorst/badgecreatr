@@ -31,7 +31,7 @@ badge_projectstatus <- function(status = "concept"){
 #' @family badges
 #' @return markdown
 #' @examples 
-#' badgereader:::licbadgebuilder("GPL-3")
+#' badgecreatr:::licbadgebuilder("GPL-3")
 licbadgebuilder <- function(licencetype){
   switch (licencetype,
           "GPL-2" = {badgepaste("https://img.shields.io/badge/licence-GPL--2-blue.svg",
@@ -309,10 +309,10 @@ badge_last_change <- function(location = "."){
 #' @return markdown
 #' @param date if NULL/empty current date. otherwise use yyyy-mm-dd format
 badge_last_change_static <- function(date = NULL){
-  date <- ifelse(is.null(date), Sys.Date(), date)
-  paste_ready_date <- gsub('-', '--', date)
+  date_1 <- ifelse(is.null(date), as.character(Sys.Date()), date)
+  paste_ready_date <- gsub('-', '--', date_1)
   badgepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
-                                paste_ready_date,                                     "-yellowgreen.svg"),
+                                paste_ready_date,"-yellowgreen.svg"),
                referlink = "/commits/master",
                name = "Last-changedate")
 }
