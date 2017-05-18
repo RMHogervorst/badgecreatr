@@ -7,15 +7,15 @@
 
 #' Add project status badge
 #'
-#' @param status one of concept, wip, suspended, abandoned, active, inactive or unsupported
+#' @param status one of concept, wip, suspended, abandoned, active, inactive, unsupported, or moved
 #' @family badges
 #' @return markdown
 #' @examples  
 #' badge_projectstatus("unsupported")
 #' @export
-badge_projectstatus <- function(status = NULL){
-  name <- c("concept", "wip", "suspended", "abandoned", "active", "inactive", "unsupported")
-  if(!status %in% name)stop("status needs to be one of concept, wip, suspended, abandoned, active, inactive, unsupported")
+badge_projectstatus <- function(status = "concept"){
+  name <- c("concept", "wip", "suspended", "abandoned", "active", "inactive", "unsupported", "moved")
+  if(!status %in% name)stop("status needs to be one of concept, wip, suspended, abandoned, active, inactive, unsupported, or moved")
   projectstatus <- paste0("http://www.repostatus.org/badges/latest/",status, "_md.txt" )
   repostatus <- readLines(con = projectstatus, encoding = "UTF-8" )
   #repostatus <- readLines(textConnection(projectstatus, encoding="UTF-8"), encoding="UTF-8")
