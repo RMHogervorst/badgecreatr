@@ -18,16 +18,16 @@
 #' @export
 #'
 badgeplacer <- function(location = ".", status = "active",  
-                        githubaccount = "search", githubrepo = "search", 
-                        branch = "search", name = "README.Rmd"){
+                        githubaccount = NULL, githubrepo = NULL, 
+                        branch = NULL, name = "README.Rmd"){
     git_info <- search_git(location)
-    if(githubaccount == "search"){
+    if(is.null(githubaccount)){
         githubaccount <- git_info$account
     }
-    if(githubrepo == "search"){
+    if(is.null(githubrepo)){
         githubrepo  <- git_info$repo
     }
-    if(branch == "search"){
+    if(is.null(branch)){
         #default to master when you can't find something.
         branch <- git_info$branch
     }
