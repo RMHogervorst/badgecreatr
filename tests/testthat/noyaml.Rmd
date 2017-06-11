@@ -1,3 +1,0 @@
-#this document does not contain any yaml
-
-No really, none at all

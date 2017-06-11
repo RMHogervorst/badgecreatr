@@ -1,0 +1,34 @@
+---
+title: "Overview of all badges"
+author: "Roel M. Hogervorst"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Overview of all badges}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This is an overview of all available badges.
+
+# Build and code quality badges
+
+Travis
+
+Code cov
+
+last change last_change_badge()
+
+license licensebadge()
+
+# Badges related to the package itself
+minimal R version minimal_r_version_badge()
+
+current package version  packageversionbadge()
+
+rdocumentation rdocumentation_badge()
+
+CRAN cranbadge("badgecreatr")
+
+
+

@@ -2,19 +2,18 @@
 % Please edit documentation in R/searches.R
 \name{findbadges}
 \alias{findbadges}
-\title{What badges are already found in the Readme document}
+\title{What badges are already found in the \code{README.Rmd} document}
 \usage{
 findbadges(location = ".", name = "README.Rmd")
 }
 \arguments{
-\item{location}{where should we search for readme.rmd?}
+\item{location}{where should we search for \code{README.Rmd}?}
 
-\item{name}{which file to place badges in defaults to README.Rmd}
+\item{name}{which file to place badges in defaults to \code{README.Rmd}}
 }
 \value{
 list of locations inside of readme
 }
 \description{
-What badges are already found in the Readme document
+What badges are already found in the \code{README.Rmd} document
 }
-

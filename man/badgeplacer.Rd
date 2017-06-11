@@ -2,10 +2,10 @@
 % Please edit documentation in R/packagechecks.R
 \name{badgeplacer}
 \alias{badgeplacer}
-\title{Place badges inside readme file}
+\title{Place badges inside a readme.Rmd file}
 \usage{
-badgeplacer(location = ".", status = "active", githubaccount = "search",
-  githubrepo = "search", branch = "master", name = "README.Rmd")
+badgeplacer(location = ".", status = "active", githubaccount = NULL,
+  githubrepo = NULL, branch = NULL, name = "README.Rmd")
 }
 \arguments{
 \item{location}{folder where readme.rmd resides}
@@ -18,7 +18,7 @@ badgeplacer(location = ".", status = "active", githubaccount = "search",
 
 \item{branch}{master, develop, etc.}
 
-\item{name}{which file to place badges in defaults to README.Rmd}
+\item{name}{which file to place badges in, defaults to README.Rmd}
 }
 \value{
 readme file with added badges
@@ -26,4 +26,3 @@ readme file with added badges
 \description{
 This is the main function to add badges to your readme.
 }
-

@@ -1,18 +1,21 @@
 Package: badgecreatr
 Title: Create Badges for 'Travis', 'Repostatus' 'Codecov.io' Etc in Github Readme
-Version: 0.1.0.9000
+Version: 0.2.0
 Authors@R: person("Roel M.", "Hogervorst", email ="hogervorst.rm@gmail.com", role = c("cre", "aut"))
 Description: Tired of copy and pasting almost identical markdown for badges in
-    every new R package that you create on Github? 
-    This package will search your DESCRIPTION file and extract the package name,
-    licence, R-version, and current projectversion and transform that into 
+    every new R-package that you create, on Github or other code-sharing sites? 
+    This package allows you to easily paste badges. If you want to, it will also search 
+    your DESCRIPTION file and extract the package name,
+    license, R-version, and current projectversion and transform that into 
     badges. It will also search for a .travis.yml file and create a 'Travis' badge,
     if you use 'Codecov.io' to check your code coverage after a 'Travis' build 
-    this package will also build a 'Codecov.io'-badge. All the badges will be 
-    placed below the top YAML content of your Rmarkdown file (Readme.Rmd). 
-    Currently creates badges for  Projectstatus (Repostatus.org), licence
-    travis build status, codecov, minimal R version, CRAN status, 
-    current version of your package and last change of Readme.Rmd.
+    this package will also build a 'Codecov.io'-badge. All the badges can be placed
+    individually or can be placed below the top YAML content of your RMarkdown 
+    file (Readme.Rmd) or README.md file. 
+    Currently creates badges for  Projectstatus (Repostatus.org), license
+    travis build status, codecov, minimal R version, CRAN status, CRAN downloads, 
+    github stars and forks, package rank, rdocumentation, 
+    current version of your package and last change of README.Rmd.
 Depends:
     R (>= 3.2.4)
 License: GPL-3
@@ -21,7 +24,11 @@ LazyData: true
 URL: https://github.com/RMHogervorst/badgecreatr
 BugReports: https://github.com/RMHogervorst/badgecreatr/issues
 Suggests:
-    testthat
-RoxygenNote: 5.0.1
-Imports: 
-    stringr
+    testthat,
+    knitr,
+    rmarkdown
+RoxygenNote: 6.0.1
+Roxygen: list(markdown = TRUE)
+Imports:
+    git2r
+VignetteBuilder: knitr
