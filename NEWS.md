@@ -15,7 +15,7 @@ This project tries to adhere to [Semantic Versioning](http://semver.org/).
 
 This version of badgecreatr has breaking changes with previous versions.
 It was a major overhaul of the badgecreatr package with help from Florian Privé, Stephanie Locke,
-and Andrie de Vries. I realized I never used the package as I originally intended, but I added one or two
+and Andrie de Vries. I realized I never used the package as I originally intended, but I usually added one or two
 badges by name. So I have exported all the functions for interactive use. And added new badges.
 To help others I have added a vignette that describes how to add new badges.
 
@@ -41,12 +41,13 @@ badge_cran_*
 
 
 ### Removed
-- dependency on stringr @andrie
+- dependency on stringr Thanks to Andrie de Vries (@andrie )
 
 ### Deprecated 
 - **old function names ending in `*badge`:** projectstatusbadge, travisbadge,
 codecovbadge, minimal_r_version_badge, cranbadge, packageversionbadge, and
 last_change_badge.
+The use of the word licence (I have changed all the words to the spelling "license", US spelling)
 
 
 ### Fixed 

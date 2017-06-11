@@ -2,7 +2,7 @@
 % Please edit documentation in R/badges.R
 \name{badge_last_change}
 \alias{badge_last_change}
-\title{creates last-change badge}
+\title{Creates last-change badge}
 \usage{
 badge_last_change(location = ".")
 }
@@ -14,7 +14,7 @@ Rmarkdown
 }
 \description{
 Will add a badge containing the current date that changes
-on every reknitting. This is a simple pasting of r code.
+on every reknitting. This is a simple pasting of r-code.
 }
 \seealso{
 Other badges: \code{\link{badge_codecov}},
@@ -26,7 +26,7 @@ Other badges: \code{\link{badge_codecov}},
   \code{\link{badge_github_fork}},
   \code{\link{badge_github_star}},
   \code{\link{badge_last_change_static}},
-  \code{\link{badge_licence}},
+  \code{\link{badge_license}},
   \code{\link{badge_minimal_r_version}},
   \code{\link{badge_packageversion}},
   \code{\link{badge_projectstatus}},

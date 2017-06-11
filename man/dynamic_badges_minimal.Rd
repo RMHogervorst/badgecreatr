@@ -4,14 +4,14 @@
 \alias{dynamic_badges_minimal}
 \title{Add dynamic content to readme}
 \usage{
-dynamic_badges_minimal(status = "concept", licence = NULL,
+dynamic_badges_minimal(status = "concept", license = NULL,
   last_change = TRUE, minimal_r_version = TRUE, travisfile = NULL,
   codecov = NULL, location = ".")
 }
 \arguments{
 \item{status}{one of concept, wip, suspended, abandoned, active, inactive or unsupported}
 
-\item{licence}{one of GPL-3, GPL-2, MIT, or CC0.}
+\item{license}{one of GPL-3, GPL-2, MIT, or CC0.}
 
 \item{last_change}{adding a last change badge? TRUE or FALSE}
 
@@ -24,12 +24,12 @@ dynamic_badges_minimal(status = "concept", licence = NULL,
 \item{location}{defaults to current location}
 }
 \value{
-text to put into rmd
+text to put into rmd file
 }
 \description{
 This function returns markdown that you must place in the readme. This is
 dynamic content. This function returns a RMarkdown piece that does some
-calculation and a set of badges underneath.
+calculation and a set of badges are placed underneath the code part.
 }
 \examples{
 \dontrun{

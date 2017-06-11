@@ -9,21 +9,21 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-Badgecreatr was developed with myself in mind. I often create packages on github
-and wanted to have a standardized way to add badges to the readme. In github the
-readme file on top of the repository is automatically rendered as html and can
-be viewed by everyone. 
+Badgecreatr was developed with myself in mind. I often create packages on Github
+and wanted to have a standardized way to add badges to the README file. In Github (and many other code sharing websites) the
+README.md file on top of the repository is automatically rendered as HTML (a normal webpage) and can
+be viewed by everyone in the browser with full markup. 
 
 I've written a blogpost about the older version of this package [here](http://rmhogervorst.nl/cleancode/blog/2016/07/08/introducing-badgecreatr-create-and-place-badges-in-readme-rmd.html)
 
-I've also added a vignette describing how you can add new badges. 
+I've also added a vignette describing how you can add new badges to this package. 
 
 ## Badges or shields
 
 Many projects have shields that signal the status of the project. When you make
-use of continuous integration tools such as [travis-ci](https://docs.travis-ci.com/user/languages/r "a R-specific guide for travis"), you let the service rebuild and retest your package after every
-commit to github. Travis has a badge that signals if the build passed or not. 
-I've added extra information such as under what licence the code is shared, 
+use of continuous integration (CI) tools such as [travis-ci](https://docs.travis-ci.com/user/languages/r "a R-specific guide for travis"), you let the service rebuild and retest your package after every
+commit to Github. Travis has a badge that signals if the build passed or not. 
+I've added extra information such as under what license the code is shared, 
 the latest change in the package and what version the package has. 
 
 Keep in mind that I don't create all of the badges (only 2 are of my invention), 
@@ -63,11 +63,11 @@ I imagin using this to add some quick badges that you might update later
 but it communicates the basic properties of the package:
 
 - Maturity (project status)
-- Licence
+- license
 - Last change (static)
 
 ```{r scen 1}
-minimal_badges(status = "concept", licence = "MIT",date = "2017-05-17")
+minimal_badges(status = "concept", license = "MIT",date = "2017-05-17")
 ```
 
 ### Scenario 2: adding dynamic badges to your readme
@@ -77,7 +77,7 @@ stays up to date.
 
 Communicate
 - Maturity (project status)
-- Licence
+- license
 - Last change
 - minimal r version
 - package version
@@ -86,7 +86,7 @@ Communicate
 
 
 ```{r scen 2, eval=FALSE}
-dynamic_badges_minimal(licence = "MIT", travisfile = TRUE, codecov = TRUE)
+dynamic_badges_minimal(license = "MIT", travisfile = TRUE, codecov = TRUE)
 ```
 
 ### Scenario 3: you already have some badges, but you want to add other ones (cran, rdocumentation, travis, etc)

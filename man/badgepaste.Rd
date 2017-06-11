@@ -4,7 +4,7 @@
 \alias{badgepaste}
 \title{return markdown with image and link.}
 \usage{
-badgepaste(imagelink, referlink, name = "Licence")
+badgepaste(imagelink, referlink, name = "license")
 }
 \arguments{
 \item{imagelink}{link to image file}
@@ -17,5 +17,5 @@ badgepaste(imagelink, referlink, name = "Licence")
 markdown
 }
 \description{
-for internal use. used within licencebuilder
+for internal use. used within licensebuilder
 }

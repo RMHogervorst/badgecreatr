@@ -1,4 +1,4 @@
-## These functions search for badges and other licences. 
+## These functions search for badges and other licenses. 
 
 
 
@@ -20,7 +20,7 @@ findbadges <- function(location = ".", name = "README.Rmd"){
   # readme
   readme <- readLines(file.path(location, name))
   projectstatbadge <-      find_in_readme("Project Status:.*")
-  licencebadge_readme <-   find_in_readme(c("Licence:", "Licence"))
+  licensebadge_readme <-   find_in_readme(c("license:", "license"))
   buildbadge <-            find_in_readme("Build Status")
   coverage <-              find_in_readme(c("Coverage Status", "codecov"))
   minrversion <-           find_in_readme("minimal R version")
@@ -31,7 +31,7 @@ findbadges <- function(location = ".", name = "README.Rmd"){
   
   # description file
   description <- read.dcf(file.path(location, "DESCRIPTION"))
-  licencetype <- as.vector(description[1, "License"])
+  licensetype <- as.vector(description[1, "License"])
   packagename <- as.vector(description[1, "Package"])
   
   # travis file
@@ -43,7 +43,7 @@ findbadges <- function(location = ".", name = "README.Rmd"){
   
   list(
     "projectstatus_readme" = length(projectstatbadge) > 0,
-    "licencebadge_readme"  = length(licencebadge_readme) > 0,
+    "licensebadge_readme"  = length(licensebadge_readme) > 0,
     "travisbadge_readme"   = length(buildbadge) > 0,
     "codecoverage_readme"  = length(coverage) > 0,
     "rversion_readme"      = length(minrversion) > 0,
@@ -51,7 +51,7 @@ findbadges <- function(location = ".", name = "README.Rmd"){
     "packageversionbadge_readme" = length(packageversion_readme) > 0,
     "last_change_readme"         = length(last_change_readme) > 0,
     
-    "licence"     = licencetype,
+    "license"     = licensetype,
     "packagename" = packagename,
     "travisfile"  = travisfile,
     "codecov_in_travisfile" = codecov_in_travis

@@ -2,18 +2,18 @@
 % Please edit documentation in R/badges.R
 \name{licbadgebuilder}
 \alias{licbadgebuilder}
-\title{Add licence badge}
+\title{Add license badge}
 \usage{
-licbadgebuilder(licencetype)
+licbadgebuilder(licensetype)
 }
 \arguments{
-\item{licencetype}{one of GPL-3, GPL-2, MIT, or CC0.}
+\item{licensetype}{one of GPL-3, GPL-2, MIT, or CC0.}
 }
 \value{
 markdown
 }
 \description{
-Add licence badge
+Add license badge
 }
 \examples{
 badgecreatr:::licbadgebuilder("GPL-3")

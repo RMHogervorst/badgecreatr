@@ -42,21 +42,21 @@ badge_projectstatus <- function(status = "concept"){
 
 # ----------------------------------------------------------------------
 
-#' Add licence badge
+#' Add license badge
 #'
-#' @param licencetype one of GPL-3, GPL-2, MIT, or CC0.
+#' @param licensetype one of GPL-3, GPL-2, MIT, or CC0.
 #' @return markdown
 #' @examples 
 #' badgecreatr:::licbadgebuilder("GPL-3")
-licbadgebuilder <- function(licencetype){
-  switch (licencetype,
-          "GPL-2" = {badgepaste("https://img.shields.io/badge/licence-GPL--2-blue.svg",
+licbadgebuilder <- function(licensetype){
+  switch (licensetype,
+          "GPL-2" = {badgepaste("https://img.shields.io/badge/license-GPL--2-blue.svg",
                                   "https://www.gnu.org/licenses/old-licenses/gpl-2.0.html")},
-          "GPL-3" = {badgepaste("https://img.shields.io/badge/licence-GPL--3-blue.svg",
+          "GPL-3" = {badgepaste("https://img.shields.io/badge/license-GPL--3-blue.svg",
                                   "https://www.gnu.org/licenses/gpl-3.0.en.html")},
           "MIT" = {badgepaste("https://img.shields.io/github/license/mashape/apistatus.svg",
                                 "http://choosealicense.com/licenses/mit/")},
-          "CC0" = {badgepaste("https://img.shields.io/badge/licence-CC0-blue.svg",
+          "CC0" = {badgepaste("https://img.shields.io/badge/license-CC0-blue.svg",
                                 "http://choosealicense.com/licenses/cc0-1.0/")}
   )
 }
@@ -66,9 +66,9 @@ licbadgebuilder <- function(licencetype){
 
 #' Travisbadge creates travis badge.
 #' 
-#' @param ghaccount githubaccountname
-#' @param ghrepo githubrepositoryname
-#' @param branch master, develop etc
+#' @param ghaccount Github account name
+#' @param ghrepo Github repository name
+#' @param branch branch name such as master, develop etc
 #' @param location defaults to current location
 #' @family badges
 #' @return markdown
@@ -292,7 +292,7 @@ badge_cran_downloads <- function(packagename, period = NULL){
 #' 
 #' Place a badge with the version of your package which is automatically read from
 #' your description file.
-#' @param chunk this argument places a rmarkdown chunk
+#' @param chunk this argument places a RMarkdown chunk
 #' @return Rmarkdown
 #' @export
 #' @family badges
@@ -316,16 +316,15 @@ badge_packageversion <- function(chunk = TRUE){
 
 ## -----------------------------------------------------------------------
 
-#' creates last-change badge
+#' Creates last-change badge
 #' 
 #' Will add a badge containing the current date that changes 
-#' on every reknitting. This is a simple pasting of r code. 
+#' on every reknitting. This is a simple pasting of r-code. 
 #' @family badges
 #' @param location defaults to working directory
 #' @return Rmarkdown
 #' @export 
 badge_last_change <- function(location = "."){
-  # gsub("-", "--", Sys.Date())
   badgepaste(imagelink = paste0("https://img.shields.io/badge/last%20change-",
                                   "`r ", "gsub('-', '--', Sys.Date())", "`",
                                   "-yellowgreen.svg"),
@@ -370,7 +369,7 @@ badge_rdocumentation <- function(packagename){
 }
 
 
-#' Add a github star badge
+#' Add a Github star badge
 #' 
 #' @inheritParams badge_travis
 #' @export
@@ -394,7 +393,7 @@ badge_github_star <- function(ghaccount = NULL, ghrepo = NULL,
     )
 }
 
-#' Add a github fork badge
+#' Add a Github fork badge
 #' 
 #' @inheritParams badge_travis
 #' @export
@@ -417,25 +416,25 @@ badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL, location = NULL){
     )
 }
 
-#' Create a licencebadge
+#' Create a licensebadge
 #' 
-#' when `licence= NULL' this function wil look in your
-#' DESCRIPTION file and search for the "Licence:" part. 
-#' If it matches GPL or MIT a custum badge will be created. 
+#' when `license= NULL' this function will look in your
+#' DESCRIPTION file and search for the "license:" part. 
+#' If it matches GPL or MIT a custom badge will be created. 
 #' If it does not match, a general badge will be created with the name of the
-#' licence in grey.
+#' license in grey.
 #' @param location defaults to current directory
-#' @param licence License, for example `GPL-3`, `MIT`, etc. Alternatively, leaving it empty will search.
+#' @param license License, for example `GPL-3`, `MIT`, etc. Alternatively, leaving it empty will search.
 #' @family badges
 #' @return markdown
 #' @export
-badge_licence <- function(licence = NULL, location = "."){
-    if(is.null(licence)){
+badge_license <- function(license = NULL, location = "."){
+    if(is.null(license)){
         description <- read.dcf(file.path(location, "DESCRIPTION"))
-        licencetype <- as.vector(description[1, "License"])
-        if(length(licencetype) == 0) stop("No licence was described in DESCRIPTION")
+        licensetype <- as.vector(description[1, "License"])
+        if(length(licensetype) == 0) stop("No license was described in DESCRIPTION")
     } else {
-        licencetype <- licence
+        licensetype <- license
     }
     
     recommended_licenses <- c(
@@ -444,13 +443,13 @@ badge_licence <- function(licence = NULL, location = "."){
         #"BSD_2_clause", "BSD_3_clause", 
         "MIT"
     )
-    if(!(licencetype %in% recommended_licenses)){
-        message("the licence ", licencetype, " is not recommended for R packages")
-        badgepaste(imagelink = paste0("https://img.shields.io/badge/licence-",
-                                      gsub("-","--", licencetype), "-lightgrey.svg"),
+    if(!(licensetype %in% recommended_licenses)){
+        message("the license ", licensetype, " is not recommended for R packages")
+        badgepaste(imagelink = paste0("https://img.shields.io/badge/license-",
+                                      gsub("-","--", licensetype), "-lightgrey.svg"),
                    referlink = "http://choosealicense.com/")
     } else {
-        licbadgebuilder(licencetype)
+        licbadgebuilder(licensetype)
     }
 }    
 

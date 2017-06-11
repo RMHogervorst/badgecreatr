@@ -8,11 +8,11 @@ github_credentials_helper(ghaccount = NULL, ghrepo = NULL, branch = NULL,
   location = ".")
 }
 \arguments{
-\item{ghaccount}{githubaccountname}
+\item{ghaccount}{Github account name}
 
-\item{ghrepo}{githubrepositoryname}
+\item{ghrepo}{Github repository name}
 
-\item{branch}{master, develop etc}
+\item{branch}{branch name such as master, develop etc}
 
 \item{location}{defaults to current location}
 }

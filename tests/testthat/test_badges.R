@@ -23,12 +23,12 @@ test_that("all status options work",{
     expect_match(badge_projectstatus("inactive"),regexp = "Project Status: Inactive")
     expect_match(badge_projectstatus("unsupported"),regexp = "Project Status: Unsupported")
 })
-context("Licence placer")
-# licence placer ####
-test_that("Licence placer works", {
+context("license placer")
+# license placer ####
+test_that("license placer works", {
     expect_match(badgecreatr:::licbadgebuilder("MIT"), regexp = "license/mashape/apistatus.svg")
     expect_match(badgecreatr:::licbadgebuilder("MIT"), regexp = "choosealicense.com/licenses/mit/")
-    expect_match(badgecreatr:::licbadgebuilder("GPL-3"), regexp = "badge/licence-GPL--3")
+    expect_match(badgecreatr:::licbadgebuilder("GPL-3"), regexp = "badge/license-GPL--3")
     expect_match(badgecreatr:::licbadgebuilder("GPL-3"), regexp = "www.gnu.org/licenses/gpl-3.0.en")
     expect_match(badgecreatr:::licbadgebuilder("GPL-2"), regexp = "old-licenses/gpl-2.0.html")
     expect_match(badgecreatr:::licbadgebuilder("CC0"), regexp = "choosealicense.com/licenses/cc0-1.0/")

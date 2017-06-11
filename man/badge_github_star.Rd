@@ -2,17 +2,17 @@
 % Please edit documentation in R/badges.R
 \name{badge_github_star}
 \alias{badge_github_star}
-\title{Add a github star badge}
+\title{Add a Github star badge}
 \usage{
 badge_github_star(ghaccount = NULL, ghrepo = NULL, branch = NULL,
   location = NULL)
 }
 \arguments{
-\item{ghaccount}{githubaccountname}
+\item{ghaccount}{Github account name}
 
-\item{ghrepo}{githubrepositoryname}
+\item{ghrepo}{Github repository name}
 
-\item{branch}{master, develop etc}
+\item{branch}{branch name such as master, develop etc}
 
 \item{location}{defaults to current location}
 }
@@ -20,7 +20,7 @@ badge_github_star(ghaccount = NULL, ghrepo = NULL, branch = NULL,
 markdown
 }
 \description{
-Add a github star badge
+Add a Github star badge
 }
 \seealso{
 Other badges: \code{\link{badge_codecov}},
@@ -32,7 +32,7 @@ Other badges: \code{\link{badge_codecov}},
   \code{\link{badge_github_fork}},
   \code{\link{badge_last_change_static}},
   \code{\link{badge_last_change}},
-  \code{\link{badge_licence}},
+  \code{\link{badge_license}},
   \code{\link{badge_minimal_r_version}},
   \code{\link{badge_packageversion}},
   \code{\link{badge_projectstatus}},

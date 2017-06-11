@@ -11,7 +11,7 @@ vignette: >
 
 Since more then two people make use of this project, let me tell you how to extend this package.
 
-This package creates markdown and in some cases rmarkdown chunks. These chunks are displayed in 
+This package creates markdown and in some cases RMarkdown chunks. These chunks are displayed in 
 nicely formated html because code sharing websites such as Github, Gitlab and Bitbucket display
 markdown files in the browser. It is very useful. 
 
@@ -36,13 +36,13 @@ A badge needs:
 
 ```
 [![name of badge](link to image)](clickable link)  # for example:
-[![Licence](https://img.shields.io/badge/licence-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)`
+[![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)`
 ```
 There is an internal function `badgepaste(imagelink = ,referlink = ,name = )` that makes this easy:
 ````
-badgepaste(imagelink = "https://img.shields.io/badge/licence-GPL--3-blue.svg",
+badgepaste(imagelink = "https://img.shields.io/badge/license-GPL--3-blue.svg",
 referlink = "https://www.gnu.org/licenses/gpl-3.0.en.html",
-name = "Licence")
+name = "license")
 ```
 
 * *A unit test in `test_badges.R`* Add and modify the following code to test your function.

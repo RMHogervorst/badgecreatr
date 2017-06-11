@@ -2,14 +2,14 @@
 % Please edit documentation in R/badges.R
 \name{badge_github_fork}
 \alias{badge_github_fork}
-\title{Add a github fork badge}
+\title{Add a Github fork badge}
 \usage{
 badge_github_fork(ghaccount = NULL, ghrepo = NULL, location = NULL)
 }
 \arguments{
-\item{ghaccount}{githubaccountname}
+\item{ghaccount}{Github account name}
 
-\item{ghrepo}{githubrepositoryname}
+\item{ghrepo}{Github repository name}
 
 \item{location}{defaults to current location}
 }
@@ -17,7 +17,7 @@ badge_github_fork(ghaccount = NULL, ghrepo = NULL, location = NULL)
 markdown
 }
 \description{
-Add a github fork badge
+Add a Github fork badge
 }
 \seealso{
 Other badges: \code{\link{badge_codecov}},
@@ -29,7 +29,7 @@ Other badges: \code{\link{badge_codecov}},
   \code{\link{badge_github_star}},
   \code{\link{badge_last_change_static}},
   \code{\link{badge_last_change}},
-  \code{\link{badge_licence}},
+  \code{\link{badge_license}},
   \code{\link{badge_minimal_r_version}},
   \code{\link{badge_packageversion}},
   \code{\link{badge_projectstatus}},

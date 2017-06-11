@@ -4,12 +4,12 @@
 \alias{minimal_badges}
 \title{Add a minimum of badges to your project}
 \usage{
-minimal_badges(status = "concept", licence = NULL, date = NULL)
+minimal_badges(status = "concept", license = NULL, date = NULL)
 }
 \arguments{
 \item{status}{one of concept, wip, suspended, abandoned, active, inactive or unsupported}
 
-\item{licence}{one of GPL-3, GPL-2, MIT, or CC0.}
+\item{license}{one of GPL-3, GPL-2, MIT, or CC0.}
 
 \item{date}{a date of your choosing, defaults to current date.}
 }
@@ -19,7 +19,7 @@ text to put into rmd
 \description{
 Returns markdown to manually place in your readme.Rmd file.
 This is a function you might want to use in the early stages of your project.
-This function returns badges link{projectstatusbadge}, link(licencebadge),
+This function returns badges link{projectstatusbadge}, link(licensebadge),
 and link(last_change_badge_static).
 }
 \examples{

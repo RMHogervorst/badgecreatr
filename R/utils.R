@@ -4,14 +4,14 @@
 
 #' return markdown with image and link. 
 #' 
-#' for internal use. used within licencebuilder
+#' for internal use. used within licensebuilder
 #'
 #' @param imagelink link to image file
 #' @param referlink link to where to send to on click
 #' @param name what to call the button
 #'
 #' @return markdown
-badgepaste<- function(imagelink, referlink, name= "Licence"){
+badgepaste<- function(imagelink, referlink, name= "license"){
     paste0("[![", name,"]","(",imagelink, ")]","(",referlink,")")
 }
 # tests

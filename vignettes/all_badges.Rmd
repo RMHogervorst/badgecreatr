@@ -19,7 +19,7 @@ Code cov
 
 last change last_change_badge()
 
-licence licencebadge()
+license licensebadge()
 
 # Badges related to the package itself
 minimal R version minimal_r_version_badge()

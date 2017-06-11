@@ -7,7 +7,7 @@
 badge_packageversion(chunk = TRUE)
 }
 \arguments{
-\item{chunk}{this argument places a rmarkdown chunk}
+\item{chunk}{this argument places a RMarkdown chunk}
 }
 \value{
 Rmarkdown
@@ -30,7 +30,7 @@ Other badges: \code{\link{badge_codecov}},
   \code{\link{badge_github_star}},
   \code{\link{badge_last_change_static}},
   \code{\link{badge_last_change}},
-  \code{\link{badge_licence}},
+  \code{\link{badge_license}},
   \code{\link{badge_minimal_r_version}},
   \code{\link{badge_projectstatus}},
   \code{\link{badge_rank}},
