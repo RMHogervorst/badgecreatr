@@ -1,9 +1,4 @@
-## package checks
-# 
-# 
-### put badges in readme function
-
-#' Place badges inside readme .Rmd file
+#' Place badges inside a readme.Rmd file
 #' 
 #' This is the main function to add badges to your readme.
 #'
@@ -12,7 +7,7 @@
 #' @param githubaccount your githubname
 #' @param githubrepo your githubrepositoryname
 #' @param branch master, develop, etc.
-#' @param name which file to place badges in defaults to README.Rmd
+#' @param name which file to place badges in, defaults to README.Rmd
 #'
 #' @return readme file with added badges
 #' @export

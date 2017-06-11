@@ -1,12 +1,11 @@
 #' badgecreatr
 #' 
-#' Create badges in your readme file 
-#' with a simple function. 
-#' Run badgecreatr once and the badges are created.
-#' Run it again the badges are refreshed. 
+#' Create badges in your readme file on top of a github repository.
+#' This package creates badges for a wide range of functions. 
 #' 
-#' Other options include badges only and interactive versions
-#' that change when you re-knit your badges.
+#' You can place a fixed set of functions in your readme, add badges only 
+#' or add interactive versions with embedded R-code 
+#' that changes when you re-knit your badges.
 #' 
 #' @docType package
 #' @name badgecreatr

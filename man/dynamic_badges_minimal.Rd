@@ -4,7 +4,7 @@
 \alias{dynamic_badges_minimal}
 \title{Add dynamic content to readme}
 \usage{
-dynamic_badges_minimal(status = "concept", licence = "search",
+dynamic_badges_minimal(status = "concept", licence = NULL,
   last_change = TRUE, minimal_r_version = TRUE, travisfile = NULL,
   codecov = NULL, location = ".")
 }
@@ -30,6 +30,10 @@ text to put into rmd
 This function returns markdown that you must place in the readme. This is
 dynamic content. This function returns a RMarkdown piece that does some
 calculation and a set of badges underneath.
+}
+\examples{
+dynamic_badges_minimal("abandoned", "GPL-3")
+dynamic_badges_minimal(status = "active",last_change = FALSE,minimal_r_version = FALSE) 
 }
 \seealso{
 Other scenarios: \code{\link{minimal_badges}}

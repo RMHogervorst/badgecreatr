@@ -1,17 +1,20 @@
 Package: badgecreatr
 Title: Create Badges for 'Travis', 'Repostatus' 'Codecov.io' Etc in Github Readme
-Version: 0.1.0.9000
+Version: 0.1.1
 Authors@R: person("Roel M.", "Hogervorst", email ="hogervorst.rm@gmail.com", role = c("cre", "aut"))
 Description: Tired of copy and pasting almost identical markdown for badges in
-    every new R package that you create on Github? 
-    This package will search your DESCRIPTION file and extract the package name,
+    every new R package that you create on Github or other code-sharing sites? 
+    Pasting badges is made easy with this package. 
+    badgecreatr will also search your DESCRIPTION file and extract the package name,
     licence, R-version, and current projectversion and transform that into 
     badges. It will also search for a .travis.yml file and create a 'Travis' badge,
     if you use 'Codecov.io' to check your code coverage after a 'Travis' build 
-    this package will also build a 'Codecov.io'-badge. All the badges will be 
-    placed below the top YAML content of your Rmarkdown file (Readme.Rmd). 
+    this package will also build a 'Codecov.io'-badge. All the badges can be placed
+    individually or can be placed below the top YAML content of your Rmarkdown 
+    file (Readme.Rmd) or readme.md file. 
     Currently creates badges for  Projectstatus (Repostatus.org), licence
-    travis build status, codecov, minimal R version, CRAN status, 
+    travis build status, codecov, minimal R version, CRAN status, CRAN downloads, 
+    github stars and forks, package rank, rdocumentation, 
     current version of your package and last change of Readme.Rmd.
 Depends:
     R (>= 3.2.4)
@@ -25,6 +28,7 @@ Suggests:
     knitr,
     rmarkdown
 RoxygenNote: 6.0.1
+Roxygen: list(markdown = TRUE)
 Imports:
     git2r
 VignetteBuilder: knitr

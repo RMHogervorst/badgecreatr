@@ -17,6 +17,7 @@ This version of badgecreatr has breaking changes with previous versions.
 It was a major overhaul of the badgecreatr package with help from Florian Privé, Stephanie Locke,
 and Andrie de Vries. I realized I never used the package as I originally intended, but I added one or two
 badges by name. So I have exported all the functions for interactive use. And added new badges.
+To help others I have added a vignette that describes how to add new badges.
 
 ### Added
 - R-version badge will be updated when you re-knit the readme.rmd to readme (thanks  Florian Privé @privefl)
@@ -36,13 +37,14 @@ badge_cran_*
 - Vignette extending badgecreatr
 - Added 'moved' as an option in project status badge. (Although you still need to modify that link.)
 - set default project_status to "concept"
+- cran_comments.md
 
 
 ### Removed
 - dependency on stringr @andrie
 
 ### Deprecated 
-- **old function names ending in *badge:** projectstatusbadge, travisbadge,
+- **old function names ending in `*badge`:** projectstatusbadge, travisbadge,
 codecovbadge, minimal_r_version_badge, cranbadge, packageversionbadge, and
 last_change_badge.
 
@@ -59,6 +61,7 @@ Thanks Andrie de Vries @andrie for these huge improvements
 - renamed changelog to news
 
 ### Security 
+- none
 
 ## [0.1.0] 2016-07-03
 ### Added

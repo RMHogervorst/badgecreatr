@@ -14,7 +14,9 @@ and wanted to have a standardized way to add badges to the readme. In github the
 readme file on top of the repository is automatically rendered as html and can
 be viewed by everyone. 
 
-I've written a blogpost about the package [here](http://rmhogervorst.nl/cleancode/blog/2016/07/08/introducing-badgecreatr-create-and-place-badges-in-readme-rmd.html)
+I've written a blogpost about the older version of this package [here](http://rmhogervorst.nl/cleancode/blog/2016/07/08/introducing-badgecreatr-create-and-place-badges-in-readme-rmd.html)
+
+I've also added a vignette describing how you can add new badges. 
 
 ## Badges or shields
 
@@ -29,7 +31,7 @@ this package is just a convenient way to place badges in your readme.
 
 # Use cases
 
-I realized that I don't often use the package in it's original form anymore, 
+I realized that I don't often use the package in its original form anymore, 
 so the use cases might change. I've identified some cases.
 
 - [x] scenario 0: you just want to add a few loose badges
@@ -83,10 +85,8 @@ Communicate
 - codecov badge (when this is specified in the travis file)
 
 
-```{r scen 2}
-## doesn not work yet.
-getwd()
-dynamic_badges_minimal(licence = "MIT", travisfile = TRUE, codecov = TRUE, location = "../")
+```{r scen 2, eval=FALSE}
+dynamic_badges_minimal(licence = "MIT", travisfile = TRUE, codecov = TRUE)
 ```
 
 ### Scenario 3: you already have some badges, but you want to add other ones (cran, rdocumentation, travis, etc)
@@ -96,6 +96,14 @@ dynamic_badges_minimal(licence = "MIT", travisfile = TRUE, codecov = TRUE, locat
 ```
 
 ### scenario 4: you want to add certain badges, essentially a list of badges that you want, regardless of what is already there (so it should ignore badges, ignore if there is a travis file)
+
+```{r, eval=FALSE}
+# is not implemented yet.
+place_badge_groups( 
+    CI_status = c("travis", "rwin"), 
+    versions = c("CRAN", "github"),
+    stats = c("downloads, gh_stars"))
+```
 
 ### scenario 5: You don't want a RMarkdown file, but a markdown file. 
 Since markdown cannot process R, we add badges once. 

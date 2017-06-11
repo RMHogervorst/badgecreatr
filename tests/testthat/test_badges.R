@@ -105,7 +105,7 @@ test_that("other cran badges links are correct", {
     expect_match(badge_cran_version_release("xyz"), "www.r-pkg.org/badges/version-last-release/xyz")
     expect_match(badge_cran_downloads("xyz", period = "last-week"), "cranlogs.r-pkg.org/badges/last-week/xyz")
     expect_match(badge_cran_downloads("xyz"), "cranlogs.r-pkg.org/badges/xyz")
-    expect_match(badge_cran_ago("xyz"), "cranlogs.r-pkg.org/badges/xyz")
+    expect_match(badge_cran_ago("xyz"), "r-pkg.org/badges/ago/xyz")
 })
 
 # packageversion ####

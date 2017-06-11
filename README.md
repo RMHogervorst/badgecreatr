@@ -2,11 +2,9 @@
 
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.2.4-6666ff.svg)](https://cran.r-project.org/) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/badgecreatr)](https://cran.r-project.org/package=badgecreatr) [![packageversion](https://img.shields.io/badge/Package%20version-0.1.0-orange.svg?style=flat-square)](commits/develop)
 
-[![Last-changedate](https://img.shields.io/badge/last%20change-2017--05--17-yellowgreen.svg)](/commits/master)
+[![Last-changedate](https://img.shields.io/badge/last%20change-2017--06--11-yellowgreen.svg)](/commits/master)
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-![badgeimage](badgecreatr4.jpg)
-
 Introduction
 ============
 
@@ -51,7 +49,7 @@ I like to use the following workflow:
 
 You will probably call badgecreatr only once, somewhere during your work.
 
-If you call badgecreatr again when you already have badges, they will be recognized. \[(see CHANGELOG)\]\](CHANGELOG.md)
+If you call badgecreatr again when you already have badges, they will be recognized. \[(see NEWS)\]\](NEWS.md)
 
 Installation
 ============

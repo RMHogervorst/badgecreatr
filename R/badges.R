@@ -6,7 +6,24 @@
 # ------------------------------------------------------------------------
 
 #' Add project status badge
-#'
+#' 
+#' Project-status is based on the repo-status project on \url{http://www.repostatus.org/}.
+#' A project-status badge gives a clear indication of the current state of a project. This 
+#' helps answer questions about development (whether or not further development is planned)
+#' and support (whether bugfixes and user assistance will be given). 
+#' 
+#' @section Project Statuses:
+#' The following list is a literal copy of repostatus.org
+#' 
+#' * Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.
+#' * WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.
+#' * Suspended – Initial development has started, but there has not yet been a stable, usable release; work has been stopped for the time being but the author(s) intend on resuming work.
+#' * Abandoned – Initial development has started, but there has not yet been a stable, usable release; the project has been abandoned and the author(s) do not intend on continuing development.
+#' * Active – The project has reached a stable, usable state and is being actively developed.
+#' * Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.
+#' * Unsupported – The project has reached a stable, usable state but the author(s) have ceased all work on it. A new maintainer may be desired. 
+#' * Moved - The project has been moved to a new location, and the version at that location should be considered authoritative. This status should be accompanied by a new URL.
+#' 
 #' @param status one of concept, wip, suspended, abandoned, active, inactive, unsupported, or moved
 #' @family badges
 #' @return markdown
@@ -28,7 +45,6 @@ badge_projectstatus <- function(status = "concept"){
 #' Add licence badge
 #'
 #' @param licencetype one of GPL-3, GPL-2, MIT, or CC0.
-#' @family badges
 #' @return markdown
 #' @examples 
 #' badgecreatr:::licbadgebuilder("GPL-3")
@@ -61,11 +77,21 @@ licbadgebuilder <- function(licencetype){
 #' @export
 badge_travis <- function(ghaccount = NULL, ghrepo = NULL, branch = NULL, 
                          location = "."){
-    credentials<- github_credentials_helper(ghaccount = ghaccount, 
-                                            ghrepo = ghrepo,
-                                            branch = branch,
-                                            location = location
-    )
+    if(any(is.null(ghaccount), is.null(ghrepo), is.null(branch))){
+        credentials<- github_credentials_helper(ghaccount = ghaccount, 
+                                                ghrepo = ghrepo,
+                                                branch = branch,
+                                                location = location
+        )
+    }else{
+        credentials <- list(
+            ghaccount = ghaccount, 
+            ghrepo = ghrepo,
+            branch = branch
+        )
+    }
+    
+
   referlink <- paste0("https://travis-ci.org/", credentials$ghaccount,"/", 
                       credentials$ghrepo)
   imagelink <- paste0(referlink, 
@@ -91,11 +117,19 @@ badge_travis <- function(ghaccount = NULL, ghrepo = NULL, branch = NULL,
 #' badge_codecov(ghaccount = "johntest", ghrepo = "yourreponame", branch = "master")
 #' @export
 badge_codecov <- function(ghaccount = NULL, ghrepo = NULL, branch=NULL, location = "."){
-  credentials<- github_credentials_helper(ghaccount = ghaccount, 
-                                          ghrepo = ghrepo,
-                                          branch = branch,
-                                          location = location
-                                          )
+    if(any(is.null(ghaccount), is.null(ghrepo), is.null(branch))){
+        credentials<- github_credentials_helper(ghaccount = ghaccount, 
+                                                ghrepo = ghrepo,
+                                                branch = branch,
+                                                location = location
+        )
+    }else{
+        credentials <- list(
+            ghaccount = ghaccount, 
+            ghrepo = ghrepo,
+            branch = branch
+            )
+    }
   referlink <- paste0("https://codecov.io/gh/", credentials$ghaccount, "/", credentials$ghrepo)
   imagelink <- paste0(referlink, 
                       "/branch/", credentials$branch, 

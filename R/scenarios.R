@@ -9,6 +9,7 @@
 #' @family scenarios
 #' @param status one of concept, wip, suspended, abandoned, active, inactive or unsupported
 #' @param licence one of GPL-3, GPL-2, MIT, or CC0.
+#' @param date a date of your choosing, defaults to current date.
 #' @return text to put into rmd
 #' @export
 #' @examples 
@@ -36,10 +37,10 @@ minimal_badges <- function(status = "concept",licence = NULL, date = NULL ){
 #' @param location defaults to current location
 #' @return text to put into rmd
 #' @export
-# #' @examples
-# #' dynamic_badges_minimal("abandoned", "GPL-3") 
-# werkt niet
-dynamic_badges_minimal <- function(status = "concept",licence = "search",
+#' @examples
+#' dynamic_badges_minimal("abandoned", "GPL-3")
+#' dynamic_badges_minimal(status = "active",last_change = FALSE,minimal_r_version = FALSE) 
+dynamic_badges_minimal <- function(status = "concept",licence = NULL,
                                    last_change = TRUE, minimal_r_version = TRUE,
                                    travisfile= NULL, codecov = NULL, location = "."){
     # apply some logic to search for travis and codecov
@@ -54,7 +55,6 @@ dynamic_badges_minimal <- function(status = "concept",licence = "search",
         "```{r, echo = FALSE}", 
         eval(expression("description <- read.dcf('DESCRIPTION')")), 
         eval(expression("version <- as.vector(description[, 'Version'])")),
-        "```",
         badge_projectstatus(status = status),
         badge_licence(licence = licence),
         if(last_change){badge_last_change()} ,
@@ -69,5 +69,5 @@ dynamic_badges_minimal <- function(status = "concept",licence = "search",
         )
     
 }
-#dynamic_badges_minimal()
-#dynamic_badges_minimal(status = "active",last_change = FALSE,minimal_r_version = FALSE)
+
+
