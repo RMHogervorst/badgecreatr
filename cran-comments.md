@@ -4,19 +4,13 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
+but one warning:
+WARNING 'qpdf' is needed for checks on size reduction of PDFs
+Which is a windows local machine specific problem.
 
 
 ## Reverse dependencies
 
-
-
----
-
-* I have run R CMD check on the NUMBER downstream dependencies.
-  (Summary at ...). 
-  
-* FAILURE SUMMARY
-
-* All revdep maintainers were notified of the release on RELEASE DATE.
+There are no reverse dependencies. 

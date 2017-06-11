@@ -1,10 +1,10 @@
 #context("general function of projectstatusbadge")
 
-test_that("findbadges returns the correct values",{
-    result <- findbadges(location = "../../")
-    expect_true(result$projectstatus_readme)
-    expect_true(result$travisfile)
-})
+# test_that("findbadges returns the correct values",{
+#     result <- findbadges(location = ".",name = "copyOfREADME.")
+#     expect_true(result$projectstatus_readme)
+#     expect_true(result$travisfile)
+# })
 
 #readme <- readLines(file.path("../..", "README.Rmd"))    
 

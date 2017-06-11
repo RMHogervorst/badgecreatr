@@ -38,8 +38,9 @@ minimal_badges <- function(status = "concept",licence = NULL, date = NULL ){
 #' @return text to put into rmd
 #' @export
 #' @examples
-#' dynamic_badges_minimal("abandoned", "GPL-3")
+#' \dontrun{
 #' dynamic_badges_minimal(status = "active",last_change = FALSE,minimal_r_version = FALSE) 
+#' }
 dynamic_badges_minimal <- function(status = "concept",licence = NULL,
                                    last_change = TRUE, minimal_r_version = TRUE,
                                    travisfile= NULL, codecov = NULL, location = "."){

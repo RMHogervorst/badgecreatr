@@ -32,8 +32,9 @@ dynamic content. This function returns a RMarkdown piece that does some
 calculation and a set of badges underneath.
 }
 \examples{
-dynamic_badges_minimal("abandoned", "GPL-3")
+\dontrun{
 dynamic_badges_minimal(status = "active",last_change = FALSE,minimal_r_version = FALSE) 
+}
 }
 \seealso{
 Other scenarios: \code{\link{minimal_badges}}
