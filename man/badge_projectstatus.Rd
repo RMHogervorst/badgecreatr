@@ -13,7 +13,7 @@ badge_projectstatus(status = "concept")
 markdown
 }
 \description{
-Project-status is based on the repo-status project on \url{http://www.repostatus.org/}.
+Project-status is based on the repo-status project on \url{https://www.repostatus.org/}.
 A project-status badge gives a clear indication of the current state of a project. This
 helps answer questions about development (whether or not further development is planned)
 and support (whether bugfixes and user assistance will be given).

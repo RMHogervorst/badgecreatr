@@ -11,7 +11,7 @@ test_that("error when incorrect status",{
         )  
 })
 test_that("internetconnection works",{
-    expect_equal(readLines("http://www.repostatus.org/#wip")[1], "<!doctype html>" )
+    expect_equal(readLines("https://www.repostatus.org/#wip")[1], "<!doctype html>" )
 })
 
 test_that("all status options work",{
