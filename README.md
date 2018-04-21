@@ -74,6 +74,6 @@ Contact me directly, use an [issue](https://github.com/RMHogervorst/badgecreatr/
 Inspiration
 -----------
 
-I found the projectstatus <http://www.repostatus.org/> and the wonderful [shields.io](shields.io) projects and wanted to implement that for all my packages. But that took a lot of work. Repetitive work, and I don't like that.
+I found the projectstatus <http://www.repostatus.org/> and the wonderful [shields.io](https://shields.io/) projects and wanted to implement that for all my packages. But that took a lot of work. Repetitive work, and I don't like that.
 
 The [badgerbadgerbadger](http://sam.pikesley.org/projects/badger/) project in ruby did all these things automatically. I wanted to do the same thing for R projects. And I did.
