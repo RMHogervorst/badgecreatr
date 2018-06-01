@@ -13,7 +13,7 @@ This package was inspired by the [badgerbadger](https://github.com/badges/badger
 
 This package does now place the following badges /shields:
 
--   \[x\] repo status according to <http://www.repostatus.org/>
+-   \[x\] repo status according to <https://www.repostatus.org/>
 -   \[x\] licence (recognize from DESCRIPTION file)
 -   \[x\] travis shield
 -   \[x\] code coverage
@@ -71,11 +71,11 @@ Contact
 Want to help or have questions?
 Contact me directly, use an [issue](https://github.com/RMHogervorst/badgecreatr/issues), fork me or submit a pull request.
 
-[![star this repo](http://githubbadges.com/star.svg?user=RMHogervorst&repo=badgecreatr&style=flat)](https://github.com/RMHogervorst/badgecreatr) [![fork this repo](http://githubbadges.com/fork.svg?user=RMHogervorst&repo=badgecreatr&style=flat)](https://github.com/RMHogervorst/badgecreatr/fork)
+[![star this repo](https://githubbadges.com/star.svg?user=RMHogervorst&repo=badgecreatr&style=flat)](https://github.com/RMHogervorst/badgecreatr) [![fork this repo](https://githubbadges.com/fork.svg?user=RMHogervorst&repo=badgecreatr&style=flat)](https://github.com/RMHogervorst/badgecreatr/fork)
 
 Inspiration
 -----------
 
-I found the projectstatus <http://www.repostatus.org/> and the wonderful [shields.io](shields.io) projects and wanted to implement that for all my packages. But that took a lot of work. Repetitive work, and I don't like that.
+I found the projectstatus <https://www.repostatus.org/> and the wonderful [shields.io](https://shields.io/) projects and wanted to implement that for all my packages. But that took a lot of work. Repetitive work, and I don't like that.
 
-The [badgerbadgerbadger](http://sam.pikesley.org/projects/badger/) project in ruby did all these things automatically. I wanted to do the same thing for R projects. And I did.
+The [badgerbadgerbadger](https://sam.pikesley.org/projects/badger/) project in ruby did all these things automatically. I wanted to do the same thing for R projects. And I did.
