@@ -469,3 +469,24 @@ badge_rank <- function(packagename){
         name = "rpackages.io rank"
     )
 }
+
+
+
+#' Add thanks badge
+#' 
+#' Add a thanks badge and file to your project.
+#' @param add_file Should the badge add the THANKS.md file to your project?
+#' 
+#' @source <https://github.com/paulmolluzzo/thanks-md>
+#' @family badges
+#' @return markdown
+#' @export
+badge_thanks_md <- function(add_file = TRUE){
+    if(!file.exists("THANKS.md") & add_file ){file.create("THANKS.md")}
+    badgepaste(
+        imagelink = "https://img.shields.io/badge/THANKS-md-ff69b4.svg",
+        referlink = "THANKS.md",
+        name = "thanks-md"
+    )
+}
+

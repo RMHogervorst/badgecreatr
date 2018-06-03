@@ -38,7 +38,7 @@ badge_cran_*
 - Added 'moved' as an option in project status badge. (Although you still need to modify that link.)
 - set default project_status to "concept"
 - cran_comments.md
-
+- badge_thanks for adding a THANKS.md badge based on https://github.com/paulmolluzzo/thanks-md
 
 ### Removed
 - dependency on stringr Thanks to Andrie de Vries (@andrie )
