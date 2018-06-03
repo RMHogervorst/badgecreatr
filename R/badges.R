@@ -385,8 +385,8 @@ badge_github_star <- function(ghaccount = NULL, ghrepo = NULL,
 
     badgepaste(
         imagelink = paste0("https://githubbadges.com/star.svg?user=",
-                           credentials$ghaccount, "&repo=", credentials$ghrepo,
-                           "r&style=flat"),
+                           credentials$ghaccount, "&repo=", credentials$ghrepo
+                           ),
         referlink = paste0("https://github.com/",credentials$ghaccount,"/",
                            credentials$ghrepo),
         name = "star this repo"
@@ -474,7 +474,7 @@ badge_rank <- function(packagename){
 
 #' Add thanks badge
 #' 
-#' Add a thanks badge and file to your project.
+#' Add a thanks badge and THANKS.md file to your project.
 #' @param add_file Should the badge add the THANKS.md file to your project?
 #' 
 #' @source <https://github.com/paulmolluzzo/thanks-md>
