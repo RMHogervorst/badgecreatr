@@ -148,3 +148,12 @@ test_that("pasting works, really this should work", {
     expect_match(badge, "badge/badgecreatr.svg")
     expect_match(badge, "www.rpackages.io/package/badgecreatr")
 })
+
+context("badge lifecycle")
+test_that("correct referal", {
+    expect_match(badge_lifecycle("ExperImental"), "experimental-orange.svg")
+    expect_match(badge_lifecycle("verycool"), "experimental-orange.svg")
+    expect_message(badge_lifecycle("verycool"), "going for")
+    
+})
+

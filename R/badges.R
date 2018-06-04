@@ -409,7 +409,7 @@ badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL, location = NULL){
     badgepaste(
         imagelink = paste0("https://githubbadges.com/fork.svg?user=",
                            credentials$ghaccount, "&repo=",
-                           credentials$ghrepo,"r&style=flat"),
+                           credentials$ghrepo),
         referlink = paste0("https://github.com/",credentials$ghaccount,"/",
                            credentials$ghrepo,"/fork"),
         name = "fork this repo"
@@ -490,3 +490,51 @@ badge_thanks_md <- function(add_file = TRUE){
     )
 }
 
+
+#' Add a lifecycle badge 
+#' 
+#' Lifecycle denotations were introduced by the tidyverse
+#' team in 2018. Because project status was not a perfect fit. 
+#' I think it is a real professional attitude, the badges 
+#' communicate to your
+#' users what they can expect. 
+#' 
+#' @section What do the different values mean?
+#' Maturing - The API of a maturing package has been roughed out, but finer details likely to change. Once released to CRAN, we will strive to maintain backward compatibility, but the package needs wider usage in order to get more feedback and find the optimal API.
+#' Stable - In a stable package, we are largely happy with the API, and major changes are unlikely. This means that the API will generally evolve by adding new functions and new arguments; we will avoid removing arguments or changing the meaning of existing arguments.
+#' Retired - A retired package is no longer under active development, and a known better alternative is available. We will only make the necessary changes to ensure that retired packages remain on CRAN. No new features will be added, and only the most critical of bugs will be fixed.
+#' Archived - The development of an archived package is complete, and it has been archived on CRAN and on GitHub.
+#' Dormant - A dormant package is not completed, but is not currently under active development. We plan to return to it in the future.
+#' Questioning - We are no longer convinced that a questioning package is the optimal approach, but we don’t yet know what a better approach is.
+#' 
+#' 
+#' @source \url{www.tidyverse.org/lifecycle}
+#' 
+badge_lifecycle <- function(lifecycle = "experimental"){
+    lifecycle <- tolower(lifecycle)
+    if(lifecycle == "maturing"){
+        badge = "https://img.shields.io/badge/lifecycle-maturing-blue.svg"
+    }else if(lifecycle == "stable"){
+        badge = "https://img.shields.io/badge/lifecycle-stable-brightgreen.svg"
+    }else if(lifecycle == "questioning"){
+        badge = "https://img.shields.io/badge/lifecycle-questioning-blue.svg"
+    }else if(lifecycle == "retired"){
+        badge = "https://img.shields.io/badge/lifecycle-retired-orange.svg"
+    }else if(lifecycle == "dormant"){
+        badge = "https://img.shields.io/badge/lifecycle-dormant-blue.svg"    
+    }else if(lifecycle == "experimental"){
+        badge = "https://img.shields.io/badge/lifecycle-experimental-orange.svg"
+    }else {
+        message("don't know what ", lifecycle, " is. So we're going for experimental")
+        badge = "https://img.shields.io/badge/lifecycle-experimental-orange.svg"
+        lifecycle <- "experimental"
+    }
+    badgepaste(
+        imagelink = badge,
+        referlink = paste0("https://www.tidyverse.org/lifecycle/#",lifecycle),
+        name = "lifecycle"
+    )
+    
+    
+    
+}

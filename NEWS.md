@@ -39,6 +39,7 @@ badge_cran_*
 - set default project_status to "concept"
 - cran_comments.md
 - badge_thanks for adding a THANKS.md badge based on https://github.com/paulmolluzzo/thanks-md
+- added badge_lifecycle, a literal copy of the tidyverse.org/lifecycle badges.
 
 ### Removed
 - dependency on stringr Thanks to Andrie de Vries (@andrie )
