@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a licensebadge — badge_license • badgecreatr</title>
+<title>Add thanks badge — badge_thanks_md • badgecreatr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -28,13 +28,9 @@
 
 
 
-<meta property="og:title" content="Create a licensebadge — badge_license" />
+<meta property="og:title" content="Add thanks badge — badge_thanks_md" />
 
-<meta property="og:description" content="when `license= NULL' this function will look in your
-DESCRIPTION file and search for the "license:" part.
-If it matches GPL or MIT a custom badge will be created.
-If it does not match, a general badge will be created with the name of the
-license in grey." />
+<meta property="og:description" content="Add a thanks badge and THANKS.md file to your project." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -119,35 +115,31 @@ license in grey." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a licensebadge</h1>
+    <h1>Add thanks badge</h1>
     <small class="dont-index">Source: <a href='https://github.com/RMHogervorst/badgecreatr/blob/master/R/badges.R'><code>R/badges.R</code></a></small>
-    <div class="hidden name"><code>badge_license.Rd</code></div>
+    <div class="hidden name"><code>badge_thanks_md.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>when `license= NULL' this function will look in your
-DESCRIPTION file and search for the "license:" part.
-If it matches GPL or MIT a custom badge will be created.
-If it does not match, a general badge will be created with the name of the
-license in grey.</p>
+    <p>Add a thanks badge and THANKS.md file to your project.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>badge_license</span>(<span class='kw'>license</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>location</span> <span class='kw'>=</span> <span class='st'>"."</span>)</pre>
+    <pre class="usage"><span class='fu'>badge_thanks_md</span>(<span class='kw'>add_file</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>license</th>
-      <td><p>License, for example <code>GPL-3</code>, <code>MIT</code>, etc. Alternatively, leaving it empty will search.</p></td>
-    </tr>
-    <tr>
-      <th>location</th>
-      <td><p>defaults to current directory</p></td>
+      <th>add_file</th>
+      <td><p>Should the badge add the THANKS.md file to your project?</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+
+    <p><a href='https://github.com/paulmolluzzo/thanks-md'>https://github.com/paulmolluzzo/thanks-md</a></p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
@@ -165,12 +157,13 @@ license in grey.</p>
   <code><a href='badge_github_star.html'>badge_github_star</a></code>,
   <code><a href='badge_last_change_static.html'>badge_last_change_static</a></code>,
   <code><a href='badge_last_change.html'>badge_last_change</a></code>,
+  <code><a href='badge_license.html'>badge_license</a></code>,
   <code><a href='badge_minimal_r_version.html'>badge_minimal_r_version</a></code>,
   <code><a href='badge_packageversion.html'>badge_packageversion</a></code>,
   <code><a href='badge_projectstatus.html'>badge_projectstatus</a></code>,
   <code><a href='badge_rank.html'>badge_rank</a></code>,
   <code><a href='badge_rdocumentation.html'>badge_rdocumentation</a></code>,
-  <code><a href='badge_thanks_md.html'>badge_thanks_md</a></code>, <code><a href='badge_travis.html'>badge_travis</a></code></p></div>
+  <code><a href='badge_travis.html'>badge_travis</a></code></p></div>
     
 
   </div>
@@ -179,6 +172,8 @@ license in grey.</p>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
+      <li><a href="#source">Source</a></li>
+
       <li><a href="#value">Value</a></li>
 
       <li><a href="#see-also">See also</a></li>

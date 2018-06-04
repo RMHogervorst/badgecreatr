@@ -4,7 +4,7 @@
 \alias{badge_github_fork}
 \title{Add a Github fork badge}
 \usage{
-badge_github_fork(ghaccount = NULL, ghrepo = NULL, location = NULL)
+badge_github_fork(ghaccount = NULL, ghrepo = NULL, location = ".")
 }
 \arguments{
 \item{ghaccount}{Github account name}
@@ -35,5 +35,5 @@ Other badges: \code{\link{badge_codecov}},
   \code{\link{badge_projectstatus}},
   \code{\link{badge_rank}},
   \code{\link{badge_rdocumentation}},
-  \code{\link{badge_travis}}
+  \code{\link{badge_thanks_md}}, \code{\link{badge_travis}}
 }

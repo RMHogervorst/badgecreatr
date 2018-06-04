@@ -34,7 +34,6 @@ The following list is a literal copy of repostatus.org
 }
 
 \examples{
- 
 badge_projectstatus("unsupported")
 }
 \seealso{
@@ -53,5 +52,5 @@ Other badges: \code{\link{badge_codecov}},
   \code{\link{badge_packageversion}},
   \code{\link{badge_rank}},
   \code{\link{badge_rdocumentation}},
-  \code{\link{badge_travis}}
+  \code{\link{badge_thanks_md}}, \code{\link{badge_travis}}
 }

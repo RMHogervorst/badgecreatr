@@ -21,7 +21,7 @@ Depends:
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-URL: https://github.com/RMHogervorst/badgecreatr
+URL: https://github.com/RMHogervorst/badgecreatr, https://rmhogervorst.nl/badgecreatr 
 BugReports: https://github.com/RMHogervorst/badgecreatr/issues
 Suggests:
     testthat,

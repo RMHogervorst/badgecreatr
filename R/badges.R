@@ -376,7 +376,7 @@ badge_rdocumentation <- function(packagename){
 #' @family badges
 #' @return markdown
 badge_github_star <- function(ghaccount = NULL, ghrepo = NULL,
-                              branch = NULL, location = NULL){
+                              branch = NULL, location = "."){
     credentials<- github_credentials_helper(ghaccount = ghaccount,
                                             ghrepo = ghrepo,
                                             branch = branch,
@@ -399,7 +399,7 @@ badge_github_star <- function(ghaccount = NULL, ghrepo = NULL,
 #' @export
 #' @family badges
 #' @return markdown
-badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL, location = NULL){
+badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL, location = "."){
     credentials<- github_credentials_helper(ghaccount = ghaccount,
                                             ghrepo = ghrepo,
                                             branch = NULL,
@@ -500,6 +500,7 @@ badge_thanks_md <- function(add_file = TRUE){
 #' users what they can expect. 
 #' 
 #' @section What do the different values mean?
+#' 
 #' Maturing - The API of a maturing package has been roughed out, but finer details likely to change. Once released to CRAN, we will strive to maintain backward compatibility, but the package needs wider usage in order to get more feedback and find the optimal API.
 #' Stable - In a stable package, we are largely happy with the API, and major changes are unlikely. This means that the API will generally evolve by adding new functions and new arguments; we will avoid removing arguments or changing the meaning of existing arguments.
 #' Retired - A retired package is no longer under active development, and a known better alternative is available. We will only make the necessary changes to ensure that retired packages remain on CRAN. No new features will be added, and only the most critical of bugs will be fixed.
@@ -509,7 +510,7 @@ badge_thanks_md <- function(add_file = TRUE){
 #' 
 #' 
 #' @source \url{www.tidyverse.org/lifecycle}
-#' 
+#' @export
 badge_lifecycle <- function(lifecycle = "experimental"){
     lifecycle <- tolower(lifecycle)
     if(lifecycle == "maturing"){

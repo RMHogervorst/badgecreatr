@@ -2,16 +2,18 @@
 All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+# [Unreleased]
 
-### Added
+## Added
 
-### Removed
+## Removed
 
-### Deprecated
+## Deprecated
 
 
-## [0.2.*] unpublished yet,
+# 0.2.*  
+
+## unpublished yet,
 
 This version of badgecreatr has breaking changes with previous versions.
 It was a major overhaul of the badgecreatr package with help from Florian Privé, Stephanie Locke,
@@ -19,7 +21,7 @@ and Andrie de Vries. I realized I never used the package as I originally intende
 badges by name. So I have exported all the functions for interactive use. And added new badges.
 To help others I have added a vignette that describes how to add new badges.
 
-### Added
+## Added
 - R-version badge will be updated when you re-knit the readme.rmd to readme (thanks  Florian Privé @privefl)
 - Vignette that explains badges
 - Badge for r-documentation
@@ -41,17 +43,17 @@ badge_cran_*
 - badge_thanks for adding a THANKS.md badge based on https://github.com/paulmolluzzo/thanks-md
 - added badge_lifecycle, a literal copy of the tidyverse.org/lifecycle badges.
 
-### Removed
+## Removed
 - dependency on stringr Thanks to Andrie de Vries (@andrie )
 
-### Deprecated
+## Deprecated
 - **old function names ending in `*badge`:** projectstatusbadge, travisbadge,
 codecovbadge, minimal_r_version_badge, cranbadge, packageversionbadge, and
 last_change_badge.
 The use of the word licence (I have changed all the words to the spelling "license", US spelling)
 
 
-### Fixed
+## Fixed
 - when you rerun the command, no superflous lines will be added.
 - searches for licence badge and codecov badge didn't work.
 tx Stephanie Locke @steplocke for both these fixes.
@@ -62,30 +64,32 @@ tx Stephanie Locke @steplocke for both these fixes.
 Thanks Andrie de Vries @andrie for these huge improvements
 - renamed changelog to news
 
-### Security
+## Security
 - none
 
-## [0.1.0] 2016-07-03
-### Added
+# 0.1.0  
+## 2016-07-03
+## Added
 - r version badge
 - changed the search results for badges into TRUE FALSE in stead of linenumber.
 - existing badges will be recognized and not duplicated.
 
 
-### Removed
+## Removed
 - nothing
-### Deprecated
+## Deprecated
 - nothing
-### Fixed
+## Fixed
 - recognition of badges already placed.
 
-### Security
+## Security
 - nothing
 
-## [0.0.2] 2016-07-02
+# 0.0.2 
+## 2016-07-02
 Currently creates badges for  Codecov, last change, travis, projectstatus
 and licence.
-### Added
+## Added
 - Codecov badge
 - last change
 - travis
@@ -93,19 +97,20 @@ and licence.
 - cran
 - packageversion
 
-### Removed
+## Removed
 -nothing
-### Deprecated
+## Deprecated
 - nothing
-### Fixed
+## Fixed
 - nothing
-### Security
+## Security
 - nothing
 
-## [0.0.1] - 2016-06-24
-### Added
+# 0.0.1  
+## 2016-06-24
+## Added
 Started project with readme and several functions
-### Removed
+## Removed
 - nothing
-### Deprecated
+## Deprecated
 - nothing

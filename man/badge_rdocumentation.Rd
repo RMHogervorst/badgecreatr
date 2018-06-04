@@ -33,5 +33,6 @@ Other badges: \code{\link{badge_codecov}},
   \code{\link{badge_minimal_r_version}},
   \code{\link{badge_packageversion}},
   \code{\link{badge_projectstatus}},
-  \code{\link{badge_rank}}, \code{\link{badge_travis}}
+  \code{\link{badge_rank}}, \code{\link{badge_thanks_md}},
+  \code{\link{badge_travis}}
 }
