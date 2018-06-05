@@ -9,3 +9,5 @@
 ^yetanotherreadme\.md$
 ^yetanotherreadme\.Rmd$
 ^cran-comments\.md$
+^NEWS\.md$
+^docs$
