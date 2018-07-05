@@ -37,8 +37,8 @@ badge_cran_downloads("badgecreatr")
 
 ## Badges for github
 
-[![fork this repo](http://githubbadges.com/fork.svg?user=RMHogervorst&repo=badgecreatrr&style=flat)](https://github.com/RMHogervorst/badgecreatr/fork)
-[![star this repo](http://githubbadges.com/star.svg?user=RMHogervorst&repo=badgecreatrr&style=flat)](https://github.com/RMHogervorst/badgecreatr)
+[![fork this repo](http://githubbadges.com/fork.svg?user=RMHogervorst&repo=badgecreatr)](https://github.com/RMHogervorst/badgecreatr/fork)
+[![star this repo](http://githubbadges.com/star.svg?user=RMHogervorst&repo=badgecreatr)](https://github.com/RMHogervorst/badgecreatr)
 
 
 

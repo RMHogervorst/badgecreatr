@@ -499,7 +499,7 @@ badge_thanks_md <- function(add_file = TRUE){
 #' communicate to your
 #' users what they can expect. 
 #' 
-#' @section What do the different values mean?
+#' @section What do the different values mean?:
 #' 
 #' Maturing - The API of a maturing package has been roughed out, but finer details likely to change. Once released to CRAN, we will strive to maintain backward compatibility, but the package needs wider usage in order to get more feedback and find the optimal API.
 #' Stable - In a stable package, we are largely happy with the API, and major changes are unlikely. This means that the API will generally evolve by adding new functions and new arguments; we will avoid removing arguments or changing the meaning of existing arguments.
@@ -510,6 +510,7 @@ badge_thanks_md <- function(add_file = TRUE){
 #' 
 #' 
 #' @source \url{www.tidyverse.org/lifecycle}
+#' @param lifecycle one of the lifecycle issues
 #' @export
 badge_lifecycle <- function(lifecycle = "experimental"){
     lifecycle <- tolower(lifecycle)

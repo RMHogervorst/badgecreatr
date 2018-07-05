@@ -12,7 +12,7 @@
 
 <meta name="author" content="Roel M. Hogervorst" />
 
-<meta name="date" content="2017-06-11" />
+<meta name="date" content="2018-07-05" />
 
 <title>General use of the package</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">General use of the package</h1>
 <h4 class="author"><em>Roel M. Hogervorst</em></h4>
-<h4 class="date"><em>2017-06-11</em></h4>
+<h4 class="date"><em>2018-07-05</em></h4>
 
 
 
@@ -98,7 +98,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>You just want to add a badge for projectstatus. All the badges start with badge_. So adding badges is as simple as typing badge_ and looking through the options.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(badgecreatr)
 <span class="kw">badge_projectstatus</span>(<span class="st">&quot;wip&quot;</span>) <span class="co"># any of concept, wip, suspended, abandoned, active, inactive, unsupported</span></code></pre></div>
-<pre><code>## [1] &quot;[![Project Status: WIP  Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)&quot;</code></pre>
+<pre><code>## [1] &quot;[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)&quot;</code></pre>
 <p>The badge functions result in markdown that you can paste into your readme file. This would input the current date.</p>
 </div>
 <div id="scenario-1-starting-a-package-with-minimal-badges" class="section level3">
@@ -110,7 +110,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>Last change (static)</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">minimal_badges</span>(<span class="dt">status =</span> <span class="st">&quot;concept&quot;</span>, <span class="dt">license =</span> <span class="st">&quot;MIT&quot;</span>,<span class="dt">date =</span> <span class="st">&quot;2017-05-17&quot;</span>)</code></pre></div>
-<pre><code>## [1] &quot;[![Project Status: Concept  Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](http://www.repostatus.org/badges/latest/concept.svg)](http://www.repostatus.org/#concept)[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](http://choosealicense.com/licenses/mit/)[![Last-changedate](https://img.shields.io/badge/last%20change-2017--05--17-yellowgreen.svg)](/commits/master)&quot;</code></pre>
+<pre><code>## [1] &quot;[![Project Status: Concept – Minimal or no implementation has been done yet, or the repository is only intended to be a limited example, demo, or proof-of-concept.](http://www.repostatus.org/badges/latest/concept.svg)](http://www.repostatus.org/#concept)[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://choosealicense.com/licenses/mit/)[![Last-changedate](https://img.shields.io/badge/last%20change-2017--05--17-yellowgreen.svg)](/commits/master)&quot;</code></pre>
 </div>
 <div id="scenario-2-adding-dynamic-badges-to-your-readme" class="section level3">
 <h3>Scenario 2: adding dynamic badges to your readme</h3>

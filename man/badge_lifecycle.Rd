@@ -9,6 +9,9 @@
 \usage{
 badge_lifecycle(lifecycle = "experimental")
 }
+\arguments{
+\item{lifecycle}{one of the lifecycle issues}
+}
 \description{
 Lifecycle denotations were introduced by the tidyverse
 team in 2018. Because project status was not a perfect fit.
@@ -16,3 +19,14 @@ I think it is a real professional attitude, the badges
 communicate to your
 users what they can expect.
 }
+\section{What do the different values mean?}{
+
+
+Maturing - The API of a maturing package has been roughed out, but finer details likely to change. Once released to CRAN, we will strive to maintain backward compatibility, but the package needs wider usage in order to get more feedback and find the optimal API.
+Stable - In a stable package, we are largely happy with the API, and major changes are unlikely. This means that the API will generally evolve by adding new functions and new arguments; we will avoid removing arguments or changing the meaning of existing arguments.
+Retired - A retired package is no longer under active development, and a known better alternative is available. We will only make the necessary changes to ensure that retired packages remain on CRAN. No new features will be added, and only the most critical of bugs will be fixed.
+Archived - The development of an archived package is complete, and it has been archived on CRAN and on GitHub.
+Dormant - A dormant package is not completed, but is not currently under active development. We plan to return to it in the future.
+Questioning - We are no longer convinced that a questioning package is the optimal approach, but we don’t yet know what a better approach is.
+}
+

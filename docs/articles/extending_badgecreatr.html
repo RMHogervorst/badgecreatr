@@ -8,8 +8,8 @@
 <title>Extending badgecreatr • badgecreatr</title>
 <!-- jquery --><script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><!-- Font Awesome icons --><link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script><script src="../pkgdown.js"></script><meta property="og:title" content="Extending badgecreatr">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Extending badgecreatr">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
 <!-- mathjax --><script src="https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!--[if lt IE 9]>
@@ -88,7 +88,7 @@
       <h1>Extending badgecreatr</h1>
                         <h4 class="author">Roel M. hogervorst</h4>
             
-            <h4 class="date">2018-06-04</h4>
+            <h4 class="date">2018-07-05</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/RMHogervorst/badgecreatr/blob/master/vignettes/extending_badgecreatr.Rmd"><code>vignettes/extending_badgecreatr.Rmd</code></a></small>
       <div class="hidden name"><code>extending_badgecreatr.Rmd</code></div>
@@ -120,7 +120,7 @@
 </ul>
 <pre><code>[![name of badge](link to image)](clickable link)  # for example:
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)`</code></pre>
-<p>There is an internal function <code><a href="../reference/badgepaste.html">badgepaste(imagelink = ,referlink = ,name = )</a></code> that makes this easy: `<code><a href="../reference/badgepaste.html">badgepaste(imagelink = "https://img.shields.io/badge/license-GPL--3-blue.svg", referlink = "https://www.gnu.org/licenses/gpl-3.0.en.html", name = "license")</a></code></p>
+<p>There is an internal function <code>badgepaste(imagelink = ,referlink = ,name = )</code> that makes this easy: `<code>badgepaste(imagelink = "https://img.shields.io/badge/license-GPL--3-blue.svg", referlink = "https://www.gnu.org/licenses/gpl-3.0.en.html", name = "license")</code></p>
 <ul>
 <li>
 <em>A unit test in <code>test_badges.R</code></em> Add and modify the following code to test your function. Usually you only need to test if the link to the image is what you expect, you can assume that <code>badgepaste</code> works.</li>

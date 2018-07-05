@@ -1,8 +1,5 @@
 pandoc: 1.19.2.1
-pkgdown: 1.0.0
+pkgdown: 1.1.0
 pkgdown_sha: ~
-articles:
-  all_badges: all_badges.html
-  extending_badgecreatr: extending_badgecreatr.html
-  general_use_of_the_package: general_use_of_the_package.html
+articles: []
 
