@@ -405,11 +405,11 @@ badge_github_fork <- function(ghaccount = NULL, ghrepo = NULL, location = "."){
                                             branch = NULL,
                                             location = location
     )
-
+# https://img.shields.io/github/forks/badges/shields.svg?style=social&label=Fork
     badgepaste(
-        imagelink = paste0("https://githubbadges.com/fork.svg?user=",
-                           credentials$ghaccount, "&repo=",
-                           credentials$ghrepo),
+        imagelink = paste0("https://img.shields.io/github/forks/",
+                           credentials$ghaccount, "/",
+                           credentials$ghrepo,".svg?style=social&label=Fork"),
         referlink = paste0("https://github.com/",credentials$ghaccount,"/",
                            credentials$ghrepo,"/fork"),
         name = "fork this repo"
