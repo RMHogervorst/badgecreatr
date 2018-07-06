@@ -2,16 +2,14 @@
 
 language: r
 sudo: false
+r_check_args: "--no-vignettes"
 cache: packages
 r:
   - oldrel
   - release
   - devel
 
-warnings_are_errors: true
-
-r_github_packages:
-  - jimhester/covr
+warnings_are_errors: false
 
 
 
