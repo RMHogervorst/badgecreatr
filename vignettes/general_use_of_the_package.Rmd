@@ -2,7 +2,9 @@
 title: "General use of the package"
 author: "Roel M. Hogervorst"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: 
+    rmarkdown::html_vignette:
+        toc: true
 vignette: >
   %\VignetteIndexEntry{General use of the package}
   %\VignetteEngine{knitr::rmarkdown}
@@ -91,7 +93,7 @@ dynamic_badges_minimal(license = "MIT", travisfile = TRUE, codecov = TRUE)
 
 ### Scenario 3: you already have some badges, but you want to add other ones (cran, rdocumentation, travis, etc)
 
-```{r }
+```{r , eval=FALSE}
 
 ```
 

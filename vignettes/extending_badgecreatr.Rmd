@@ -2,14 +2,16 @@
 title: "Extending badgecreatr"
 author: "Roel M. hogervorst"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: 
+    rmarkdown::html_vignette:
+        toc: true
 vignette: >
   %\VignetteIndexEntry{Extending badgecreatr}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
 
-Since more then two people make use of this project, let me tell you how to extend this package.
+Since more then two people make use of this project, let me explain how to extend this package.
 
 This package creates markdown and in some cases RMarkdown chunks. These chunks are displayed in 
 nicely formated html because code sharing websites such as Github, Gitlab and Bitbucket display
