@@ -39,3 +39,4 @@ dynamic_badges_minimal(status = "active",last_change = FALSE,minimal_r_version =
 \seealso{
 Other scenarios: \code{\link{minimal_badges}}
 }
+\concept{scenarios}

@@ -1,15 +1,15 @@
 ## Test environments
-* local win 10 environment R version 3.3.3 (2017-03-06)
-* ubuntu 12.04 (on travis-ci), R 3.3.3 (using oldrel, release, and devel (R Under development (unstable) (2017-06-09 r72775)))
+* local ubuntu 16.04 R version 3.5.2 (2018-12-20)
+* rhub check on Windows Server 2008 R2 SP1, R-release, 32/64 bit
+* rhub check Debian Linux, R-devel, GCC
+* rhub check Debian Linux, R 3.5.2 Patched (2018-12-21 r75884
+* rhub x86_64-pc-linux-gnu (64-bit) R Under development (unstable) (2018-12-22 r75884)
 
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes
 
-but one warning:
-WARNING 'qpdf' is needed for checks on size reduction of PDFs
-Which is a windows local machine specific problem.
-I have also 
+The debian build on Rdevel failed in re-building the vignettes (a TCP error it seems).
 
 
 ## Reverse dependencies

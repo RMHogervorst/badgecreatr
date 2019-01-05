@@ -4,8 +4,8 @@
 \alias{github_credentials_helper}
 \title{Returns github accountname, repo name and current branch.}
 \usage{
-github_credentials_helper(ghaccount = NULL, ghrepo = NULL, branch = NULL,
-  location = ".")
+github_credentials_helper(ghaccount = NULL, ghrepo = NULL,
+  branch = NULL, location = ".")
 }
 \arguments{
 \item{ghaccount}{Github account name}

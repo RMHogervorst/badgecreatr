@@ -2,7 +2,7 @@
 
 language: r
 sudo: false
-r_check_args: "--no-vignettes"
+r_check_args: "--no-build-vignettes"
 cache: packages
 r:
   - oldrel

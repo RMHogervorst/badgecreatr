@@ -28,3 +28,4 @@ minimal_badges("abandoned", "GPL-3")
 \seealso{
 Other scenarios: \code{\link{dynamic_badges_minimal}}
 }
+\concept{scenarios}

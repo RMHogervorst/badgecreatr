@@ -43,3 +43,4 @@ Other badges: \code{\link{badge_cran_ago}},
   \code{\link{badge_rdocumentation}},
   \code{\link{badge_thanks_md}}, \code{\link{badge_travis}}
 }
+\concept{badges}
