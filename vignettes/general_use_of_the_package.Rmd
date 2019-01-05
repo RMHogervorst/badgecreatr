@@ -6,7 +6,7 @@ output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{General use of the package}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
+  \usepackage[utf8]{inputenc}
 ---
 
 Badgecreatr was developed with myself in mind. I often create packages on Github
@@ -14,7 +14,7 @@ and wanted to have a standardized way to add badges to the README file. In Githu
 README.md file on top of the repository is automatically rendered as HTML (a normal webpage) and can
 be viewed by everyone in the browser with full markup. 
 
-I've written a blogpost about the older version of this package [here](http://rmhogervorst.nl/cleancode/blog/2016/07/08/introducing-badgecreatr-create-and-place-badges-in-readme-rmd.html)
+I've written a blogpost about the older version of this package [here](https://rmhogervorst.nl/cleancode/blog/2016/07/09/content/post/2016-07-09-submtting-to-cran-first-experience/)
 
 I've also added a vignette describing how you can add new badges to this package. 
 

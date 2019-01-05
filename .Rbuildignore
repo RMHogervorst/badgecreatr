@@ -1,3 +1,5 @@
+^Meta$
+^doc$
 ^CRAN-RELEASE$
 ^README\.Rmd$
 ^README-.*\.png$
@@ -10,6 +12,5 @@
 ^yetanotherreadme\.md$
 ^yetanotherreadme\.Rmd$
 ^cran-comments\.md$
-^NEWS\.md$
 ^docs$
 ^THANKS\.md$

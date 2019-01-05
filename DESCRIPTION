@@ -7,12 +7,12 @@ Description: Tired of copy and pasting almost identical markdown for badges in
     This package allows you to easily paste badges. If you want to, it will also search 
     your DESCRIPTION file and extract the package name,
     license, R-version, and current projectversion and transform that into 
-    badges. It will also search for a '.travis.yml' file and create a 'Travis' badge,
-    if you use 'Codecov.io' to check your code coverage after a 'Travis' build 
-    this package will also build a 'Codecov.io'-badge. All the badges can be placed
-    individually or can be placed below the top YAML content of your 'RMarkdown 
-    file' (Readme.Rmd) or 'README.md' file. 
-    Currently creates badges for  Projectstatus (Repostatus.org), license
+    badges. It will also search for a ".travis.yml" file and create a "Travis"" badge,
+    if you use "Codecov.io" to check your code coverage after a "Travis" build 
+    this package will also build a "Codecov.io"-badge. All the badges can be placed
+    individually or can be placed below the top YAML content of your "RMarkdown 
+    file" (Readme.Rmd) or "README.md" file. 
+    Currently creates badges for  Projectstatus ("Repostatus.org"), license
     Travis Build Status, Codecov, Minimal R version, CRAN status, CRAN downloads, 
     Github stars and forks, Package rank, rdocumentation, 
     current version of your package and last change of README.Rmd.
@@ -25,9 +25,10 @@ URL: https://github.com/RMHogervorst/badgecreatr, https://rmhogervorst.nl/badgec
 BugReports: https://github.com/RMHogervorst/badgecreatr/issues
 Suggests:
     testthat,
-    rmarkdown
+    rmarkdown,
+    knitr
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
 Imports:
     git2r
-VignetteBuilder: rmarkdown
+VignetteBuilder: knitr
