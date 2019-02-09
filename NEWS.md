@@ -2,18 +2,17 @@
 All notable changes to this project will be documented in this file.
 This project tries to adhere to [Semantic Versioning](https://semver.org/).
 
-# [Unreleased]
+# [Unreleased]  0.2.0.9000
 
 ## Added
+Added orcID to my name. 
 
 ## Removed
 
 ## Deprecated
 
 
-# 0.2.*  
-
-## unpublished yet,
+# 0.2.0  
 
 This version of badgecreatr has breaking changes with previous versions.
 It was a major overhaul of the badgecreatr package with help from Florian Privé, Stephanie Locke,

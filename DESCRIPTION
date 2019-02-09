@@ -1,7 +1,7 @@
 Package: badgecreatr
 Title: Create Badges for 'Travis', 'Repostatus' 'Codecov.io' Etc in Github Readme
-Version: 0.2.0
-Authors@R: person("Roel M.", "Hogervorst", email ="hogervorst.rm@gmail.com", role = c("cre", "aut"))
+Version: 0.2.0.9000
+Authors@R: person("Roel M.", "Hogervorst", email ="hogervorst.rm@gmail.com", role = c("cre", "aut"),comment = c(ORCID = "0000-0001-7509-0328"))
 Description: Tired of copy and pasting almost identical markdown for badges in
     every new R-package that you create, on Github or other code-sharing sites? 
     This package allows you to easily paste badges. If you want to, it will also search 
